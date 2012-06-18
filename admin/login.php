@@ -18,7 +18,7 @@
     /*background:#99ffcc;*/
 	border: 5px solid teal; 
     color: white;
-    background-image: url(../admin/syarif.jpg);*/
+    /*background-image: url(../admin/syarif.jpg);*/
   }
   #Judul {
     /*background:url(../admin/syarif.jpg);*/

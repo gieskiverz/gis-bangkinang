@@ -1,0 +1,21 @@
+{
+
+}
+
+
+#sideBar{
+	position: absolute;
+	width: auto;
+	height: auto;
+	top: 97px;
+	right:0px;
+	z-index:10;
+	background:#000;
+}
+
+/* pengaturan margin form 6/15/2012 8:27:42 PM */
+#scrollbar_container {
+	float:left;
+	width:auto;
+	padding: 15px 10px 5px 2px;
+}

@@ -1,5 +1,4 @@
 var geocoder = new google.maps.Geocoder();
-
 function geocodePosition(pos) {
   geocoder.geocode({
     latLng: pos
@@ -89,7 +88,7 @@ function simpanMarker(){
 	//alert("heheheh");
   //alert(map.zoom);
   //SIMPAN MARKER KE FILE PHP DENGAN MENGGUNAKAN AJAX
-  var url="ajax.save.php";
+  var url="edit.ajax.save.php";
   params = "Title="+document.getElementById('Title').value;
   params +="&Latitude="+document.getElementById('Latitude').value;
   params +="&Longitude="+document.getElementById('Longitude').value;
@@ -97,6 +96,8 @@ function simpanMarker(){
   params +="&TextHTML="+document.getElementById('TextHTML').value;
   params +="&Address="+document.getElementById('Address').value;
   params +="&TypeID="+document.getElementById('TypeID').value;
+  params +="&MarkerID="+document.getElementById('MarkerID').value;
+
 
   if (window.XMLHttpRequest) {
     // obtain new object
@@ -130,6 +131,8 @@ function simpanMarker(){
 
 }
 
+
+
 function processChange() {
     // 4 means the response has been returned and ready to be processed
     if (obj.readyState == 4) {
@@ -137,7 +140,7 @@ function processChange() {
         if (obj.status == 200) {
             // process whatever has been sent back here:
         // anything else means a problem
-          alert("Sukses Coy");
+          alert("Marker berhasil di Edit");
           alert(obj);
         } else {
             alert("There was a problem in the returned data:\n");
@@ -146,21 +149,3 @@ function processChange() {
 }
 
 
-/*function handleMarkerIcon(x){
- // alert(x.value);
-  switch (x.value)
-  {
-  case '1':
-    marker.setIcon("http://google-maps-icons.googlecode.com/files/university.png");
-    break;
-  case '2':
-    marker.setIcon("http://mapicons.nicolasmollet.com/wp-content/uploads/mapicons/shape-default/color-f50a0a/shapecolor-color/shadow-1/border-dark/symbolstyle-white/symbolshadowstyle-dark/gradient-no/fillingstation.png")
-    break;
-  case '3':
-    marker.setIcon("http://mapicons.nicolasmollet.com/wp-content/uploads/mapicons/shape-default/color-f34648/shapecolor-color/shadow-1/border-dark/symbolstyle-white/symbolshadowstyle-dark/gradient-no/hospital-building.png")
-    break;
-  case '4':
-    marker.setIcon("http://google-maps-icons.googlecode.com/files/hostel2star.png")
-    break;
-  }
-}*/

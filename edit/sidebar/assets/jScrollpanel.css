@@ -1,0 +1,30 @@
+
+{
+	}
+
+	/*pengaturan Margin 6/15/2012 7:29:57 PM */
+	#sideBar{
+		position: absolute;
+		width: auto;
+		height: auto;
+		top: 100px;
+		right:1px;
+		background-image:url(../assets/edit.gif);
+		background-position:top left;
+		background-repeat:repeat-y;
+	}
+
+
+	#sideBarContents{
+		float:left;
+		overflow:hidden !important;
+		width:auto;
+		height:auto;
+}
+
+	/*pengaturan gambar 6/15/2012 7:30:01 PM */
+	#sideBarTab{
+		float:left;
+		height:137px;
+		width:35px;
+	}

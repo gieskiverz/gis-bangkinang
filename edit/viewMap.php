@@ -2,7 +2,7 @@
 <html>
   <html>
   <head>
-    <title>Result GIS</title>
+    <title>Edit Marker</title>
     <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=" type="text/javascript"></script>
   </head>
   
@@ -48,13 +48,12 @@
 	$no = 0;
 	while($data=mysql_fetch_array($qry)) {
 	$no++;
-    //echo "/* "; print_r($data); echo " */";
-
-	
+ 	
 	?>
 	
       var point = new GLatLng( <?php echo $data['Latitude'].','. $data['Longitude'];?>);
-      var marker = createMarker(point,'<?php echo $data['TextHTML'];?><input type=button onclick=alert(<?php echo $data['MarkerID'];?>)>')
+      var marker = createMarker(point,'== <?php echo $data['Title'];?> == <br/><br> <?php echo $data['TextHTML'];?> <br/> <a href="EditMarker.php?MarkerID=<? echo $data['MarkerID']; ?>"><input  type=button value=Edit>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../admin/AddMarker.php"> <input  type=button value=Add>&nbsp;&nbsp;&nbsp;&nbsp;<a href="DeleteMarker.php"><input type=button value=Delete>')
+		  //<input  type=button  onclick=alert(<?php echo $data['MarkerID'];?>)>')
       map.addOverlay(marker);
 	<?php
 	}
@@ -67,7 +66,6 @@
       alert("Sorry, the Google Maps API is not compatible with this browser");
     }
 
-    //]]>
     </script>
   </body>
 
