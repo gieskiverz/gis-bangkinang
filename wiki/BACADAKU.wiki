@@ -1,6 +1,6 @@
 = Introduction =
 
-GIS-Bangkinang ini adalah kodesumber (source-code) Tugas Akhir Syarif, Mahasiswa Teknik Informatika Politeknik Kampar
+GIS-Bangkinang ini adalah kodesumber (source-code) Tugas Akhir Syarif, Mahasiswa [http://tif.poltek-kampar.ac.id/ Teknik Informatika] [http://poltek-kampar.ac.id/ Politeknik Kampar]
 
 = Details =
 
