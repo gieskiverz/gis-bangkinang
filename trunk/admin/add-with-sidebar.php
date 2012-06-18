@@ -12,6 +12,7 @@ include "session.php";
 
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript" src="./add.js"></script>
+<script type="text/javascript" src="./icon.js.php"></script>
 <script type="text/javascript">
 
 </script>
