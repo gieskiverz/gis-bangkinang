@@ -1,12 +1,11 @@
 <?php
 include "session.php";
 ?>
-
 <html>
 <head>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 		<!-- YANG INI UNTUK SIDEBAR DI SEBELAH KANAN Friday, June 15, 2012 5:16:22 PM -->
-		<script type="text/javascript" src="sidebar/includes.js"></script>
+		<script type="text/javascript" src="sidebar/includeAdmin.js"></script>
 		<!-- saved from url=(0014)about:internet -->
 		<!-- script type="text/javascript" src="sidebar/html.js"></script-->
 
@@ -188,7 +187,7 @@ include "session.php";
 	
 <tr>
 	<tr align="right" bgcolor="#D5EDB3">
-		<td><a href="../edit/viewMap.php"><center>Exit</td>
+		<td><a href="index.php"><center>Exit</td>
 </tr>
 </body>
 </html>

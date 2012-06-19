@@ -15,13 +15,13 @@ $db = mysql_connect($server,$username,$password) or DIE("Connection is down ");
 	if ($rowcount == 1)
 	{
 	$_SESSION['Username'] = $_POST['Username'];
-	header("location: add-with-sidebar.php");
+	header("location: ./edit/viewMap.php");
 
 	}
 	else
 	{
 	
-	echo "<font face=verdana size=2> <div id='divLoginError'> <center> Maaf Username atau Password anda salah ";
+	echo "<font face=verdana size=2> <div id='divLoginError'> <center> Maaf Username atau Password anda salah <a href=login.php> Login " ;
 	include "index.php";
 	//header("Location: index.php");
 	}

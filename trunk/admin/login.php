@@ -52,9 +52,7 @@
     padding: 10px;
   }
   label {
-    color: #ffffff;
-	font-size: 12pt;
-	font-weight: bold;
+    color: gray;
     font-style: italic;
   }
 	
