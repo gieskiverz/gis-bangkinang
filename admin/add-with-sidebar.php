@@ -90,7 +90,7 @@ $sql = "SELECT * FROM  `type` ";
     background:#99ffcc;
 	border: 5px solid teal; 
     color: white;
-    background-image: url(../admin/peta.jpg);*/
+    /*background-image: url(../admin/peta.jpg);*/
   }
   #Judul {
     /*background:url(../admin/syarif.jpg);*/
