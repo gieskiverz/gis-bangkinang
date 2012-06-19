@@ -41,45 +41,7 @@ function updateZoomLevelStatus(i){
 var marker;
 var map;
 var latLng;
-function initialize() {
-  //set map untuk senternya di Bangkinang ... asli ... wajib tio ... horam kok indak
-  latLng = new google.maps.LatLng(0.3326417,101.02427310000007);
-  map = new google.maps.Map(document.getElementById('mapCanvas'), {
-    zoom: 14,
-    center: latLng,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-  });
-  marker = new google.maps.Marker({
-    position: latLng,
-    title: 'Baru',
-    map: map,
-    draggable: true
-  });
-  
-  // Update current position info.
-  updateMarkerPosition(latLng);
-  updateZoomLevelStatus(map.zoom);
-  geocodePosition(latLng);
-  
-  // Add dragging event listeners.
-  google.maps.event.addListener(marker, 'dragstart', function() {
-    updateMarkerAddress('Sedang digeser...!!!');
-  });
-  
-  google.maps.event.addListener(marker, 'drag', function() {
-    updateMarkerStatus('Sedang digeser...!!!');
-    updateMarkerPosition(marker.getPosition());
-  });
-  
-  google.maps.event.addListener(marker, 'dragend', function() {
-    updateMarkerStatus('Drag ended');
-    geocodePosition(marker.getPosition());
-    updateZoomLevelStatus(map.zoom);
-  });
-}
 
-// Onload handler to fire off the app.
-google.maps.event.addDomListener(window, 'load', initialize);
 
 var obj;
 var params = "";
