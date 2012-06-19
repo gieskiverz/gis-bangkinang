@@ -5,7 +5,7 @@ include "connect.php";
 $edit = (int) $_GET['MarkerID'];
 
  # Penyimpanan
- $sql = "select * from marker where MarkerID ='$edit'"; 
+ $sql = "select * from marker where MarkerID ='$edit' LIMIT 1"; 
  $qry = mysql_query($sql, $koneksi) 
 	or die ("SQL Error : ".mysql_error());
 $data=mysql_fetch_array($qry);
@@ -13,6 +13,51 @@ $data=mysql_fetch_array($qry);
 <html>
 <head>
 <script type="text/javascript" src="./edit.js"></script>
+<script type="text/javascript">
+<!--
+function initialize() {
+  //set map untuk senternya di Bangkinang ... asli ... wajib tio ... horam kok indak
+  //GLatLng( <?php echo $data['Latitude'].','. $data['Longitude'];?>)
+  //latLng = new google.maps.LatLng(0.3326417,101.02427310000007);
+  latLng = new google.maps.LatLng(<?php echo $data['Latitude'].','. $data['Longitude'];?>);
+  map = new google.maps.Map(document.getElementById('mapCanvas'), {
+    zoom: <?php echo $data['ZoomLevel'];?>,
+    center: latLng,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  });
+  marker = new google.maps.Marker({
+    position: latLng,
+    title: '<?php echo $data["Title"];?>',
+    map: map,
+    draggable: true
+  });
+  
+  // Update current position info.
+  updateMarkerPosition(latLng);
+  updateZoomLevelStatus(map.zoom);
+  geocodePosition(latLng);
+  
+  // Add dragging event listeners.
+  google.maps.event.addListener(marker, 'dragstart', function() {
+    updateMarkerAddress('Sedang digeser...!!!');
+  });
+  
+  google.maps.event.addListener(marker, 'drag', function() {
+    updateMarkerStatus('Sedang digeser...!!!');
+    updateMarkerPosition(marker.getPosition());
+  });
+  
+  google.maps.event.addListener(marker, 'dragend', function() {
+    updateMarkerStatus('Drag ended');
+    geocodePosition(marker.getPosition());
+    updateZoomLevelStatus(map.zoom);
+  });
+}
+
+// Onload handler to fire off the app.
+google.maps.event.addDomListener(window, 'load', initialize);
+//-->
+</script>
 <title>Edit Marker</title>
 
 <table width="500" border="0" align="center" cellpadding="2" cellspacing="1">
