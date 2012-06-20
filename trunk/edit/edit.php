@@ -1,5 +1,6 @@
 <?php
-include "connect.php";
+include "../session.php";
+include "../connect.php";
 
 # baca variabel URL (if register global on)
 $edit = (int) $_GET['MarkerID'];

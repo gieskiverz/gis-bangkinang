@@ -30,14 +30,11 @@ include "session.php";
   #infoPanel div {
     margin-bottom: 5px;
   }
-  </style>
-
-
 
 
 <!-- Style Form Add Marker 
  6/17/2012 12:18:13 PM -->
- <STYLE>
+ 
   BODY {
     font-family: Verdana, sans-serif;
     font-size: 11pt;
@@ -54,6 +51,17 @@ include "session.php";
 	border: 5px solid teal; 
     color: white;
     /*background-image: url(../admin/peta.jpg);*/
+  }
+
+#logout {
+    /*background:url(../admin/syarif.jpg);*/
+    font-size: 11pt;
+   text-align: right;
+    background-color: #ffffff;
+    border: 2px solid #ffffff; 
+    color: white;
+    padding: 4px;
+    font-weight:bold;
   }
   #Judul {
     /*background:url(../admin/syarif.jpg);*/
@@ -102,21 +110,21 @@ include "session.php";
 				<div id="scrollbar_container">
 					<div id="scrollbar_content">
  
- 
- 
+<div ID='logout'>
+<div><a href="logout.php">Logout</div>
 
-
-  <DIV ID='Marker'>
-    <DIV ID='Judul'>
+  <div ID='Marker'>
+    <div ID='Judul'>
    Add Maker
-    </DIV>
+    </tr>
+    </div>
     
   
   <p>
 
 
-
   <table>
+
     <tr>
       <td width="112"><label>TypeID</label></td>
 
@@ -183,6 +191,13 @@ include "session.php";
 </textarea><br /></td>
     </tr>
 
+	<tr>
+      <td width="112"><label>Photo</label></td>
+
+      <td width="677"><input class="inp" name="Photo" id=
+      "Photo" type="file" enctype="multipart/form-data"/><br /></td>
+    </tr>
+
     <tr>
       <td width="112"><label>Address</label></td>
 
@@ -202,22 +217,11 @@ include "session.php";
     </tr>
   </table>
 
-  <table>
-    <tr>
-      <td></td>
-    </tr>
-
-    <tr align="right" bgcolor="#D5EDB3">
-      <td>
-        <a href="index.php"></a>
-
-        <center>
-          Exit
-        </center>
-      </td>
-    </tr>
-  </table>
-
-
+  </DIV>
+	
+<tr>
+	<tr align="right" bgcolor="#D5EDB3">
+		<td><a href="edit/viewMap.php"><center>Exit</td>
+</tr>
 </body>
 </html>

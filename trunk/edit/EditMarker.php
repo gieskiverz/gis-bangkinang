@@ -1,5 +1,6 @@
 <?php
-include "connect.php";
+include "../session.php";	
+include "../connect.php";
 
 # baca variabel URL (if register global on)
 $edit = (int) $_GET['MarkerID'];
@@ -66,9 +67,7 @@ function initialize() {
 google.maps.event.addDomListener(window, 'load', initialize);
 //-->
 </script>
-</head>
-<body onunload="GUnload()">
-  <style>
+ <style>
   #mapCanvas {
     width: 1500px;
     height: 700px;
@@ -81,22 +80,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
   #infoPanel div {
     margin-bottom: 5px;
   }
-  </style>
-
-  <div id="mapCanvas"></div>
-  
-  <div id="infoPanel">
-
-<div id="tempStorage" style="display:none;"></div>
-	<div id="sideBar">
-		<a href="#" id="sideBarTab"><img src="sidebar/assets/spacer.gif" alt="" title=""/></a>
-		<div id="sideBarContents" style="display:none;">
-			<div id="sideBarContentsInner">
-				<div id="scrollbar_container">
-					<div id="scrollbar_content">
-
-
-
  
  <!-- Style Form Add Marker 
  6/17/2012 12:18:13 PM -->
@@ -117,6 +100,16 @@ google.maps.event.addDomListener(window, 'load', initialize);
 	border: 5px solid teal; 
     color: white;
     /*background-image: url(../admin/peta.jpg);*/
+  }
+	#logout {
+    /*background:url(../admin/syarif.jpg);*/
+    font-size: 11pt;
+   text-align: right;
+    background-color: #ffffff;
+    border: 2px solid #ffffff; 
+    color: white;
+    padding: 4px;
+    font-weight:bold;
   }
   #Judul {
     /*background:url(../admin/syarif.jpg);*/
@@ -148,11 +141,27 @@ google.maps.event.addDomListener(window, 'load', initialize);
 	
   </STYLE>
  
-  </HEAD>
 
+</head>
+<body onunload="GUnload()">
+ 
 
 <BODY>
 
+  <div id="mapCanvas"></div>
+  
+  <div id="infoPanel">
+
+<div id="tempStorage" style="display:none;"></div>
+	<div id="sideBar">
+		<a href="#" id="sideBarTab"><img src="sidebar/assets/spacer.gif" alt="" title=""/></a>
+		<div id="sideBarContents" style="display:none;">
+			<div id="sideBarContentsInner">
+				<div id="scrollbar_container">
+					<div id="scrollbar_content">
+
+<div ID='logout'>
+<div><a href="logout.php">Logout</div>
 
   <DIV ID='Marker'>
     <DIV ID='Judul'>

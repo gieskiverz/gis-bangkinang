@@ -95,6 +95,7 @@ function simpanMarker(){
   params +="&Longitude="+document.getElementById('Longitude').value;
   params +="&ZoomLevel="+document.getElementById('ZoomLevel').value;
   params +="&TextHTML="+document.getElementById('TextHTML').value;
+  params +="&Photo="+document.getElementById('Photo').value;
   params +="&Address="+document.getElementById('Address').value;
   params +="&TypeID="+document.getElementById('TypeID').value;
 
@@ -144,23 +145,3 @@ function processChange() {
         }
     }
 }
-
-
-/*function handleMarkerIcon(x){
- // alert(x.value);
-  switch (x.value)
-  {
-  case '1':
-    marker.setIcon("http://google-maps-icons.googlecode.com/files/university.png");
-    break;
-  case '2':
-    marker.setIcon("http://mapicons.nicolasmollet.com/wp-content/uploads/mapicons/shape-default/color-f50a0a/shapecolor-color/shadow-1/border-dark/symbolstyle-white/symbolshadowstyle-dark/gradient-no/fillingstation.png")
-    break;
-  case '3':
-    marker.setIcon("http://mapicons.nicolasmollet.com/wp-content/uploads/mapicons/shape-default/color-f34648/shapecolor-color/shadow-1/border-dark/symbolstyle-white/symbolshadowstyle-dark/gradient-no/hospital-building.png")
-    break;
-  case '4':
-    marker.setIcon("http://google-maps-icons.googlecode.com/files/hostel2star.png")
-    break;
-  }
-}*/

@@ -102,26 +102,6 @@
   
   <p>
   <table>
-<!-- <tr>
-			<td width=""><label>TypeID </label></td>
-			<td width="677">
-			<select name="TypeID" id="TypeID" onchange="handleMarkerIcon(this)">
-	<?php
-	include "connect.php";
-	$sql = "SELECT * FROM  `type` ";
-
-	$qry = mysql_query($sql,$koneksi)
-		  or die ("SQL Error: ".mysql_error());
-	while($data=mysql_fetch_array($qry)) {
-		//$no++;
-		?>
-		<option value="<?php echo $data['TypeID'];?>"><?php echo $data['TypeName'];?></option>
-		
-	<?php
-	}
-	?>
-	</select> -->
-
 <tr>
 		<td colspan="2"><center> <a href="./login.php"> <input class="inp" type="button"  value="Login"></td>
 <tr>
