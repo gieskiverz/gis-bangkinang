@@ -38,7 +38,9 @@ function updateZoomLevelStatus(i){
   document.getElementById('ZoomLevel').value = i;
 }
 
-
+$(document).ready(function() {
+	
+	
 var marker;
 var map;
 var latLng;
@@ -98,6 +100,8 @@ function simpanMarker(){
   params +="&Photo="+document.getElementById('Photo').value;
   params +="&Address="+document.getElementById('Address').value;
   params +="&TypeID="+document.getElementById('TypeID').value;
+
+
 
   if (window.XMLHttpRequest) {
     // obtain new object
