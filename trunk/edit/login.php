@@ -3,7 +3,7 @@
 <HEAD>
   <TITLE>Login Form</TITLE>
   <STYLE>
-  BODY {
+ BODY {
     font-family: Verdana, sans-serif;
     font-size: 11pt;
   }
@@ -69,7 +69,7 @@
    Login
     </DIV>
     
-    <form name='frm_login' id='frm_login' action="loginsubmit.php" method="POST" >
+    <form name='frm_login' id='frm_login' action="../loginsubmit.php" method="POST" >
     <p>
     <label>User Name:</label><br />	
     <input class="inp" type=text name='Username' size=20 maxlength=20 />
@@ -82,7 +82,7 @@
 
     <p>	
 	<input class="btn" type="submit" value="Login" >
-	<a href='view.php'style="text-decoration:none;color:#3b5998;">Back</a>	
+	<a href='../view.php'style="text-decoration:none;color:#3b5998;">Back</a>	
     </p>
     </form>
     

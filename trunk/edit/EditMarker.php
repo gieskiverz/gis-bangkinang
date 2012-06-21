@@ -1,5 +1,5 @@
 <?php
-include "../session.php";	
+include "session.php";	
 include "../connect.php";
 
 # baca variabel URL (if register global on)
@@ -161,7 +161,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 					<div id="scrollbar_content">
 
 <div ID='logout'>
-<div><a href="logout.php">Logout</div>
+<div><a href="../logout.php"style="text-decoration:none;color:#3b5998;">Logout</div>
 
   <DIV ID='Marker'>
     <DIV ID='Judul'>
