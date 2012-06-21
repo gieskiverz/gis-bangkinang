@@ -110,7 +110,9 @@ function initialize() {
   // circlecomplete ini jalan, tapi khusus untuk lingkaran tidak bisa addListener
   //UPDATE:
   //Thursday, 21 June 2012 10:58:53 AM
-  // TERNYATA TIDAK BISA DI CLIK KARENA DI BARIS 92 DITAMBAHKAN CLICKABLE: FALSE
+  // TERNYATA TIDAK BISA DI CLICK KARENA DI BARIS 92 DITAMBAHKAN CLICKABLE: FALSE
+  //sekarang sudah bisa di click ...
+  //tapi masih error tidak bisa keluar infoWindownya ...
   google.maps.event.addListener(drawingManager, 'circlecomplete', function(circle) {
     var radius = circle.getRadius();
     alert("Radius from circlecomplete" + radius);
@@ -140,8 +142,8 @@ function initialize() {
         infoWindow.setContent(contentString);
 
         //alert(contentString)
-        //infoWindow.setPosition(e.latLng);
-        infoWindow.open(map, event.overlay);
+        infoWindow.setPosition(e.latLng);
+        infoWindow.open(map);
         
       });
 
