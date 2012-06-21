@@ -45,6 +45,11 @@ var drawingManager;
 var infoWindow;
 
 
+function updateMarkerPosition(latLng) {
+  document.getElementById('Latitude').value = latLng.lat();
+  document.getElementById('Longitude').value = latLng.lng();
+}
+
 function initialize() {
   var bangkinang = new google.maps.LatLng(0.344293, 101.029);
 
@@ -113,6 +118,8 @@ function initialize() {
   // TERNYATA TIDAK BISA DI CLICK KARENA DI BARIS 92 DITAMBAHKAN CLICKABLE: FALSE
   //sekarang sudah bisa di click ...
   //tapi masih error tidak bisa keluar infoWindownya ...
+  //UPDATE Thursday, 21 June 2012 11:25:46 AM
+  //TERNYATA SUDAH BISA KELUAR ... KESALAHANNYA KARENA INFOWINDOW.SETPOSITION DAN OPEN NYA PERLU DI UTAK ATIK
   google.maps.event.addListener(drawingManager, 'circlecomplete', function(circle) {
     var radius = circle.getRadius();
     alert("Radius from circlecomplete" + radius);
@@ -184,6 +191,23 @@ function initialize() {
         //infoWindow.setPosition(e.latLng);
         infoWindow.open(map,event.overlay);
       });
+
+      // Add dragging event listeners.
+      google.maps.event.addListener(event.overlay, 'dragstart', function() {
+        //updateMarkerAddress('Sedang digeser...!!!');
+      });
+      
+      google.maps.event.addListener(event.overlay, 'drag', function() {
+        //updateMarkerStatus('Sedang digeser...!!!');
+        updateMarkerPosition(event.overlay.getPosition());
+      });
+      
+      google.maps.event.addListener(event.overlay, 'dragend', function() {
+        //updateMarkerStatus('Drag ended');
+        //geocodePosition(marker.getPosition());
+        //updateZoomLevelStatus(map.zoom);
+      });
+
     }
 
 
