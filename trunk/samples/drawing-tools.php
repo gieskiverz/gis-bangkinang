@@ -49,6 +49,12 @@ function updateMarkerPosition(latLng) {
   document.getElementById('Latitude').value = latLng.lat();
   document.getElementById('Longitude').value = latLng.lng();
 }
+function updateRadius(latLng){
+  document.getElementById('Radius').value = latLng;
+}
+function updateInput(inputID,newValue){
+  document.getElementById(inputID).value = newValue;
+}
 
 function initialize() {
   var bangkinang = new google.maps.LatLng(0.344293, 101.029);
@@ -56,7 +62,7 @@ function initialize() {
   myOptions = {
     //center: new google.maps.LatLng(-34.397, 150.644),
     center: bangkinang,
-    zoom: 8,
+    zoom: 14,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
 
@@ -100,6 +106,9 @@ function initialize() {
       //clickable: false,
       editable: true,
       zIndex: 1
+    },
+    polylineOptions: {
+      editable:true
     }
   });
   drawingManager.setMap(map);
@@ -129,13 +138,13 @@ function initialize() {
   //add event listener everytime we complete our drawing ..
   google.maps.event.addListener(drawingManager, 'overlaycomplete', function(event) {
     if (event.type == google.maps.drawing.OverlayType.CIRCLE) {
-      var radius = event.overlay.getRadius();
-      var center = event.overlay.getCenter();
       //alert("From overlaycomplete, Radius:"+radius); //OK
       //alert("Center:"+center); //OK
 
       // Add a listener for the click event
       google.maps.event.addListener(event.overlay, 'click', function(e){
+        var radius = event.overlay.getRadius();
+        var center = event.overlay.getCenter();
         //alert(e);//koordinat klik
         //alert("Radius:"+radius +"\nCenter:"+center); 
         //alert( e.latLng.lat() +','+ e.latLng.lng()); //ok .. tetapi kenapa tidak bisa bikin infoWindow ya?
@@ -143,8 +152,8 @@ function initialize() {
         var contentString = "<b>Judul:</b><INPUT TYPE=\"text\" ID=\"Title\" NAME=\"Title\" VALUE=\"\"> <br />";
         contentString += "Clicked Location: <br />Latitude:<INPUT TYPE=\"text\" ID=\"Latitude\" NAME=\"Latitude\" VALUE=\"" + e.latLng.lat() 
            + "\">,<br />Longitude:<INPUT TYPE=\"text\" ID=\"Longitude\" NAME=\"Longitude\" VALUE=\""+ e.latLng.lng()  + "\"><br />";
-        contentString += "Radius:" + radius +"<br />";
-        contentString += "Center:" + center +"<br />";
+        contentString += "Radius: <INPUT TYPE=\"text\" ID=\"Radius\" NAME=\"Radius\" VALUE=\"" + radius +"\"><br />";
+        contentString += "Center: <INPUT TYPE=\"text\" ID=\"Center\" NAME=\"Center\" VALUE=\"" + center +"\"><br />";
         contentString += "<br /><INPUT TYPE=\"button\" VALUE='Save'>";
         infoWindow.setContent(contentString);
 
@@ -153,6 +162,16 @@ function initialize() {
         infoWindow.open(map);
         
       });
+
+      //jika lingkaran di ubah, event nya adalah bounds_changed, bukan drag
+      google.maps.event.addListener(event.overlay, 'bounds_changed', function() {
+        updateInput('Center',event.overlay.getCenter());
+        updateInput('Radius',event.overlay.getRadius());
+      });
+      
+
+
+
 
     }
     if (event.type == google.maps.drawing.OverlayType.POLYGON) {
@@ -169,6 +188,8 @@ function initialize() {
           var xy = vertices.getAt(i);
           contentString += "<br />" + " " + i + "<INPUT TYPE='text' ID='v"+i+"' VALUE='" + xy.lat() +"," + xy.lng()+"'>";
         }
+        contentString += "<br />Panjang Keliling: "+  google.maps.geometry.spherical.computeLength(vertices) + " meter" ;
+        contentString += "<br />Luas Area: "+  google.maps.geometry.spherical.computeArea(vertices) + " meter persegi" ;
         contentString += "<br /><INPUT TYPE=\"button\" VALUE='Save'>";
         infoWindow.setContent(contentString);
         infoWindow.setPosition(e.latLng);
@@ -210,6 +231,35 @@ function initialize() {
 
     }
 
+    //POLYLINE
+    if (event.type == google.maps.drawing.OverlayType.POLYLINE) {
+      // Add a listener for the click event
+      //alert('POLYLINE created'); // OK
+      google.maps.event.addListener(event.overlay, 'click', function(e){
+      
+        var contentString = "<b>Judul:</b><INPUT TYPE=\"text\" ID=\"Title\" NAME=\"Title\" VALUE=\"\"> <br />";
+        contentString += "Clicked Location: <br />Latitude:<INPUT TYPE=\"text\" ID=\"Latitude\" NAME=\"Latitude\" VALUE=\"" + e.latLng.lat() 
+           + "\">,<br />Longitude:<INPUT TYPE=\"text\" ID=\"Longitude\" NAME=\"Longitude\" VALUE=\""+ e.latLng.lng()  + "\"><br />";
+        contentString += "<TEXTAREA NAME=\"TextHTML\" ID=\"TextHTML\" ROWS=\"\" COLS=\"\"></TEXTAREA>";
+
+        var vertices = event.overlay.getPath();
+        // Iterate over the vertices.
+        for (var i =0; i < vertices.length; i++) {
+          var xy = vertices.getAt(i);
+          contentString += "<br />" + " " + i + "<INPUT TYPE='text' ID='v"+i+"' VALUE='" + xy.lat() +"," + xy.lng()+"'>";
+        }
+
+        contentString += "<br />Panjang: " + google.maps.geometry.spherical.computeLength(vertices) + " meter";
+;
+
+        contentString += "<br /><INPUT TYPE=\"button\" VALUE='Save'>";
+        //alert(contentString);
+        infoWindow.setContent(contentString);
+        infoWindow.setPosition(e.latLng);
+        infoWindow.open(map);
+      });
+
+    }
 
 
 
