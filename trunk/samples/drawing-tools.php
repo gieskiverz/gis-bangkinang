@@ -263,7 +263,7 @@ function initialize() {
         // Iterate over the vertices.
         for (var i =0; i < vertices.length; i++) {
           var xy = vertices.getAt(i);
-          contentString += "<br />" + " " + i + " <a href=\"#\" onclick=removePolylineVertice("+ i+")>-</a> <INPUT TYPE='text' ID='v"+i+"' VALUE='" + xy.lat() +"," + xy.lng()+"'>";
+          contentString += "<br />" + " " + i + " <a href=\"#\" title='Remove this Vertice' onclick=removePolylineVertice("+ i+")>-</a> <INPUT TYPE='text' ID='v"+i+"' VALUE='" + xy.lat() +"," + xy.lng()+"'>";
         }
 
         contentString += "<br />Panjang: " + google.maps.geometry.spherical.computeLength(vertices) + " meter";
