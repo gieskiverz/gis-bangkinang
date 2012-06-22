@@ -44,6 +44,11 @@ var map;
 var drawingManager;
 var infoWindow;
 
+//our current clicked drawing
+var currentPolyline;
+var currentPolygon;
+var currentCircle;
+var currentMarker;
 
 function updateMarkerPosition(latLng) {
   document.getElementById('Latitude').value = latLng.lat();
@@ -54,6 +59,14 @@ function updateRadius(latLng){
 }
 function updateInput(inputID,newValue){
   document.getElementById(inputID).value = newValue;
+}
+function removePolylineVertice(vertice){
+  currentPolyline.getPath().removeAt(vertice);
+  infoWindow.close();
+}
+function removePolygonVertice(vertice){
+  currentPolygon.getPath().removeAt(vertice);
+  infoWindow.close();
 }
 
 function initialize() {
@@ -158,7 +171,8 @@ function initialize() {
         infoWindow.setContent(contentString);
 
         //alert(contentString)
-        infoWindow.setPosition(e.latLng);
+        //infoWindow.setPosition(e.latLng);
+        infoWindow.setPosition(center);
         infoWindow.open(map);
         
       });
@@ -167,6 +181,7 @@ function initialize() {
       google.maps.event.addListener(event.overlay, 'bounds_changed', function() {
         updateInput('Center',event.overlay.getCenter());
         updateInput('Radius',event.overlay.getRadius());
+        infoWindow.setPosition(event.overlay.getCenter());
       });
       
 
@@ -175,9 +190,10 @@ function initialize() {
 
     }
     if (event.type == google.maps.drawing.OverlayType.POLYGON) {
+      currentPolygon = event.overlay;
       // Add a listener for the click event
       google.maps.event.addListener(event.overlay, 'click', function(e){
-
+        currentPolygon = event.overlay;
         var vertices = event.overlay.getPath();
         var contentString = "<b>Judul:</b><INPUT TYPE=\"text\" ID=\"Title\" NAME=\"Title\" VALUE=\"\"> <br />";
         contentString += "Clicked Location: <br />Latitude:<INPUT TYPE=\"text\" ID=\"Latitude\" NAME=\"Latitude\" VALUE=\"" + e.latLng.lat() 
@@ -186,7 +202,7 @@ function initialize() {
         // Iterate over the vertices.
         for (var i =0; i < vertices.length; i++) {
           var xy = vertices.getAt(i);
-          contentString += "<br />" + " " + i + "<INPUT TYPE='text' ID='v"+i+"' VALUE='" + xy.lat() +"," + xy.lng()+"'>";
+          contentString += "<br />" + " " + i + "<a href=\"#\" onclick=removePolygonVertice("+ i+")>-</a><INPUT TYPE='text' ID='v"+i+"' VALUE='" + xy.lat() +"," + xy.lng()+"'>";
         }
         contentString += "<br />Panjang Keliling: "+  google.maps.geometry.spherical.computeLength(vertices) + " meter" ;
         contentString += "<br />Luas Area: "+  google.maps.geometry.spherical.computeArea(vertices) + " meter persegi" ;
@@ -233,10 +249,11 @@ function initialize() {
 
     //POLYLINE
     if (event.type == google.maps.drawing.OverlayType.POLYLINE) {
+      currentPolyline = event.overlay;
       // Add a listener for the click event
       //alert('POLYLINE created'); // OK
       google.maps.event.addListener(event.overlay, 'click', function(e){
-      
+        currentPolyline = event.overlay;
         var contentString = "<b>Judul:</b><INPUT TYPE=\"text\" ID=\"Title\" NAME=\"Title\" VALUE=\"\"> <br />";
         contentString += "Clicked Location: <br />Latitude:<INPUT TYPE=\"text\" ID=\"Latitude\" NAME=\"Latitude\" VALUE=\"" + e.latLng.lat() 
            + "\">,<br />Longitude:<INPUT TYPE=\"text\" ID=\"Longitude\" NAME=\"Longitude\" VALUE=\""+ e.latLng.lng()  + "\"><br />";
@@ -246,7 +263,7 @@ function initialize() {
         // Iterate over the vertices.
         for (var i =0; i < vertices.length; i++) {
           var xy = vertices.getAt(i);
-          contentString += "<br />" + " " + i + "<INPUT TYPE='text' ID='v"+i+"' VALUE='" + xy.lat() +"," + xy.lng()+"'>";
+          contentString += "<br />" + " " + i + " <a href=\"#\" onclick=removePolylineVertice("+ i+")>-</a> <INPUT TYPE='text' ID='v"+i+"' VALUE='" + xy.lat() +"," + xy.lng()+"'>";
         }
 
         contentString += "<br />Panjang: " + google.maps.geometry.spherical.computeLength(vertices) + " meter";
