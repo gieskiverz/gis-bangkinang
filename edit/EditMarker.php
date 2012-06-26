@@ -68,10 +68,17 @@ google.maps.event.addDomListener(window, 'load', initialize);
 //-->
 </script>
  <style>
+ #mapCanvas {
+  height: 100%;
+}
+
+@media print {
+  html, body {
+    height: auto;
+  }
+
   #mapCanvas {
-    width: 1500px;
-    height: 700px;
-    float: left;
+    height: 650px;
   }
   #infoPanel {
     float: left;
@@ -83,7 +90,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
  
  <!-- Style Form Add Marker 
  6/17/2012 12:18:13 PM -->
- <STYLE>
+
+
   BODY {
     font-family: Verdana, sans-serif;
     font-size: 11pt;
@@ -104,13 +112,13 @@ google.maps.event.addDomListener(window, 'load', initialize);
 	#logout {
     /*background:url(../admin/syarif.jpg);*/
     font-size: 11pt;
-   text-align: right;
-    background-color: #ffffff;
-    border: 2px solid #ffffff; 
+    text-align: right;
+    background-color: #99ffcc;
+   #border: 2px solid #ffffff; 
     color: white;
     padding: 4px;
     font-weight:bold;
-  }
+}
   #Judul {
     /*background:url(../admin/syarif.jpg);*/
     font-size: 11pt;
@@ -160,18 +168,17 @@ google.maps.event.addDomListener(window, 'load', initialize);
 				<div id="scrollbar_container">
 					<div id="scrollbar_content">
 
-<div ID='logout'>
-<div><a href="../logout.php"style="text-decoration:none;color:#3b5998;">Logout</div>
-
-  <DIV ID='Marker'>
-    <DIV ID='Judul'>
+  <div id='Marker'>
+    <div id='Judul'>
    Edit Marker
-    </DIV>
+    </div>
     
   
-  <p>
+ 
   <table>
 
+  	<div id='logout'>
+			<div><a href="../logout.php"style="text-decoration:none;color:#3b5998;"> Logout</font></div>
 		<tr>
 			<td width="112"><label>MarkerID</label>
 			<td width="677">
@@ -225,7 +232,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 <tr>
 			<td width="112"><label>Address </label></td>
 			<td width="677">
-		    <textarea class="inp"  rows=2 cols=33 name="Address" id="Address"><?= $data ['Address']; ?>"></textarea><br/>
+		    <textarea class="inp"  rows=2 cols=33 name="Address" id="Address"><?= $data ['Address']; ?></textarea><br/>
 		
 </tr>
 

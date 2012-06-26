@@ -1,3 +1,6 @@
+<?php
+  include "connect.php";
+ ?>
 <html>
 <head>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
@@ -5,6 +8,29 @@
 <script type="text/javascript">
 
 </script>
+
+<style>
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#map {
+  height: 100%;
+}
+
+@media print {
+  html, body {
+    height: auto;
+  }
+
+  #map {
+    height: 650px;
+  }
+}
+</style>
+
 </head>
 <body onunload="GUnload()">
 <title>Map</title>
@@ -13,7 +39,7 @@
 
  <!-- the div where the map will be displayed -->
 	<!-- style="width: 550px; height: 450px"-->
-    <div id="map"  style="width: 1500; height: 700"></div>
+    <div id="map"</div>
     <!--a href="menu.php">Back to the  page</a-->
     
     <!-- fail nicely if the browser has no Javascript -->
@@ -30,6 +56,7 @@
 
       function createMarker(point,html) {
         var marker = new GMarker(point);
+
         GEvent.addListener(marker, "click", function() {
           marker.openInfoWindowHtml(html);
         });
@@ -58,7 +85,6 @@
 
 
 	<?php
-	include "connect.php";
 	//$sql =  "select * from marker where 1;";
 	$sql = "SELECT * FROM `marker` INNER JOIN `type` ON marker.typeID = type.typeID LIMIT 0 , 30";
 	$qry = mysql_query($sql,$koneksi)
@@ -118,23 +144,8 @@
   #infoPanel div {
     margin-bottom: 5px;
   }
-  </style>
 
-  <!-- <div id="mapCanvas"></div> -->
-  
-  <div id="infoPanel">
-    <div id="tempStorage" style="display:none;"></div>
-
-    <div id="sideBar">
-      <a href="#" id="sideBarTab" name="sideBarTab"><img src=
-      "sidebar/assets/spacer.gif" alt="" title="" /></a>
-
-      <div id="sideBarContents" style="display:none;">
-        <div id="sideBarContentsInner">
-          <div id="scrollbar_container">
-            <div id="scrollbar_content">
-			<STYLE>
-  BODY {
+  Body {
     font-family: Verdana, sans-serif;
     font-size: 11pt;
   }
@@ -161,6 +172,17 @@
     padding: 4px;
     font-weight:bold;
   }
+
+  #login {
+    /*background:url(../admin/syarif.jpg);*/
+    font-size: 9pt;
+    text-align: right;
+    background-color: #99ffcc;
+   #border: 2px solid #ffffff; 
+    color: white;
+    padding: 4px;
+    font-weight:bold;
+  }
   .inp {
     font-size: 11pt;
     text-align: left;
@@ -177,9 +199,25 @@
 	font-size: 9pt;
     color: #000000;
     font-style: ;
+	 font-weight:bold;
   }
 	
-  </STYLE>
+  </style>
+
+  <!-- <div id="mapCanvas"></div> -->
+  
+  <div id="infoPanel">
+    <div id="tempStorage" style="display:none;"></div>
+
+    <div id="sideBar">
+      <a href="#" id="sideBarTab" name="sideBarTab"><img src=
+      "sidebar/assets/spacer.gif" alt="" title="" /></a>
+
+      <div id="sideBarContents" style="display:none;">
+        <div id="sideBarContentsInner">
+          <div id="scrollbar_container">
+            <div id="scrollbar_content">
+			
 
   <DIV ID='Marker'>
     <DIV ID='Judul'>
@@ -189,38 +227,102 @@
   
   <p>
   <table>
-<tr>
-		<td colspan="2"><center> <a href="./login.php"> <input class="inp" type="button"  value="Login"></td>
-		<tr>
-		<td width="300"><label>===========</label></td>
-		<tr>
+   	<div id='login'>
+			<div><a href="login.php"style="text-decoration:none;color:#3b5998;"> Login</font></div>
 
-		<td width="300"><label>Pendidikan</label></td>
-		<td width="677">
-		<label>SD</label><br/>
-		<label>SMP</label><br/>
-		<label>Perguruan Tinggi</label>
-		<tr>
-		<td width="300"><label>===========</label></td>
-		<tr>
+    <tr>
+      <td width="112"><label>Search</b></label></td>
 
-		<td width="300"><label>Kesehatan</label></td>
-		<td width="677">
-		<label>Rumah Sakit</label><br/>
-		<label>Puskesmas</label><br/>
-		<tr>
-		<td width="300"><label>===========</label></td>
-		<tr>
+      <td width="677"><input class="inp" name="Search" id=
+      "Search" type="text" size="20" /><br /></td>
+    </tr>
 
-		<td width="300"><label>Ibadah</label></td>
-		<td width="677">
-		<label>Masjid</label><br/>
-		<label>Mushallah</label><br/>
-		<tr>
-		<td width="300"><label>===========</label></td>
-		<tr>
+    <tr>
+      <td width="112"><label>===========</label></td>
+    </tr>
 
-		<td width="300"><label>Pemerintahan</label></td>
+    <tr>
+      <td width="112"><label>Pendidikan</label></td>
+
+      <td width="677"><select name="TypeID" id="TypeID" onchange=
+      "handleMarkerIcon(this)">
+        <?php
+                        $sql = "SELECT * FROM  `typeparent` where TypeID=1 ";
+
+                        $qry = mysql_query($sql,$koneksi)
+                                  or die ("SQL Error: ".mysql_error());
+                        while($data=mysql_fetch_array($qry)) {
+                                
+                                ?>
+
+        <option value="<?php echo $data['TypeID'];?>">
+          <?php echo $data['TypeParent'];?>
+        </option><?php
+                        }
+                        ?>
+      </select></td>
+    </tr>
+
+    <tr>
+      <td width="300"><label>===========</label></td>
+    </tr>
+
+    <tr>
+      <td width="300"><label>Kesehatan</label></td>
+
+      <td width="677"><select name="TypeID" id="TypeID" onchange=
+      "handleMarkerIcon(this)">
+        <?php
+                        $sql = "SELECT * FROM  `typeparent` where TypeID=2 ";
+
+                        $qry = mysql_query($sql,$koneksi)
+                                  or die ("SQL Error: ".mysql_error());
+                        while($data=mysql_fetch_array($qry)) {
+                                
+                                ?>
+
+        <option value="<?php echo $data['TypeID'];?>">
+          <?php echo $data['TypeParent'];?>
+        </option><?php
+                        }
+                        ?>
+      </select></td>
+    </tr>
+
+    <tr>
+      <td width="300"><label>===========</label></td>
+    </tr>
+
+    <tr>
+      <td width="300"><label>Ibadah</label></td>
+
+      <td width="677"><select name="TypeID" id="TypeID" onchange=
+      "handleMarkerIcon(this)">
+        <?php
+                      
+                        $sql = "SELECT * FROM  `typeparent` where TypeID=3 ";
+
+                        $qry = mysql_query($sql,$koneksi)
+                                  or die ("SQL Error: ".mysql_error());
+                        while($data=mysql_fetch_array($qry)) {
+                                
+                                ?>
+
+        <option value="<?php echo $data['TypeID'];?>">
+          <?php echo $data['TypeParent'];?>
+        </option><?php
+                        }
+                        ?>
+      </select></td>
+    </tr>
+
+    <tr>
+      <td width="300"><label>===========</label></td>
+    </tr>
+
+
+
+		<!-- <td width="300"><label>Pemerintahan</label></td>
 		<td width="677">
 		<label>Kantor Pemerintah Daerah</label><br/>
 		<label>Kantor Kecamatan</label><br/>
@@ -247,18 +349,33 @@
 		<label>Wisma</label><br/>
 		<tr>
 		<td width="300"><label>===========</label></td>
-		<tr>
+		<tr>-->
 
 		<td width="300"><label>Transportasi</label></td>
-		<td width="677">
-		<label>SPBU</label><br/>
-		<label>Terminal</label><br/>
-		<label>Halte</label><br/>
-		<tr>
+		 <td width="677"><select name="TypeID" id="TypeID" onchange=
+      "handleMarkerIcon(this)">
+        <?php
+                      
+                        $sql = "SELECT * FROM  `typeparent` where TypeID= 7 ";
+
+                        $qry = mysql_query($sql,$koneksi)
+                                  or die ("SQL Error: ".mysql_error());
+                        while($data=mysql_fetch_array($qry)) {
+                                
+                                ?>
+
+        <option value="<?php echo $data['TypeID'];?>">
+          <?php echo $data['TypeParent'];?> 
+        </option><?php
+                        }
+                        ?>
+      </select></td>
+    </tr>
+	<tr>
 		<td width="300"><label>===========</label></td>
 		<tr>
 
-		<td width="300"><label>Taman</label></td>
+		<!-- <td width="300"><label>Taman</label></td>
 		<td width="677">
 		<label>Taman Rekreasi</label><br/>
 		<label>Taman Pemakaman Umum</label><br/>
@@ -266,8 +383,7 @@
 		<td width="300"><label>===========</label></td>
 		<tr>
 
-</tr>
-
+</tr> -->
 </table>
 
 			

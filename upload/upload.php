@@ -1,34 +1,40 @@
 <?php
-require_once(connect.php); //memanggil file database.php
 
-connect_db(); // memanggil fungsi connect_db yang ada di file database.php
-if($_POST[tombol])
-{
-$fileName = $_FILES[`userfile`][`name`]; 
-$tmpName = $_FILES[`userfile`][`tmp_name`]; 
-$fileSize = $_FILES[`userfile`][`size`]; 
-$fileType = $_FILES[`userfile`][`type`];
+if( isset($_REQUEST['submit']) ){
 
-$uploadDir = ./Photo/;
-$filePath = $uploadDir . $fileName;
+	include('connect.php');
+	
+	//$title = $_REQUEST['judul'] ? htmlspecialchars($_REQUEST['judul']) : 'blun ada judul'; //ternary operator
 
-$result = move_uploaded_file($tmpName, $filePath); 
-if (!$result) { 
-$error_message=Error uploading file;  
-} 
-
-if(!get_magic_quotes_gpc()) 
-{ 
-$fileName = addslashes($fileName); 
-$filePath = addslashes($filePath); 
+	$dir_gambar = 'C:\xampp\htdocs\gis-bangkinang\upload\gambar\\';	
+	$Photo = basename($_FILES['Photo']['name']);
+	$uploadfile = $dir_gambar . $Photo;
+	
+	if (move_uploaded_file($_FILES['Photo']['tmp_name'], $uploadfile)) {
+		$query = "INSERT INTO marker set Photo='$Photo'";
+		$query = mysql_query($query);
+		if(!$query){
+			die( mysql_error() );
+		}
+		//header('Location: galeri.php?j=' . $title);
+		exit();
+	} else {
+		echo "Kemungkinan hacking!\n";
+	}
 }
-
-$query = INSERT INTO upload(filename,type,size,path) VALUES (`$fileName`, `$fileType`, `$fileSize`, `$fileName`)”; 
-$result=mysql_query($query); 
-if($result){ 
-echo upload file berhasil dilakukan <br> <a href=daftar_file.php>Daftar File</a>;
-}else{
-echo <br>File can`t uploaded<br>;
-} 
-}
+//else{
+	//echo "Anda kesasaar? kembali ke <a href='index.php'>jalan yang benar</a>";
+//}
 ?>
+
+<!-- 
+$sql="INSERT INTO marker SET 
+		Latitude='$Latitude',
+		Longitude='$Longitude',
+		ZoomLevel='$ZoomLevel',
+		Title='$Title',
+		TextHTML='$TextHTML',
+		Photo='$Photo',
+		Address='$Address',
+		TypeID='$TypeID',
+		MarkerDate=NOW()"; -->
