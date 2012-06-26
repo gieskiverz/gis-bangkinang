@@ -7,9 +7,34 @@ include "session.php";
     <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=" type="text/javascript"></script>
 	<script type="text/javascript" src="../icon.js.php"></script>
 
+
+<style>
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#map {
+  height: 100%;
+}
+
+@media print {
+  html, body {
+    height: auto;
+  }
+
+  #map {
+    height: 650px;
+  }
+}
+</style>
+
+
+
     <!-- the div where the map will be displayed -->
 	<!-- style="width: 550px; height: 450px"-->
-    <div id="map"  style="width: 1500; height: 700"></div>
+    <div id="map"></div>
     <!--a href="menu.php">Back to the  page</a-->
     
     <!-- fail nicely if the browser has no Javascript -->
@@ -72,7 +97,6 @@ include "session.php";
 	<?php
 	}
 	?>
-
     }
 
     

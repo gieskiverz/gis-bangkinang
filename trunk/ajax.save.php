@@ -6,9 +6,17 @@
 $max_filesize = 2000000; //maximum filesize in BYTES (2MB)
 $file_Path='./photo/';
 $result = move_uploaded_file($Photo,$file_Path);*/
-$Photo = $_Files["Photo"];
-$move = move_uploaded_file($_Files['Photo']['tmp_name'], 'C:/Xampp/gis-bangkinang/photo/'.$Photo);
+//$Photo = $_Files["Photo"];
+//$move = move_uploaded_file($_Files['Photo']['tmp_name'], 'C:/Xampp/gis-bangkinang/photo/'.$Photo);
 
+//move_uploaded_file($tmp_name, "$uploads_dir/$name");
+
+$dir_gambar = 'C:\xampp\htdocs\gis-bangkinang\upload\\';
+$Photo = basename($_FILES['Photo']['name']);
+$uploadfile = $dir_gambar . $Photo;
+move_uploaded_file($_FILES['Photo']['tmp_name'], $uploadfile);
+$Photo = $_FILES["Photo"];
+echo '<!--'; var_dump($_FILES); echo '-->';
 $Latitude = $_POST["Latitude"];
 $Longitude = $_POST["Longitude"];
 $ZoomLevel = $_POST["ZoomLevel"];
@@ -16,8 +24,53 @@ $Title = $_POST["Title"];
 $TextHTML = $_POST["TextHTML"];
 $Address = $_POST["Address"];
 $TypeID = $_POST["TypeID"];
+# validasi Form 
+
+if  (trim($Latitude)=="") {
+	echo "Latitude masih kosong!!!";
+	
+}
+elseif  (trim($Longitude)=="") {
+	echo "Longitude masih kosong!!!";
+
+}
+elseif  (trim($ZoomLevel)=="") {
+	echo "ZoomLevel masih kosong!!!";
+
+	}
+elseif  ( trim($Title)==""){
+	echo "Title masih kosong!!!";
+	
+	}
+elseif  (trim($TextHTML)=="") {
+	echo "TextHTML masih kosong!!!";
+	//}
+//elseif  (trim($Photo)=="") {
+	//echo "Photo masih kosong!!!";
+	}
+elseif  (trim($Address)=="") {
+	echo "Address masih kosong!!!";
+	
+	}
+	
+else{
 
 
+$sql="INSERT INTO marker SET 
+		Latitude='$Latitude',
+		Longitude='$Longitude',
+		ZoomLevel='$ZoomLevel',
+		Title='$Title',
+		TextHTML='$TextHTML',
+		Photo='$Photo',
+		Address='$Address',
+		TypeID='$TypeID',
+		MarkerDate=NOW()";
+mysql_query($sql,$koneksi)
+	or die ("SQL Error:".mysql_error());
+
+
+/*
 $sql =  "INSERT INTO `marker` (
 `MarkerID` ,
 `Latitude` ,
@@ -35,7 +88,6 @@ VALUES (
 );
 ";
 	$qry = mysql_query($sql,$koneksi)
-		  or die ("SQL Error: ".mysql_error());
-		
-		  
-		  
+		  or die ("SQL Error: ".mysql_error()); */
+}
+?>  

@@ -56,9 +56,9 @@ include "session.php";
 #logout {
     /*background:url(../admin/syarif.jpg);*/
     font-size: 11pt;
-   text-align: right;
-    background-color: #ffffff;
-    border: 2px solid #ffffff; 
+    text-align: right;
+    background-color: #99ffcc;
+   #border: 2px solid #ffffff; 
     color: white;
     padding: 4px;
     font-weight:bold;
@@ -110,8 +110,7 @@ include "session.php";
 				<div id="scrollbar_container">
 					<div id="scrollbar_content">
  
-<div ID='logout'>
-<div><a href="logout.php">Logout</div>
+
 
   <div ID='Marker'>
     <div ID='Judul'>
@@ -120,14 +119,12 @@ include "session.php";
     </div>
     
   
-  <p>
-
-
-  <table>
+    <table>
+			<div id='logout'>
+			<div><a href="logout.php"style="text-decoration:none;color:#3b5998;"> Logout</font></div>
 
     <tr>
       <td width="112"><label>TypeID</label></td>
-
       <td width="677"><select name="TypeID" id="TypeID" onchange=
       "handleMarkerIcon(this)">
         <?php
@@ -206,7 +203,7 @@ include "session.php";
       "Address" type="text">
 </textarea><br /></td>
     </tr>
-
+<td colspan="2"><center> <font style="text-decoration:none;color:#ff0000;" id='hasil-ajax'"></font></td>
     <tr>
       <td colspan="2">
         <center>
@@ -215,6 +212,27 @@ include "session.php";
         </center>
       </td>
     </tr>
+
+
+	<form action="upload/upload.php" enctype="multipart/form-data" method="post">
+<table border="0">
+<!-- <tr>
+	<td>Judul</td>
+    <td><input type="text" name="judul" />
+    </td>
+</tr> -->
+<tr>
+	<td>Gambar</td>
+    <td><input type="file" name="Photo" size="40" /></td>
+</tr>
+<tr>
+	<td><input type="submit" name="submit" value="Unggah" /></td>
+    <td></td>
+</tr>
+<!-- <input type="hidden" name="MAX_FILE_SIZE" value="2000000" /> dalam byte {2000000b = 2Mb} -->
+</form>
+
+
   </table>
 
   </DIV>

@@ -1,5 +1,4 @@
 var geocoder = new google.maps.Geocoder();
-
 function geocodePosition(pos) {
   geocoder.geocode({
     latLng: pos
@@ -38,9 +37,7 @@ function updateZoomLevelStatus(i){
   document.getElementById('ZoomLevel').value = i;
 }
 
-$(document).ready(function() {
-	
-	
+
 var marker;
 var map;
 var latLng;
@@ -101,8 +98,6 @@ function simpanMarker(){
   params +="&Address="+document.getElementById('Address').value;
   params +="&TypeID="+document.getElementById('TypeID').value;
 
-
-
   if (window.XMLHttpRequest) {
     // obtain new object
     obj = new XMLHttpRequest();
@@ -124,8 +119,8 @@ function simpanMarker(){
       obj.open("POST", url, true);
       //Send the proper header information along with the request
       obj.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-      obj.setRequestHeader("Content-length", params.length);
-      obj.setRequestHeader("Connection", "close");
+      //obj.setRequestHeader("Content-length", params.length);
+      //obj.setRequestHeader("Connection", "close");
       obj.send(params);
       obj.send();
     }
@@ -142,8 +137,9 @@ function processChange() {
         if (obj.status == 200) {
             // process whatever has been sent back here:
         // anything else means a problem
-          alert("Sukses Coy");
-          alert(obj);
+          //alert("Sukses Coy");
+          //alert(obj);
+		  document.getElementById('hasil-ajax').innerHTML = obj.responseText;
         } else {
             alert("There was a problem in the returned data:\n");
         }

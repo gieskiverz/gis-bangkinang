@@ -12,13 +12,13 @@
     border: 1px solid silver;
     -moz-border-radius: 6px;
     width: 300px;
-    margin: 50px auto;
+    margin: 100px auto;
     padding: 2px;	
     text-align: center;
     /*background:#99ffcc;*/
 	border: 3px solid teal; 
     color: white;
-    /*background-image: url(../admin/syarif.jpg);*/
+    /*background-image: url(syarif.jpg);*/
   }
   #Judul {
     /*background:url(../admin/syarif.jpg);*/
@@ -50,6 +50,7 @@
     text-align: center;	
     background-color: #00ff99;
     padding: 10px;
+	/*background-image: url(logindulu.gif);*/
   }
   label {
     color: gray;
@@ -71,7 +72,7 @@
     
     <form name='frm_login' id='frm_login' action="loginsubmit.php" method="POST" >
     <p>
-    <label>User Name:</label><br />	
+    <label>User Name:</label><br/>
     <input class="inp" type=text name='Username' size=20 maxlength=20 />
     </p>
 	
