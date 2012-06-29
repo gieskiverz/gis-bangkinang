@@ -18,7 +18,7 @@
     /*background:#99ffcc;*/
 	border: 3px solid teal; 
     color: white;
-    /*background-image: url(syarif.jpg);*/
+    /*background-image: url(./syarif.jpg);*/
   }
   #Judul {
     /*background:url(../admin/syarif.jpg);*/
@@ -72,6 +72,7 @@
     
     <form name='frm_login' id='frm_login' action="loginsubmit.php" method="POST" >
     <p>
+	
     <label>User Name:</label><br/>
     <input class="inp" type=text name='Username' size=20 maxlength=20 />
     </p>

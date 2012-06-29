@@ -324,8 +324,8 @@ function buildMap() { // Create the map
    }
   };
 
-  //map = new g.Map(document.getElementById("map"), map_options);
- // infowindow = new g.InfoWindow();
+  map = new g.Map(document.getElementById("map"), map_options);
+  infowindow = new g.InfoWindow();
 
 
   // Info window tabs of second marker

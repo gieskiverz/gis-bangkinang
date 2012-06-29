@@ -68,25 +68,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
 //-->
 </script>
  <style>
- #mapCanvas {
-  height: 100%;
-}
-
-@media print {
-  html, body {
-    height: auto;
-  }
-
-  #mapCanvas {
-    height: 650px;
-  }
-  #infoPanel {
-    float: left;
-    margin-left: 10px;
-  }
-  #infoPanel div {
-    margin-bottom: 5px;
-  }
  
  <!-- Style Form Add Marker 
  6/17/2012 12:18:13 PM -->
@@ -145,11 +126,30 @@ google.maps.event.addDomListener(window, 'load', initialize);
 	font-size: 11pt;
     color: #000000;
     font-style: ;
+ }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#mapCanvas {
+  height: 100%;
+}
+
+@media print {
+  html, body {
+    height: auto;
+ }
+  #mapCanvas {
+    height: 650px;
   }
+
+ 
 	
   </STYLE>
  
-
 </head>
 <body onunload="GUnload()">
  
@@ -191,14 +191,14 @@ google.maps.event.addDomListener(window, 'load', initialize);
 <tr>
 			<td width="112"><label>Latitude </label></td>
 			<td width="677">
-		<input class="inp" name="Latitude" id="Latitude" type=text size=20 value="<?= $data ['Latitude']; ?>"><br/>
+		<input class="inp" name="Latitude" id="Latitude" type=text size=40 value="<?= $data ['Latitude']; ?>"><br/>
 			
 </tr>
  
 <tr>
 			<td width="112"><label>Longitude </label></td>
 			<td width="677">
-		<input class="inp" name="Longitude" id="Longitude" type=text size=20 value="<?= $data ['Longitude']; ?>"><br/>
+		<input class="inp" name="Longitude" id="Longitude" type=text size=40 value="<?= $data ['Longitude']; ?>"><br/>
 			
 </tr>
 
@@ -215,7 +215,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 		
 			<td width="112"><label>Title </label></td>
 			<td width="677">
-			<input class="inp" name="Title" id="Title" type=text size=42 value="<?= $data ['Title']; ?>"><br/>
+			<input class="inp" name="Title" id="Title" type=text size=40 value="<?= $data ['Title']; ?>"><br/>
 			<div id="markerStatus"> <label><i>Click and drag the marker.</i></div>
 			
 </tr>
@@ -241,7 +241,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
 			<td width="677">
 			<select name="TypeID" id="TypeID" onchange="handleMarkerIcon(this)">
 	<?php
-	include "connect.php";
 	$sql = "SELECT * FROM  `type` ";
 
 	$qry = mysql_query($sql,$koneksi)

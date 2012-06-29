@@ -15,26 +15,11 @@ include "session.php";
 <script type="text/javascript">
 
 </script>
-
-
-  <style>
-  #mapCanvas {
-    width: 1500px;
-    height: 700px;
-    float: left;
-  }
-  #infoPanel {
-    float: left;
-    margin-left: 10px;
-  }
-  #infoPanel div {
-    margin-bottom: 5px;
-  }
-
-
-<!-- Style Form Add Marker 
- 6/17/2012 12:18:13 PM -->
+	<!-- Style Form Add Marker 
+	 6/17/2012 12:18:13 PM -->
  
+  <style>
+
   BODY {
     font-family: Verdana, sans-serif;
     font-size: 11pt;
@@ -90,10 +75,26 @@ include "session.php";
     color: #000000;
     font-style: ;
   }
-	
+
+	html, body {
+	  height: 100%;
+	  margin: 0;
+	  padding: 0;
+	}
+
+#mapCanvas {
+  height: 100%;
+}
+
+@media print {
+  html, body {
+    height: auto;
+ }
+  #mapCanvas {
+    height: 650px;
+  }
+
   </STYLE>
-
-
 
 </head>
 <body onunload="GUnload()">
@@ -149,14 +150,14 @@ include "session.php";
       <td width="112"><label>Latitude</label></td>
 
       <td width="677"><input class="inp" name="Latitude" id=
-      "Latitude" type="text" size="20" /><br /></td>
+      "Latitude" type="text" size="38" /><br /></td>
     </tr>
 
     <tr>
       <td width="112"><label>Longitude</label></td>
 
       <td width="677"><input class="inp" name="Longitude" id=
-      "Longitude" type="text" size="20" /><br /></td>
+      "Longitude" type="text" size="38" /><br /></td>
     </tr>
 
     <tr>
@@ -171,7 +172,7 @@ include "session.php";
 
       <td width="677">
         <input class="inp" name="Title" id="Title" type="text"
-        size="42" /><br />
+        size="38" /><br />
 
         <div id="markerStatus">
           <label><i>Click and drag the marker.</i></label>
@@ -183,7 +184,7 @@ include "session.php";
       <td width="112"><label>TextHTML</label></td>
 
       <td width="677">
-      <textarea class="inp" name="" rows="8" cols="33" id=
+      <textarea class="inp" name="" rows="8" cols="32" id=
       "TextHTML">
 </textarea><br /></td>
     </tr>
@@ -199,7 +200,7 @@ include "session.php";
       <td width="112"><label>Address</label></td>
 
       <td width="677">
-      <textarea class="inp" rows="2" cols="33" name="Address" id=
+      <textarea class="inp" rows="2" cols="32" name="Address" id=
       "Address" type="text">
 </textarea><br /></td>
     </tr>
@@ -214,28 +215,9 @@ include "session.php";
     </tr>
 
 
-	<form action="upload/upload.php" enctype="multipart/form-data" method="post">
-<table border="0">
-<!-- <tr>
-	<td>Judul</td>
-    <td><input type="text" name="judul" />
-    </td>
-</tr> -->
-<tr>
-	<td>Gambar</td>
-    <td><input type="file" name="Photo" size="40" /></td>
-</tr>
-<tr>
-	<td><input type="submit" name="submit" value="Unggah" /></td>
-    <td></td>
-</tr>
-<!-- <input type="hidden" name="MAX_FILE_SIZE" value="2000000" /> dalam byte {2000000b = 2Mb} -->
-</form>
-
-
   </table>
 
-  </DIV>
+  </div>
 	
 <tr>
 	<tr align="right" bgcolor="#D5EDB3">

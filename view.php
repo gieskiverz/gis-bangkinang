@@ -1,13 +1,13 @@
 <?php
-  include "connect.php";
+	include "connect.php";		
  ?>
+
 <html>
 <head>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=" type="text/javascript"></script>
-<script type="text/javascript">
-
-</script>
+<title>Bangkinang Maps</title>
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=" type="text/javascript"></script>	
+<script type="text/javascript"></script>
 
 <style>
 html, body {
@@ -112,12 +112,11 @@ html, body {
     }
 
     </script>
+
+
   </body>
-
+ 
 </html>
-
-
-
 
 
 
@@ -127,8 +126,10 @@ html, body {
 		<script type="text/javascript" src="sidebar/includes.js"></script>
 		<!-- saved from url=(0014)about:internet -->
 		<!-- script type="text/javascript" src="sidebar/html.js"></script-->
-<!-- <script type="text/javascript" src="./add.js"></script>
- --><script type="text/javascript" src="./icon.js.php"></script>
+<!-- <script type="text/javascript" src="./add.js"></script>-->
+<script type="text/javascript" src="./icon.js.php"></script>
+<script type="text/javascript"></script>
+
   <style>
   /*
   #mapCanvas {
@@ -178,7 +179,7 @@ html, body {
     font-size: 9pt;
     text-align: right;
     background-color: #99ffcc;
-   #border: 2px solid #ffffff; 
+   border: 2px solid #ffffff; 
     color: white;
     padding: 4px;
     font-weight:bold;
@@ -204,6 +205,12 @@ html, body {
 	
   </style>
 
+<!-- YANG INI UNTUK SLIDER DI ATAS Wednesday, June 27, 2012 7:48 PM -->
+<?php
+	include "sliderMenu.php";
+?>
+
+
   <!-- <div id="mapCanvas"></div> -->
   
   <div id="infoPanel">
@@ -217,12 +224,11 @@ html, body {
         <div id="sideBarContentsInner">
           <div id="scrollbar_container">
             <div id="scrollbar_content">
-			
 
-  <DIV ID='Marker'>
-    <DIV ID='Judul'>
+  <div id='Marker'>
+    <div id='Judul'>
    Menu
-    </DIV>
+    </div>
     
   
   <p>
