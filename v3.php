@@ -8,6 +8,9 @@
         rel="stylesheet" type="text/css">
     <script type="text/javascript"
         src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+		<script type="text/javascript" src="labels.js"></script>
+<script type="text/javascript" src="ruler.js"></script>
     <script type="text/javascript">
       function initialize() {
         var myOptions = {
@@ -84,5 +87,7 @@
   </head>
   <body>
     <div id="map_canvas"></div>
+
+	<input type='button' id='addruler' onclick='addruler();' value='Ukur Jalan'/><br>
   </body>
 </html>
