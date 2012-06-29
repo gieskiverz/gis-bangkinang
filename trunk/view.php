@@ -179,11 +179,22 @@ html, body {
     font-size: 9pt;
     text-align: right;
     background-color: #99ffcc;
-   border: 2px solid #ffffff; 
+   /*border: 2px solid #ffffff; 
     color: white;
     padding: 4px;
     font-weight:bold;
   }
+ #menu {
+    /*background:url(../admin/syarif.jpg);*/
+    font-size: 9pt;
+    text-align: left;
+    background-color: #99ffcc;
+   /*border: 2px solid #ffffff; */
+    color: white;
+    padding: 4px;
+    font-weight:bold;
+  }
+
   .inp {
     font-size: 11pt;
     text-align: left;
@@ -233,8 +244,18 @@ html, body {
   
   <p>
   <table>
+
+
    	<div id='login'>
-			<div><a href="login.php"style="text-decoration:none;color:#3b5998;"> Login</font></div>
+			<div><a href="login.php"style="text-decoration:none;color:#3b5998;"> Login</div>
+
+
+	<div id='menu'>
+	
+     <div><a href="ruler.html"style="text-decoration:none;color:#3b5998;">Ukur Jarak<div>
+	 
+
+    </tr>
 
     <tr>
       <td width="112"><label>Search</b></label></td>
@@ -242,6 +263,9 @@ html, body {
       <td width="677"><input class="inp" name="Search" id=
       "Search" type="text" size="20" /><br /></td>
     </tr>
+
+	
+
 
     <tr>
       <td width="112"><label>===========</label></td>
