@@ -1,30 +1,39 @@
 
-{
-	}
+a{
+}
 
-	/*pengaturan Margin 6/15/2012 7:29:57 PM */
+/*pengaturan Margin 6/15/2012 7:29:57 PM */
 	#sideBar{
 		position: absolute;
 		width: auto;
 		height: auto;
 		top: 100px;
 		right:1px;
-		background-image:url(../assets/logout.gif);
+		background-image:url(../assets/menu.gif);
 		background-position:top left;
 		background-repeat:repeat-y;
 	}
 
 
-	#sideBarContents{
-		float:left;
-		overflow:hidden !important;
-		width:auto;
-		height:auto;
-}
-
-	/*pengaturan gambar 6/15/2012 7:30:01 PM */
+/*pengaturan gambar 6/15/2012 7:30:01 PM */
 	#sideBarTab{
 		float:left;
 		height:137px;
 		width:35px;
 	}
+
+
+#sideBarTab img{
+	border:0px solid #FFFFFF;
+}
+
+	#sideBarContents{
+		float:left;
+		overflow:hidden !important;
+		width:450;
+		height:auto;
+}
+
+#sideBarContentsInner{
+	width:200px;
+}
