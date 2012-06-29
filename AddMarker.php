@@ -12,6 +12,8 @@ include "session.php";
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript" src="./add.js"></script>
 <script type="text/javascript" src="./icon.js.php"></script>
+<script type="text/javascript" src="labels.js"></script>
+<script type="text/javascript" src="ruler.js"></script>
 <script type="text/javascript">
 
 </script>
@@ -121,6 +123,7 @@ include "session.php";
     
   
     <table>
+	<input type='button' id='addruler' onclick='addruler();' value='Ukur Jalan'/><br> 6/29/2012 4:04:24 PM
 			<div id='logout'>
 			<div><a href="logout.php"style="text-decoration:none;color:#3b5998;"> Logout</font></div>
 
