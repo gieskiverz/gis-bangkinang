@@ -250,9 +250,9 @@ html, body {
 			<div><a href="login.php"style="text-decoration:none;color:#3b5998;"> Login</div>
 
 
-	<div id='menu'>
+	<!-- <div id='menu'>
 	
-     <div><a href="ruler.html"style="text-decoration:none;color:#3b5998;">Ukur Jarak<div>
+     <div><a href="ruler.html"style="text-decoration:none;color:#3b5998;">Ukur Jarak<div> -->
 	 
 
     </tr>
