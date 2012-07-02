@@ -102,129 +102,161 @@ include "session.php";
 <body onunload="GUnload()">
 
 
-  <div id="mapCanvas"></div>
-  
+   <div id="mapCanvas"></div>
+
   <div id="infoPanel">
-<div id="tempStorage" style="display:none;"></div>
-	<div id="sideBar">
-		<a href="#" id="sideBarTab"><img src="sidebar/assets/spacer.gif" alt="" title=""/></a>
-		<div id="sideBarContents" style="display:none;">
-			<div id="sideBarContentsInner">
-				<div id="scrollbar_container">
-					<div id="scrollbar_content">
- 
+    <div id="tempStorage" style="display:none;"></div>
 
+    <div id="sideBar">
+      <a href="#" id="sideBarTab"><img src=
+      "sidebar/assets/spacer.gif" alt="" title="" /></a>
 
-  <div ID='Marker'>
-    <div ID='Judul'>
-   Add Maker
-    </tr>
-    </div>
-    
-  
-    <table>
-	<input type='button' id='addruler' onclick='addruler();' value='Ukur Jalan'/><br> 6/29/2012 4:04:24 PM
-			<div id='logout'>
-			<div><a href="logout.php"style="text-decoration:none;color:#3b5998;"> Logout</font></div>
+      <div id="sideBarContents" style="display:none;">
+        <div id="sideBarContentsInner">
+          <div id="scrollbar_container">
+            <div id="scrollbar_content">
+              <div id='Marker'>
+                <div id='Judul'>
+                  Add Maker
+                </div><input type='button' id='addruler' onclick=
+                'addruler();' value='Ukur Jalan' /><br />
 
-    <tr>
-      <td width="112"><label>TypeID</label></td>
-      <td width="677"><select name="TypeID" id="TypeID" onchange=
-      "handleMarkerIcon(this)">
-        <?php
-                include "connect.php";
-                $sql = "SELECT * FROM  `type` ";
+                <div id='logout'>
+                  <div>
+                    <a href="logout.php" style=
+                    "text-decoration:none;color:#3b5998;">Logout</a>
+                  </div>
+                </div>
 
-                $qry = mysql_query($sql,$koneksi)
-                          or die ("SQL Error: ".mysql_error());
-                while($data=mysql_fetch_array($qry)) {
-                        
-                        ?>
+                <table>
+                  <!-- 6/29/2012 4:04:24 PM -->
 
-        <option value="<?php echo $data['TypeID'];?>">
-          <?php echo $data['TypeName'];?>
-        </option><?php
-                }
-                ?>
-      </select></td>
-    </tr>
+                  <tr>
+                    <td width="112"><label>TypeID</label></td>
 
-    <tr>
-      <td width="112"><label>Latitude</label></td>
+                    <td width="677"><select name="TypeID" id=
+                    "TypeID" onchange="handleMarkerIcon(this)">
+                      <?php
+                                      include "connect.php";
+                                      $sql = "SELECT * FROM  `type` ";
 
-      <td width="677"><input class="inp" name="Latitude" id=
-      "Latitude" type="text" size="38" /><br /></td>
-    </tr>
+                                      $qry = mysql_query($sql,$koneksi)
+                                                or die ("SQL Error: ".mysql_error());
+                                      while($data=mysql_fetch_array($qry)) {
+                                              
+                                              ?>
 
-    <tr>
-      <td width="112"><label>Longitude</label></td>
+                      <option value=
+                      "<?php echo $data['TypeID'];?>">
+                        <?php echo $data['TypeName'];?>
+                      </option><?php
+                                      }
+                                      ?>
+                    </select></td>
+                  </tr>
 
-      <td width="677"><input class="inp" name="Longitude" id=
-      "Longitude" type="text" size="38" /><br /></td>
-    </tr>
+                  <tr>
+                    <td width="112"><label>Latitude</label></td>
 
-    <tr>
-      <td width="112"><label>ZoomLevel</label></td>
+                    <td width="677"><input class="inp" name=
+                    "Latitude" id="Latitude" type="text" size=
+                    "38" /><br /></td>
+                  </tr>
 
-      <td width="677"><input class="inp" name="ZoomLevel" id=
-      "ZoomLevel" type="text" size="1" /><br /></td>
-    </tr>
+                  <tr>
+                    <td width="112"><label>Longitude</label></td>
 
-    <tr>
-      <td width="112"><label>Title</label></td>
+                    <td width="677"><input class="inp" name=
+                    "Longitude" id="Longitude" type="text" size=
+                    "38" /><br /></td>
+                  </tr>
 
-      <td width="677">
-        <input class="inp" name="Title" id="Title" type="text"
-        size="38" /><br />
+                  <tr>
+                    <td width="112"><label>ZoomLevel</label></td>
 
-        <div id="markerStatus">
-          <label><i>Click and drag the marker.</i></label>
+                    <td width="677"><input class="inp" name=
+                    "ZoomLevel" id="ZoomLevel" type="text" size=
+                    "1" /><br /></td>
+                  </tr>
+
+                  <tr>
+                    <td width="112"><label>Title</label></td>
+
+                    <td width="677">
+                      <input class="inp" name="Title" id="Title"
+                      type="text" size="38" /><br />
+
+                      <div id="markerStatus">
+                        <label><i>Click and drag the
+                        marker.</i></label>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td width="112"><label>TextHTML</label></td>
+
+                    <td width="677">
+                    <textarea class="inp" name="" rows="8" cols=
+                    "32" id="TextHTML">
+</textarea><br /></td>
+                  </tr>
+
+                  <tr>
+                    <td width="112"><label>Photo</label></td>
+
+                    <td width="677"><input class="inp" name="Photo"
+                    id="Photo" type="file" enctype=
+                    "multipart/form-data" /><br /></td>
+                  </tr>
+
+                  <tr>
+                    <td width="112"><label>Address</label></td>
+
+                    <td width="677">
+                    <textarea class="inp" rows="2" cols="32" name=
+                    "Address" id="Address" type="text">
+</textarea><br /></td>
+                  </tr>
+
+                  <tr>
+                    <td colspan="2">
+                      <center>
+                        <font style=
+                        "text-decoration:none;color:#ff0000;" id=
+                        'hasil-ajax'></font>
+                      </center>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td colspan="2">
+                      <center>
+                        <input class="inp" type="button" value=
+                        "Add" onclick="simpanMarker()" />
+                      </center>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+             
+                <tr align="right" bgcolor="#D5EDB3">
+                  <td>
+                    <a href="edit/viewMap.php">
+
+                    <center>
+                      Exit
+                    </center>
+                  </td>
+                </tr>
+             
+            </div>
+          </div>
         </div>
-      </td>
-    </tr>
-
-    <tr>
-      <td width="112"><label>TextHTML</label></td>
-
-      <td width="677">
-      <textarea class="inp" name="" rows="8" cols="32" id=
-      "TextHTML">
-</textarea><br /></td>
-    </tr>
-
-	<tr>
-      <td width="112"><label>Photo</label></td>
-
-      <td width="677"><input class="inp" name="Photo" id=
-      "Photo" type="file" enctype="multipart/form-data"/><br /></td>
-    </tr>
-
-    <tr>
-      <td width="112"><label>Address</label></td>
-
-      <td width="677">
-      <textarea class="inp" rows="2" cols="32" name="Address" id=
-      "Address" type="text">
-</textarea><br /></td>
-    </tr>
-<td colspan="2"><center> <font style="text-decoration:none;color:#ff0000;" id='hasil-ajax'"></font></td>
-    <tr>
-      <td colspan="2">
-        <center>
-          <input class="inp" type="button" value="Add" onclick=
-          "simpanMarker()" />
-        </center>
-      </td>
-    </tr>
-
-
-  </table>
-
+      </div>
+    </div>
   </div>
-	
-<tr>
-	<tr align="right" bgcolor="#D5EDB3">
-		<td><a href="edit/viewMap.php"><center>Exit</td>
-</tr>
 </body>
 </html>
+
