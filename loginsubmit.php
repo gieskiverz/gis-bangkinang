@@ -21,7 +21,7 @@ $db = mysql_connect($server,$username,$password) or DIE("Connection is down ");
 	else
 	{
 	
-	echo "<font face=verdana size=2> <div id='divLoginError'> <center> Maaf Username atau Password anda salah" ;
+	echo "<font face=verdana size=2> <div id='LoginError'> <center> Maaf Username atau Password anda salah" ;
 	include "login.php";
 	//header("Location: index.php");
 	}

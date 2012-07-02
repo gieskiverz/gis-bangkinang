@@ -1,22 +1,23 @@
 <?php session_start();?> 
 <html>
-<HEAD>
-  <TITLE>Login Form</TITLE>
-  <STYLE>
-  BODY {
+<head>
+  <title>Login Form</title>
+  <style type="text/css">
+  body {
     font-family: Verdana, sans-serif;
     font-size: 11pt;
   }
-	/*6/17/2012 12:18:13 PM*/
+        /*6/17/2012 12:18:13 PM*/
   #Login {
-    border: 1px solid silver;
+    /*border: 1px solid silver;*/
     -moz-border-radius: 6px;
     width: 300px;
     margin: 100px auto;
-    padding: 2px;	
+    padding: 2px;       
     text-align: center;
+	 background-color: white;
     /*background:#99ffcc;*/
-	border: 3px solid teal; 
+    border: 3px solid teal; 
     color: white;
     /*background-image: url(./syarif.jpg);*/
   }
@@ -40,56 +41,137 @@
     border: 1px solid silver;-moz-border-radius: 6px;
     padding: 4px;
     font-weight: bold;
-   background-color:#f2f2f2;
+	background-color:#f2f2f2;
   }
-  #divLoginError {
-    border: maroon 4px solid;-moz-border-radius: 6px;
-    width: 400px;
-	color: black;
-    margin: 2px auto;
-    text-align: center;	
-    background-color: #00ff99;
-    padding: 10px;
-	/*background-image: url(logindulu.gif);*/
+  #LoginError {
+	border: 1px solid silver;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 15px;
+	color: white;
+  
   }
   label {
     color: gray;
     font-style: italic;
   }
-	
-  </STYLE>
- 
-  </HEAD>
 
 
-<BODY>
+/*Saturday, June 30, 2012 11:27:14 AM*/
+  body {
+  background-color: #333333;
+  }
+  #page {
+  margin: auto;
+  width: 780px;
+  height: auto;
+   /*background-color: #006633;*/
+  background-image: url(login/page.png);
+  text-align: center;
+  background-repeat: repeat-y;
+  }
+  #header {
+  clear: both;
+  width: 780px;
+  height: 100px;
+  background-image: url(login/header.png);
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #006633;
+  text-align: center;
 
+  }
+  /*#menu {
+  background-image: url(login/menu.png);
+  width: 780px;
+  height: 37px;
+  clear: both;
+  background-repeat: no-repeat;
+  padding-left: 45px;
+  }*/
+  #contentarea {
+  width: 780px;
+  padding-top: 10px;
+  clear: both;
+  }
+  /*#sidebar {
+  float: left;
+  padding-left: 45px;
+  width: 180px;
+  margin-bottom: 10px;
+  }
+  
+  #content {
+  float: right;
+  text-align: justify;
+  width: 500px;
+  padding-right: 45px;
+  }*/
 
-  <DIV ID='Login'>
-    <DIV ID='Judul'>
-   Login
-    </DIV>
-    
-    <form name='frm_login' id='frm_login' action="loginsubmit.php" method="POST" >
-    <p>
-	
-    <label>User Name:</label><br/>
-    <input class="inp" type=text name='Username' size=20 maxlength=20 />
-    </p>
-	
-    <p>
-    <label>Password:</label><br />
-    <input class="inp" type=password name='Password' size=20 maxlength=20 />
-    </p>
+  #footer {
+  clear: both;
+  width: 780px;
+  height: 75px;
+  background-image: url(login/footer.png);
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: x-small;
+  color: white;
+  text-align: center;
+  }
+  /*#sidebar a {
+  }
+  #menu a {
+  font-weight: bold;
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: 14px;
+  color: white;
+  }
+  #menu a:hover {
+  background-image: url(login/hover.png);
+  background-repeat: repeat-x;
+  }*/
 
-    <p>	
-	<input class="btn" type="submit" value="Login" >
-	<a href='view.php'style="text-decoration:none;color:#3b5998;">Back</a>	
-    </p>
-    </form>
-    
-  </DIV>
-	
-</BODY>
-</HTML>
+  </style>
+</head>
 
+<body>
+  <div id="page">
+    <div id="header">
+      <br />
+      <br />
+      SISTEM INFORMASI GEOGRAFIS<br />
+      FASILITAS UMUM KOTA BANGKINANG
+    </div>
+
+    <div id="contentarea">
+      <div id="contentarea">
+        <div id='Login'>
+          <div id='Judul'>
+            Login
+          </div>
+
+          <form name='frm_login' id='frm_login' action=
+          "loginsubmit.php" method="post">
+            <p><label>User Name:</label><br />
+            <input class="inp" type="text" name='Username' size=
+            "20" maxlength="20" /></p>
+
+            <p><label>Password:</label><br />
+            <input class="inp" type="password" name='Password'
+            size="20" maxlength="20" /></p>
+
+            <p><input class="btn" type="submit" value="Login" />
+            <a href='view.php' style=
+            "text-decoration:none;color:#3b5998;">Back</a></p>
+          </form>
+        </div>
+      </div>
+
+      <div id="footer">
+        <br />
+        Copyright @ deyen 2012
+      </div>
+    </div>
+  </div>
+</body>
+</html>

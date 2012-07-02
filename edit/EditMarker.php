@@ -67,30 +67,31 @@ function initialize() {
 google.maps.event.addDomListener(window, 'load', initialize);
 //-->
 </script>
- <style>
- 
- <!-- Style Form Add Marker 
- 6/17/2012 12:18:13 PM -->
+ <style type="text/css">
+/*<![CDATA[*/
+
+  <!-- Style Form Add Marker 
+  6/17/2012 12:18:13 PM -->
 
 
   BODY {
     font-family: Verdana, sans-serif;
     font-size: 11pt;
   }
-	
+        
   #Marker {
     border: 1px solid silver;
     -moz-border-radius: 6px;
     width: 400px;
     margin: auto;
-    padding: 2px;	
+    padding: 2px;       
     text-align: center;
     background:#99ffcc;
-	border: 5px solid teal; 
+        border: 5px solid teal; 
     color: white;
     /*background-image: url(../admin/peta.jpg);*/
   }
-	#logout {
+        #logout {
     /*background:url(../admin/syarif.jpg);*/
     font-size: 11pt;
     text-align: right;
@@ -99,7 +100,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
     color: white;
     padding: 4px;
     font-weight:bold;
-}
+  }
   #Judul {
     /*background:url(../admin/syarif.jpg);*/
     font-size: 11pt;
@@ -123,148 +124,185 @@ google.maps.event.addDomListener(window, 'load', initialize);
    background-color:#f2f2f2;
   }
   label {
-	font-size: 11pt;
+        font-size: 11pt;
     color: #000000;
     font-style: ;
- }
+  }
 
-html, body {
+  html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-}
+  }
 
-#mapCanvas {
+  #mapCanvas {
   height: 100%;
-}
+  }
 
-@media print {
+  @media print {
   html, body {
     height: auto;
- }
+  }
   #mapCanvas {
     height: 650px;
   }
 
- 
-	
-  </STYLE>
- 
+
+        
+  /*]]>*/
+  </style>
+
+  <title></title>
 </head>
+
 <body onunload="GUnload()">
- 
-
-<BODY>
-
   <div id="mapCanvas"></div>
-  
+
   <div id="infoPanel">
+    <div id="tempStorage" style="display:none;"></div>
 
-<div id="tempStorage" style="display:none;"></div>
-	<div id="sideBar">
-		<a href="#" id="sideBarTab"><img src="sidebar/assets/spacer.gif" alt="" title=""/></a>
-		<div id="sideBarContents" style="display:none;">
-			<div id="sideBarContentsInner">
-				<div id="scrollbar_container">
-					<div id="scrollbar_content">
+    <div id="sideBar">
+      <a href="#" id="sideBarTab" name="sideBarTab"><img src=
+      "sidebar/assets/spacer.gif" alt="" title="" /></a>
 
-  <div id='Marker'>
-    <div id='Judul'>
-   Edit Marker
+      <div id="sideBarContents" style="display:none;">
+        <div id="sideBarContentsInner">
+          <div id="scrollbar_container">
+            <div id="scrollbar_content">
+              <div id='Marker'>
+                <div id='Judul'>
+                  Edit Marker
+                </div>
+
+                <div id='logout'>
+                  <div>
+                    <a href="../logout.php" style=
+                    "text-decoration:none;color:#3b5998;">Logout</a>
+                  </div>
+                </div>
+
+                <table>
+                  <tr>
+                    <td width="112"><label>MarkerID</label></td>
+
+                    <td width="677"><input type="hidden" name=
+                    "MarkerID" id="MarkerID" value=
+                    "<? echo $data['MarkerID'];?>" />
+                    <font face="Comic Sans MS" size="2">: 
+                    <? echo $data['MarkerID'];?>
+                    </font></td>
+                  </tr>
+
+                  <tr>
+                    <td width="112"><label>Latitude</label></td>
+
+                    <td width="677"><input class="inp" name=
+                    "Latitude" id="Latitude" type="text" size="40"
+                    value=
+                    "<?= $data ['Latitude'];?>" /><br /></td>
+                  </tr>
+
+                  <tr>
+                    <td width="112"><label>Longitude</label></td>
+
+                    <td width="677"><input class="inp" name=
+                    "Longitude" id="Longitude" type="text" size=
+                    "40" value=
+                    "<?= $data ['Longitude']; ?>" /><br /></td>
+                  </tr>
+
+                  <tr>
+                    <td width="112"><label>ZoomLevel</label></td>
+
+                    <td width="677"><input class="inp" name=
+                    "ZoomLevel" id="ZoomLevel" type="text" size="1"
+                    value=
+                    "<?= $data ['ZoomLevel']; ?>" /><br /></td>
+                  </tr>
+
+                  <tr>
+                    <td width="112"><label>Title</label></td>
+
+                    <td width="677">
+                      <input class="inp" name="Title" id="Title"
+                      type="text" size="40" value=
+                      "<?= $data ['Title']; ?>" /><br />
+
+                      <div id="markerStatus">
+                        <label><i>Click and drag the
+                        marker.</i></label>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td width="112"><label>TextHTML</label></td>
+
+                    <td width="677">
+                    <textarea class="inp" name="" rows="8" cols=
+                    "33" id="TextHTML">
+<?= $data ['TextHTML']; ?>
+</textarea><br /></td>
+                  </tr>
+
+                  <tr>
+                    <td width="112"><label>Address</label></td>
+
+                    <td width="677">
+                    <textarea class="inp" rows="2" cols="33" name=
+                    "Address" id="Address">
+<?= $data ['Address']; ?>
+</textarea><br /></td>
+                  </tr>
+
+                  <tr>
+                    <td width="112"><label>TypeID</label></td>
+
+                    <td width="677"><select name="TypeID" id=
+                    "TypeID" onchange="handleMarkerIcon(this)">
+                      <?php
+                              $sql = "SELECT * FROM  `type` ";
+
+                              $qry = mysql_query($sql,$koneksi)
+                                        or die ("SQL Error: ".mysql_error());
+                              while($data=mysql_fetch_array($qry)) {
+                                      //$no++;
+                                      ?>
+
+                      <option value=
+                      "<?php echo $data['TypeID'];?>">
+                        <?php echo $data['TypeName'];?>
+                      </option><?php
+                              }
+                              ?>
+                    </select></td>
+                  </tr>
+
+                  <tr>
+                    <td colspan="2">
+                      <center>
+                        <input class="inp" type="button" value=
+                        "Simpan" onclick="simpanMarker()" />
+                      </center>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+                <tr align="right" bgcolor="#D5EDB3">
+                  <td>
+                    <a href="viewMap.php">
+                    <center>
+                      Exit
+                    </center>
+                  </td>
+                </tr>
+           
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    
-  
- 
-  <table>
-
-  	<div id='logout'>
-			<div><a href="../logout.php"style="text-decoration:none;color:#3b5998;"> Logout</font></div>
-		<tr>
-			<td width="112"><label>MarkerID</label>
-			<td width="677">
-			<input type="hidden" name="MarkerID" id="MarkerID" value="<? echo $data['MarkerID'];?>"/>
-			<font face="Comic Sans MS" size="2">: <? echo $data['MarkerID'];?></font>
-			</td>
-		</tr>
-</tr>
-	
-<tr>
-			<td width="112"><label>Latitude </label></td>
-			<td width="677">
-		<input class="inp" name="Latitude" id="Latitude" type=text size=40 value="<?= $data ['Latitude']; ?>"><br/>
-			
-</tr>
- 
-<tr>
-			<td width="112"><label>Longitude </label></td>
-			<td width="677">
-		<input class="inp" name="Longitude" id="Longitude" type=text size=40 value="<?= $data ['Longitude']; ?>"><br/>
-			
-</tr>
-
-
-<tr>
-			<td width="112"><label>ZoomLevel </label></td>
-			<td width="677">
-		<input class="inp" name="ZoomLevel" id="ZoomLevel" type=text size=1 value="<?= $data ['ZoomLevel']; ?>"><br/>
-			
-			
-</tr>
-
-<tr>
-		
-			<td width="112"><label>Title </label></td>
-			<td width="677">
-			<input class="inp" name="Title" id="Title" type=text size=40 value="<?= $data ['Title']; ?>"><br/>
-			<div id="markerStatus"> <label><i>Click and drag the marker.</i></div>
-			
-</tr>
-
-
-<tr>
-			<td width="112"><label>TextHTML </label></td>
-			<td width="677">
-			<textarea class="inp" name="" rows=8 cols=33 id="TextHTML"><?= $data ['TextHTML']; ?></textarea ><br/>
-			
-</tr>
-
-
-<tr>
-			<td width="112"><label>Address </label></td>
-			<td width="677">
-		    <textarea class="inp"  rows=2 cols=33 name="Address" id="Address"><?= $data ['Address']; ?></textarea><br/>
-		
-</tr>
-
-<tr>
-			<td width="112"><label>TypeID </label></td>
-			<td width="677">
-			<select name="TypeID" id="TypeID" onchange="handleMarkerIcon(this)">
-	<?php
-	$sql = "SELECT * FROM  `type` ";
-
-	$qry = mysql_query($sql,$koneksi)
-		  or die ("SQL Error: ".mysql_error());
-	while($data=mysql_fetch_array($qry)) {
-		//$no++;
-		?>
-		<option value="<?php echo $data['TypeID'];?>"><?php echo $data['TypeName'];?></option>
-		
-	<?php
-	}
-	?>
-	</select>
-
-<tr>
-		<td colspan="2"><center> <input class="inp" type="button"  value="Simpan" onclick="simpanMarker()"></td>
-
-</table>
-
-  </DIV>
-	
-<tr>
-	<tr align="right" bgcolor="#D5EDB3">
-		<td><a href="viewMap.php"><center>Exit</td>
-</tr>
+  </div>
 </body>
 </html>
