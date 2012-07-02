@@ -270,7 +270,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
                                       ?>
 
                       <option value=
-                      "<?php echo $data['TypeID'];?>">
+                      "<?php echo $data['TypeID'];?>"
                         <?php echo $data['TypeName'];?>
                       </option><?php
                               }
