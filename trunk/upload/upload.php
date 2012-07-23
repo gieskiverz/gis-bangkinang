@@ -7,11 +7,11 @@ if( isset($_REQUEST['submit']) ){
 	//$title = $_REQUEST['judul'] ? htmlspecialchars($_REQUEST['judul']) : 'blun ada judul'; //ternary operator
 
 	$dir_gambar = 'C:\xampp\htdocs\gis-bangkinang\upload\gambar\\';	
-	$Photo = basename($_FILES['Photo']['name']);
-	$uploadfile = $dir_gambar . $Photo;
+	$gambar = basename($_FILES['gambar']['name']);
+	$uploadfile = $dir_gambar . $gambar;
 	
-	if (move_uploaded_file($_FILES['Photo']['tmp_name'], $uploadfile)) {
-		$query = "INSERT INTO marker set Photo='$Photo'";
+	if (move_uploaded_file($_FILES['gambar']['tmp_name'], $uploadfile)) {
+		$query = "INSERT INTO gambar set gambar='$gambar'";
 		$query = mysql_query($query);
 		if(!$query){
 			die( mysql_error() );
@@ -23,7 +23,7 @@ if( isset($_REQUEST['submit']) ){
 	}
 }
 //else{
-	//echo "Anda kesasaar? kembali ke <a href='index.php'>jalan yang benar</a>";
+	//echo "Anda kesasaar? kembali ke <a href='index.php'>jalan yang benar</a>";7/17/2012
 //}
 ?>
 

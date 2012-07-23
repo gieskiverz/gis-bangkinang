@@ -1,8 +1,8 @@
 <?
 session_start();
-if(!isset($_SESSION['Username']))
+if(!isset($_SESSION['UserName']))
 {
-echo " <div id='LoginError'> <center>Anda harus Login dulu";
+echo "<font face=verdana size=2 color=red> <blink><center><b> Anda harus login dulu </b></center></blink> "  ;
 include "login.php";
 exit;
 }

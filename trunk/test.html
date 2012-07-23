@@ -1,0 +1,50 @@
+<h3 class='dock'>Tambah Data $kategori[nama_kategori]</h3>
+<form
+method='POST' id='adduser' action='action.php?modul=profil&action=edit'>
+<p>
+<label>Kategori</label>
+<select
+name='kategori' class='form_field'>
+<option value='$data[kategori]' selected> $data[kategori] </option>
+<option value='home'> Home </option>
+<option value='sitemap'>Site Map</option>
+<option value='about'>Tentang Kami</option>
+<option value='ketentuan'>Ketentuan Penggunaan</option>
+<option value='profil'>Profil</option>
+</select>
+Modul 5.20 Form Tambah Data Profil
+105
+</p>
+<p>
+<label>Judul</label><input type='text' class='form_field' name='judul'
+size='30' />
+</p>
+<p>
+<textarea
+class='ckeditor' name='isi_ina' cols=40 rows=18></textarea>
+</p>
+<p>
+<label>Title</label><input type='text' class='form_field' name='title'
+size='30' />
+</p>
+<p>
+<textarea
+class='ckeditor' name='isi_en' cols=40 rows=18></textarea>
+</p>
+<p>
+<label>Status</label>
+</p>
+<p>
+<select
+name='publish' class='form_field'>
+<option value=1 selected> Pakai </option>
+<option value=0> Sembunyikan </option>
+</select>
+</p>
+<p>
+<input
+type='reset' value='Reset' id='submit' />
+<input
+type='submit' value='Save' id='submit' />
+</p>
+</form>

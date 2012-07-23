@@ -1,171 +1,74 @@
-<?php session_start();?> 
 <html>
-<head>
-  <title>Login Form</title>
-  <style type="text/css">
-  body {
-    font-family: Verdana, sans-serif;
-    font-size: 11pt;
-  }
-        /*6/17/2012 12:18:13 PM*/
-  #Login {
-    border: 1px solid silver;
-    -moz-border-radius: 6px;
-    width: 300px;
-    margin: 100px auto;
-    padding: 2px;       
-    text-align: center;
-    /*background:#99ffcc;*/
-    border: 3px solid teal; 
-    color: white;
-    /*background-image: url(./syarif.jpg);*/
-  }
-  #Judul {
-    /*background:url(../admin/syarif.jpg);*/
-    font-size: 1.1em;
-    text-align: center;
-    background-color: #006633;
-    border: 2px solid #ffffff; 
-    color: white;
-    padding: 4px;
-    font-weight:bold;
-  }
-  .inp {
-    font-size: 1.1em;
-    text-align: center;
-    border: 1px solid silver;-moz-border-radius: 6px;
-    padding: 2px;
-  }
-  .btn{
-    border: 1px solid silver;-moz-border-radius: 6px;
-    padding: 4px;
-    font-weight: bold;
-   background-color:#f2f2f2;
- }
-  #LoginError {
-	border: 1px solid silver;
-	font-family: Arial,Helvetica,sans-serif;
-	font-size: 15px;
-	color: white;
-  
-  }
-  label {
-    color: gray;
-    font-style: italic;
-  }
-
-
-/*Saturday, June 30, 2012 11:27:14 AM*/
-  body {
-  background-color: #333333;
-  }
-  #page {
-  margin: auto;
-  width: 780px;
-  background-image: url(../login/page.png);
-  text-align: left;
-  background-repeat: repeat-y;
-  }
-  #header {
-  clear: both;
-  width: 780px;
-  height: 100px;
-  background-image: url(../login/header.png);
-  font-family: Arial,Helvetica,sans-serif;
-  font-size: 16px;
-  font-weight: bold;
-  color: #006633;
-  text-align: center;
-
-  }
-  /*#menu {
-  background-image: url(login/menu.png);
-  width: 780px;
-  height: 37px;
-  clear: both;
-  background-repeat: no-repeat;
-  padding-left: 45px;
-  }*/
-  #contentarea {
-  width: 780px;
-  padding-top: 10px;
-  clear: both;
-  }
-  /*#sidebar {
-  float: left;
-  padding-left: 45px;
-  width: 180px;
-  margin-bottom: 10px;
-  }
-  
-  #content {
-  float: right;
-  text-align: justify;
-  width: 500px;
-  padding-right: 45px;
-  }*/
-
-  #footer {
-  clear: both;
-  width: 780px;
-  height: 75px;
-  background-image: url(../login/footer.png);
-  font-family: Arial,Helvetica,sans-serif;
-  font-size: x-small;
-  color: white;
-  text-align: center;
-  }
-  /*#sidebar a {
-  }
-  #menu a {
-  font-weight: bold;
-  font-family: Arial,Helvetica,sans-serif;
-  font-size: 14px;
-  color: white;
-  }
-  #menu a:hover {
-  background-image: url(login/hover.png);
-  background-repeat: repeat-x;
-  }*/
-
+	<head>
+		<title>jejaring sosial - Welcome to jejaring sosial Community</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link href="../css/login.css" type="text/css" rel="stylesheet" />
+		
+	</head>
+	<style>
+	
   </style>
-</head>
-
-<body>
-  <div id="page">
-    <div id="header"><br/><br/>
-	  SISTEM INFORMASI GEOGRAFIS <br/> FASILITAS UMUM KOTA BANGKINANG
-	 </div>
-
-    <div id="contentarea">
-	<div id="contentarea">
-        <div id='Login'>
-          <div id='Judul'>
-            Login
-          </div>
-
-          <form name='frm_login' id='frm_login' action=
-          "../loginsubmit.php" method="post">
-            <p><label>User Name:</label><br />
-            <input class="inp" type="text" name='Username' size=
-            "20" maxlength="20" /></p>
-
-            <p><label>Password:</label><br />
-            <input class="inp" type="password" name='Password'
-            size="20" maxlength="20" /></p>
-
-            <p><input class="btn" type="submit" value="Login" />
-            <a href='../view.php' style=
-            "text-decoration:none;color:#3b5998;">Back</a></p>
-          </form>
-        
-      </div>
+	<body>
+	<!-- background -->
+		<div id="home-header">            
+           <div style ="margin-left: auto; margin-right: auto;  height: 70px;">
+		   
+                <div align="left" style="margin-left: auto; margin-right: auto;  margin-top: 6px; width: 980px; color: #FFAA22;">
+				
+                                         <a href="http://bangkinang-maps.co.cc"  title="GIS"> 
+										 <div id='font'>Sign In GIS Bangkinang </div></a>
+										  <div id='error'></div>
+						<!-- logo -->
+                        <!-- <img src="login/logo.png" alt="jejaring sosial" style="float: left; border: 0px;"  /> -->
+                   
+                                        <div id="header_login" style="float: right; width: 350px; ">
+      
+                        
+                    </div>
+                </div>
+            </div>
+			<div class="homepage_maindiv">
+    <div align="left" class="homepage_innerdiv">
+        <div class="intro-text">
+            <h1 style="text-shadow: white 0 em 0 em 0 em; "><center>Geographic Information System</center> </h1>
+			<br>Google Maps adalah sebuah jasa peta globe virtual gratis dan online disediakan oleh Google dapat ditemukan di 
+			<a href="http://maps.google.com" target="_blank">http://maps.google.com </a>. 
+			Google menawarkan peta yang dapat diseret dan gambar satelit untuk seluruh dunia dan baru-baru ini, Bulan, dan juga menawarkan perencana rute dan pencari letak bisnis di U.S., Kanada, Jepang, Hong Kong, Cina, UK, Irlandia (hanya pusat kota) dan beberapa bagian Eropa <a href="http://maps.google.com" target="_blank">(http://id.wikipedia.org/wiki/Google_Maps) </a>.      </div>
+        <div id="registration" style="">
+            <form method="post" action="../loginsubmit.php">
+                <div style="margin: 0px 0px 5px 5px;">Sign account</div>
+                                <input id="Username" placeholder="Username:" name="Username" size="20"  type="text" />
+								<input id="Password" placeholder="Password:" name="Password" size="20"  type="password" />
+                                <br><br><br>
+                <input class="homepage_signup" style="border: 0px; width: 256px; height: 33px; border: 1px solid #FFAA22;" type="submit" value="Sign In">
+            </form>
+                    </div>
+      
     </div>
+</div>
 
-    <div id="footer">
-      <br />
-      Copyright @ deyen 2012
-    </div>
-  </div>
-</body>
+</div>
+
+<div class="golden_line"></div>
+                <div align="left" style="margin-left: auto; margin-right: auto; width: 980px; background-image: none;">
+						
+			<div id="subfooter">
+				<div id="sfleft">
+					<b><a href="http://bangkinag-maps.co.cc">Sistem Informasi Geografis Fasilitas Umum Kota Bangkinang</a></b>
+					
+					
+									</div>
+				<div id="sfright">
+					<span style="color:#888;">
+					
+														Powered by <a href="http://syarif25.tk" target="_blank"> <!-- &middot; --> deyen 2012</a>
+													<!-- "Powered by Sharetronix" backlink END -->
+							
+					</span> 
+				</div>
+			</div>
+		</div>
+		
+				
+	</body>
 </html>

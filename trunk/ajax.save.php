@@ -11,12 +11,13 @@ $result = move_uploaded_file($Photo,$file_Path);*/
 
 //move_uploaded_file($tmp_name, "$uploads_dir/$name");
 
-$dir_gambar = 'C:\xampp\htdocs\gis-bangkinang\upload\\';
+/*$dir_gambar = 'C:\xampp\htdocs\gis-bangkinang\upload\\';
 $Photo = basename($_FILES['Photo']['name']);
 $uploadfile = $dir_gambar . $Photo;
 move_uploaded_file($_FILES['Photo']['tmp_name'], $uploadfile);
 $Photo = $_FILES["Photo"];
-echo '<!--'; var_dump($_FILES); echo '-->';
+echo '<!--'; var_dump($_FILES); echo '-->';*/
+
 $Latitude = $_POST["Latitude"];
 $Longitude = $_POST["Longitude"];
 $ZoomLevel = $_POST["ZoomLevel"];
@@ -62,10 +63,9 @@ $sql="INSERT INTO marker SET
 		ZoomLevel='$ZoomLevel',
 		Title='$Title',
 		TextHTML='$TextHTML',
-		Photo='$Photo',
 		Address='$Address',
 		TypeID='$TypeID',
-		MarkerDate=NOW()";
+		MarkerRegistered=NOW()";
 mysql_query($sql,$koneksi)
 	or die ("SQL Error:".mysql_error());
 

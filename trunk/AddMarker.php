@@ -12,8 +12,6 @@ include "session.php";
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript" src="./add.js"></script>
 <script type="text/javascript" src="./icon.js.php"></script>
-<script type="text/javascript" src="labels.js"></script>
-<script type="text/javascript" src="ruler.js"></script>
 <script type="text/javascript">
 
 </script>
@@ -30,10 +28,10 @@ include "session.php";
   #Marker {
     border: 1px solid silver;
     -moz-border-radius: 6px;
-    width: 400px;
+    width: auto;
     margin: auto;
     padding: 2px;	
-    text-align: center;
+    text-align: left;
     background:#99ffcc;
 	border: 5px solid teal; 
     color: white;
@@ -42,10 +40,10 @@ include "session.php";
 
 #logout {
     /*background:url(../admin/syarif.jpg);*/
-    font-size: 11pt;
+    font-size: 9pt;
     text-align: right;
     background-color: #99ffcc;
-   #border: 2px solid #ffffff; 
+   /*border: 2px solid #ffffff;*/
     color: white;
     padding: 4px;
     font-weight:bold;
@@ -118,8 +116,7 @@ include "session.php";
               <div id='Marker'>
                 <div id='Judul'>
                   Add Maker
-                </div><input type='button' id='addruler' onclick=
-                'addruler();' value='Ukur Jalan' /><br />
+                </div>
 
                 <div id='logout'>
                   <div>
@@ -128,121 +125,59 @@ include "session.php";
                   </div>
                 </div>
 
-                <table>
-                  <!-- 6/29/2012 4:04:24 PM -->
+                 <select name="TypeID" id="TypeID" title="Type" onchange=
+  "handleMarkerIcon(this)">
+    <?php
+                                          include "connect.php";
+                                          $sql = "SELECT * FROM  `type` ";
 
-                  <tr>
-                    <td width="112"><label>TypeID</label></td>
+                                          $qry = mysql_query($sql,$koneksi)
+                                                    or die ("SQL Error: ".mysql_error());
+                                          while($data=mysql_fetch_array($qry)) {
+                                                  
+                                                  ?>
 
-                    <td width="677"><select name="TypeID" id=
-                    "TypeID" onchange="handleMarkerIcon(this)">
-                      <?php
-                                      include "connect.php";
-                                      $sql = "SELECT * FROM  `type` ";
+    <option value="<?php echo $data['TypeID'];?>">
+      <?php echo $data['TypeName'];?>
+    </option><?php
+                                          }
+                                          ?>
+  </select>
+	<br />
+	<br >
+    <input class="inp" placeholder="Latitude" name="Latitude" id=
+    "Latitude" type="text" size="38"  title="Latitude"/><br />
+    <br />
+    <input class="inp" placeholder="Longitude" name="Longitude" id=
+    "Longitude" type="text" size="38"  title="Longitude"/><br />
+    <br />
+    <input class="inp" placeholder="ZoomLevel" name="ZoomLevel" id=
+    "ZoomLevel" type="text" size="38"  title="ZoomLevel"/><br />
+    <br />
+    <input class="inp" placeholder="Title" name="Title" id="Title"
+    type="text" size="38"  title="Title"/><br />
+  
 
-                                      $qry = mysql_query($sql,$koneksi)
-                                                or die ("SQL Error: ".mysql_error());
-                                      while($data=mysql_fetch_array($qry)) {
-                                              
-                                              ?>
+  <div id="markerStatus">
+    <label><i>Click and drag the marker.</i></label>
+  </div><br />
+  <textarea class="inp" placeholder="Info" name="" rows="6" cols=
+  "32" id="TextHTML" title="Info">
+</textarea><br />
+  <br />
+  <textarea class="inp" placeholder="Address" rows="2" cols="32"
+  name="Address" id="Address" type="text" title="Address">
+</textarea><br />
+  <font style="text-decoration:none;color:#ff0000;" id=
+  'hasil-ajax'></font><br />
 
-                      <option value=
-                      "<?php echo $data['TypeID'];?>">
-                        <?php echo $data['TypeName'];?>
-                      </option><?php
-                                      }
-                                      ?>
-                    </select></td>
-                  </tr>
-
-                  <tr>
-                    <td width="112"><label>Latitude</label></td>
-
-                    <td width="677"><input class="inp" name=
-                    "Latitude" id="Latitude" type="text" size=
-                    "38" /><br /></td>
-                  </tr>
-
-                  <tr>
-                    <td width="112"><label>Longitude</label></td>
-
-                    <td width="677"><input class="inp" name=
-                    "Longitude" id="Longitude" type="text" size=
-                    "38" /><br /></td>
-                  </tr>
-
-                  <tr>
-                    <td width="112"><label>ZoomLevel</label></td>
-
-                    <td width="677"><input class="inp" name=
-                    "ZoomLevel" id="ZoomLevel" type="text" size=
-                    "1" /><br /></td>
-                  </tr>
-
-                  <tr>
-                    <td width="112"><label>Title</label></td>
-
-                    <td width="677">
-                      <input class="inp" name="Title" id="Title"
-                      type="text" size="38" /><br />
-
-                      <div id="markerStatus">
-                        <label><i>Click and drag the
-                        marker.</i></label>
-                      </div>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td width="112"><label>TextHTML</label></td>
-
-                    <td width="677">
-                    <textarea class="inp" name="" rows="8" cols=
-                    "32" id="TextHTML">
-</textarea><br /></td>
-                  </tr>
-
-                  <tr>
-                    <td width="112"><label>Photo</label></td>
-
-                    <td width="677"><input class="inp" name="Photo"
-                    id="Photo" type="file" enctype=
-                    "multipart/form-data" /><br /></td>
-                  </tr>
-
-                  <tr>
-                    <td width="112"><label>Address</label></td>
-
-                    <td width="677">
-                    <textarea class="inp" rows="2" cols="32" name=
-                    "Address" id="Address" type="text">
-</textarea><br /></td>
-                  </tr>
-
-                  <tr>
-                    <td colspan="2">
-                      <center>
-                        <font style=
-                        "text-decoration:none;color:#ff0000;" id=
-                        'hasil-ajax'></font>
-                      </center>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td colspan="2">
-                      <center>
-                        <input class="inp" type="button" value=
-                        "Add" onclick="simpanMarker()" />
-                      </center>
-                    </td>
-                  </tr>
-                </table>
+  
+    <center><input class="inp" type="button" value="Add" onclick=
+    "simpanMarker()" />  </center>
               </div>
 
              
-                <tr align="right" bgcolor="#D5EDB3">
-                  <td>
+                
                     <a href="edit/viewMap.php">
 
                     <center>
