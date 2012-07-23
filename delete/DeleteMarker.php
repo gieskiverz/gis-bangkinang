@@ -8,5 +8,5 @@ $Delete = (int) $_GET['MarkerID'];
  $sql = "Delete from marker where MarkerID ='$Delete'"; 
  $qry = mysql_query($sql, $koneksi) 
 	or die ("SQL Error : ".mysql_error());
-include "../edit/viewMap.php";
+	header("location: ../edit/viewMap.php");
 ?>

@@ -1,0 +1,49 @@
+ <select name="TypeID" id="TypeID" title="Type" onchange=
+  "handleMarkerIcon(this)">
+    <?php
+                                          include "connect.php";
+                                          $sql = "SELECT * FROM  `type` ";
+
+                                          $qry = mysql_query($sql,$koneksi)
+                                                    or die ("SQL Error: ".mysql_error());
+                                          while($data=mysql_fetch_array($qry)) {
+                                                  
+                                                  ?>
+
+    <option value="<?php echo $data['TypeID'];?>">
+      <?php echo $data['TypeName'];?>
+    </option><?php
+                                          }
+                                          ?>
+  </select><br />
+
+  
+    <input class="inp" placeholder="Latitude" name="Latitude" id=
+    "Latitude" type="text" size="38"  title="Latitude"/><br />
+    <br />
+    <input class="inp" placeholder="Longitude" name="Longitude" id=
+    "Longitude" type="text" size="38" title="Longitude" /><br />
+    <br />
+    <input class="inp" placeholder="ZoomLevel" name="ZoomLevel" id=
+    "ZoomLevel" type="text" size="38" /><br />
+    <br />
+    <input class="inp" placeholder="Title" name="Title" id="Title"
+    type="text" size="38" /><br />
+  
+
+  <div id="markerStatus">
+    <label><i>Click and drag the marker.</i></label>
+  </div><br />
+  <textarea class="inp" placeholder="Info" name="" rows="8" cols=
+  "32" id="TextHTML">
+</textarea><br />
+  <br />
+  <textarea class="inp" placeholder="Address" rows="2" cols="32"
+  name="Address" id="Address" type="text">
+</textarea><br />
+  <font style="text-decoration:none;color:#ff0000;" id=
+  'hasil-ajax'></font><br />
+
+  
+    <input class="inp" type="button" value="Add" onclick=
+    "simpanMarker()" />

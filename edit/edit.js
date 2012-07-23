@@ -81,9 +81,9 @@ function simpanMarker(){
       obj.onreadystatechange = processChange;
       obj.open("POST", url, true);
       //Send the proper header information along with the request
-      obj.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-      obj.setRequestHeader("Content-length", params.length);
-      obj.setRequestHeader("Connection", "close");
+      //obj.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      //obj.setRequestHeader("Content-length", params.length);
+      //obj.setRequestHeader("Connection", "close");
       obj.send(params);
       obj.send();
     }
@@ -103,7 +103,7 @@ function processChange() {
             // process whatever has been sent back here:
         // anything else means a problem
           alert("Marker berhasil di Edit");
-          alert(obj);
+          //alert(obj);
         } else {
             alert("There was a problem in the returned data:\n");
         }

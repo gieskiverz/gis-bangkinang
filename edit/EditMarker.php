@@ -1,5 +1,5 @@
 <?php
-include "session.php";	
+include "../session.php";	
 include "../connect.php";
 
 # baca variabel URL (if register global on)
@@ -82,13 +82,13 @@ google.maps.event.addDomListener(window, 'load', initialize);
   #Marker {
     border: 1px solid silver;
     -moz-border-radius: 6px;
-    width: 400px;
+    width: auto;
     margin: auto;
     padding: 2px;       
-    text-align: center;
+    text-align: left;
     background:#99ffcc;
         border: 5px solid teal; 
-    color: white;
+    color: #000000;
     /*background-image: url(../admin/peta.jpg);*/
   }
         #logout {
@@ -181,122 +181,107 @@ google.maps.event.addDomListener(window, 'load', initialize);
                   </div>
                 </div>
 
-                <table>
-                  <tr>
-                    <td width="112"><label>MarkerID</label></td>
-
-                    <td width="677"><input type="hidden" name=
-                    "MarkerID" id="MarkerID" value=
-                    "<? echo $data['MarkerID'];?>" />
-                    <font face="Comic Sans MS" size="2">: 
-                    <? echo $data['MarkerID'];?>
-                    </font></td>
-                  </tr>
-
-                  <tr>
-                    <td width="112"><label>Latitude</label></td>
-
-                    <td width="677"><input class="inp" name=
-                    "Latitude" id="Latitude" type="text" size="40"
+              
+      
+      
+                   <input class="inp" placeholder="Latitude" title="Latitude" name=
+                    "Latitude" id="Latitude" type="text" size="38"
                     value=
-                    "<?= $data ['Latitude'];?>" /><br /></td>
-                  </tr>
+                    "<?= $data ['Latitude'];?>" /><br />
+                  
 
-                  <tr>
-                    <td width="112"><label>Longitude</label></td>
-
-                    <td width="677"><input class="inp" name=
+                 
+               
+					<br>
+                   <input class="inp" placeholder="Longitude" title="Longitude" name=
                     "Longitude" id="Longitude" type="text" size=
-                    "40" value=
-                    "<?= $data ['Longitude']; ?>" /><br /></td>
-                  </tr>
+                    "38" value=
+                    "<?= $data ['Longitude']; ?>" /><br />
+                  
 
-                  <tr>
-                    <td width="112"><label>ZoomLevel</label></td>
-
-                    <td width="677"><input class="inp" name=
-                    "ZoomLevel" id="ZoomLevel" type="text" size="1"
+                 
+               
+					<br>
+                   <input class="inp" placeholder="ZooMLevel" title="ZoomLevel" name=
+                    "ZoomLevel" id="ZoomLevel" type="text" size="38"
                     value=
-                    "<?= $data ['ZoomLevel']; ?>" /><br /></td>
-                  </tr>
+                    "<?= $data ['ZoomLevel']; ?>" /><br />
+                  
 
-                  <tr>
-                    <td width="112"><label>Title</label></td>
+                 
+                
 
-                    <td width="677">
-                      <input class="inp" name="Title" id="Title"
-                      type="text" size="40" value=
+						<br>
+                      <input class="inp"placeholder="Title" title="Title" name="Title" id="Title"
+                      type="text" size="38" value=
                       "<?= $data ['Title']; ?>" /><br />
 
-                      <div id="markerStatus">
-                        <label><i>Click and drag the
-                        marker.</i></label>
-                      </div>
-                    </td>
-                  </tr>
+                   
+                  
 
-                  <tr>
-                    <td width="112"><label>TextHTML</label></td>
-
-                    <td width="677">
-                    <textarea class="inp" name="" rows="8" cols=
+                 
+                <br>
+                   
+                    <textarea class="inp" placeholder="Info" title="Info" name="" rows="6" cols=
                     "33" id="TextHTML">
 <?= $data ['TextHTML']; ?>
-</textarea><br /></td>
-                  </tr>
+</textarea><br />
+                  
 
-                  <tr>
-                    <td width="112"><label>Address</label></td>
-
-                    <td width="677">
-                    <textarea class="inp" rows="2" cols="33" name=
+                 
+               
+                   <br>
+                    <textarea class="inp" placeholder="Address" title="Address" rows="2" cols="33" name=
                     "Address" id="Address">
 <?= $data ['Address']; ?>
-</textarea><br /></td>
-                  </tr>
+</textarea>
+                  
 
-                  <tr>
-                    <td width="112"><label>TypeID</label></td>
-
-                    <td width="677"><select name="TypeID" id=
+                 
+          
+					<br>
+					<br>
+                   <select name="TypeID" title="Type" id=
                     "TypeID" onchange="handleMarkerIcon(this)">
                       <?php
-                              $sql = "SELECT * FROM  `type` ";
+                                      include "connect.php";
+                                      $sql = "SELECT * FROM  `type` ";
 
-                              $qry = mysql_query($sql,$koneksi)
-                                        or die ("SQL Error: ".mysql_error());
-                              while($data=mysql_fetch_array($qry)) {
-                                      //$no++;
-                                      ?>
+                                      $qry = mysql_query($sql,$koneksi)
+                                                or die ("SQL Error: ".mysql_error());
+                                      while($data=mysql_fetch_array($qry)) {
+                                              
+                                              ?>
 
                       <option value=
-                      "<?php echo $data['TypeID'];?>"
+                      "<?php echo $data['TypeID'];?>">
                         <?php echo $data['TypeName'];?>
                       </option><?php
-                              }
-                              ?>
-                    </select></td>
-                  </tr>
+                                      }
+                                      ?>
+                    </select>
+                  
 
-                  <tr>
-                    <td colspan="2">
-                      <center>
+                 
+                  
+                    <br>
+					<br>
+					<center>
                         <input class="inp" type="button" value=
                         "Simpan" onclick="simpanMarker()" />
-                      </center>
-                    </td>
-                  </tr>
-                </table>
+                    </center>
+                    
+                  
+               
               </div>
 
-                <tr align="right" bgcolor="#D5EDB3">
-                  <td>
+               <center>
                     <a href="viewMap.php">
-                    <center>
+                  
                       Exit
-                    </center>
-                  </td>
-                </tr>
+               </center>
+                  
+                
            
             </div>
           </div>

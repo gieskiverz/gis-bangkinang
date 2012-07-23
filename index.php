@@ -1,3 +1,3 @@
 <?php
-include'view.php';
+include'home.php';
 ?>

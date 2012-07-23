@@ -1,0 +1,140 @@
+/*login ==Saturday, July 14, 2012 2:24:43 PM ==*/ 
+body{
+	margin: 0px;
+	padding:0px;
+	color: #000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	text-decoration: none;
+	background-color: #ececec;
+	text-align:center;
+	position:relative;
+}
+html, body {
+	height:100%;
+}
+/*font line footer*/
+A {
+	color:#1975e1;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	text-decoration: none;
+}
+/* end font line footer*/
+
+form {
+	margin:0px;
+	padding:0px;
+}
+
+div {
+  display: inline-block;
+}
+div {
+  display: block;
+  overflow: hidden;
+  width: auto;
+}
+
+
+/* header */
+
+#font {
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  }
+.homepage_maindiv{
+    margin-left: auto;
+    margin-right: auto;
+    height: 400px;  
+}
+#home-header {
+	width:auto;
+	height: auto;
+	background: url('imgs/worldmap.jpg') no-repeat center top #000;
+}
+.intro-text {float: left; width:540px; padding: 20px; text-align: justify; 
+background: url('imgs/transparent-bkg-black.png') repeat; border-radius:15px;}
+
+#registration {float: right; width: 280px; padding:20px; 
+background: url('imgs/transparent-bkg-black.png') repeat; border-radius:15px;}
+
+
+.homepage_innerdiv{
+    margin-top: 80px;
+    color: #f3f3f3;
+    margin-left: auto;
+    margin-right: auto;
+    width: 980px;
+}
+
+/*sign in*/
+#registration input{
+    width:130px;
+    border:1px solid #2d495f;
+    border-radius:5px;
+    padding:3px;
+    margin: 5px 5px 5px 5px;
+    margin-top:10px;
+    background-color: #efefef;
+    font-size: 12px;
+    color: #9b9b9b;
+}
+
+
+#registration input {
+    width: 250px;
+    margin-top: 0px;
+    height: 35px;
+}
+
+.homepage_signup {
+    background: url("imgs/bg-btn-signup.png") ; 
+    cursor: pointer;
+    font: bold 16px Helvetica Neue,Arial,Sans-serif;   
+}
+
+/* end header */
+
+
+
+
+/* footer */
+
+#footer .linkcol .ftrlink a {
+	font-weight:normal;
+}
+#subfooter {
+	background-color:#ECECEC;
+	padding:20px;
+	padding-top:10px;
+	color:#666;
+	font-size:11px;
+}
+#subfooter a {
+	color:#222;
+	font-size:11px;
+}
+#subfooter a:hover {
+	color:#222;
+	text-decoration:underline;
+}
+#sfleft {
+	float:left;
+}
+#sfright {
+	float:right;
+}
+
+
+.golden_line{
+    margin-left: auto;
+    margin-right: auto;
+    height: 16px;
+    background-repeat: repeat-x;
+    background-image:  url('imgs/goldline.png');
+}
+
+/* end footer */
