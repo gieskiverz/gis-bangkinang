@@ -1,118 +1,79 @@
 <?php
-	
+		
 include "connect.php";
 
 # baca variabel URL (if register global on)
 $edit = (int) $_GET['MarkerID'];
 
- # Penyimpanan
- $sql = "select * from marker where MarkerID ='$edit'"; 
- $qry = mysql_query($sql, $koneksi) 
-	or die ("SQL Error : ".mysql_error());
-$data=mysql_fetch_array($qry);
+
 ?>
+
 <html>
 <head>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-		<!-- YANG INI UNTUK SIDEBAR DI SEBELAH KANAN Friday, June 15, 2012 5:16:22 PM -->
-		<script type="text/javascript" src="./sidebar/includes.js"></script>
-		<!-- saved from url=(0014)about:internet -->
-		<!-- script type="text/javascript" src="sidebar/html.js"></script-->
-
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<title>Search Marker</title>
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=" type="text/javascript"></script>			
+<!-- css dock menu Tuesday, July 24, 2012 3:11:04 PM -->
+<link href="dock-menu/style.css" rel="stylesheet" type="text/css" />
 <!-- <script type="text/javascript" src="./edit.js"></script> -->
-<script type="text/javascript" src="icon.js.php"></script>
+<script type="text/javascript" src="../icon.js.php"></script>
 <!-- Search Saturday, July 21, 2012 10:13:31 PM --> 
-<script type="text/javascript" src="search.js"></script>
-<script type="text/javascript">
+<script type="text/javascript" src="../search.js"></script>
+<style>
+  /*
+  #mapCanvas {
+    width: 1500px;
+    height: 700px;
+    float: left;
+  }
+  */
+  #infoPanel {
+    float: left;
+    margin-left: 10px;
+  }
+  #infoPanel div {
+    margin-bottom: 5px;
+  }
 
-function initialize() {
-  //set map untuk senternya di Bangkinang ... asli ... wajib tio ... horam kok indak
-  //GLatLng( <?php echo $data['Latitude'].','. $data['Longitude'];?>)
-  //latLng = new google.maps.LatLng(0.3326417,101.02427310000007);
-  latLng = new google.maps.LatLng(<?php echo $data['Latitude'].','. $data['Longitude'];?>);
-  map = new google.maps.Map(document.getElementById('mapCanvas'), {
-    zoom: <?php echo $data['ZoomLevel'];?>,
-    center: latLng,
-    mapTypeId: google.maps.MapTypeId.SATELLITE
-  });
-  marker = new google.maps.Marker({
-    position: latLng,
-    title: '<?php echo $data["Title"];?>',
-    map: map,
-    draggable: false
-  });
-  
-  // Update current position info.
-  /*updateMarkerPosition(latLng);
-  updateZoomLevelStatus(map.zoom);
-  geocodePosition(latLng);
-  
-  // Add dragging event listeners.
-  google.maps.event.addListener(marker, 'dragstart', function() {
-    updateMarkerAddress('Sedang digeser...!!!');
-  });
-  
-  google.maps.event.addListener(marker, 'drag', function() {
-    updateMarkerStatus('Sedang digeser...!!!');
-    updateMarkerPosition(marker.getPosition());
-  });
-  
-  google.maps.event.addListener(marker, 'dragend', function() {
-    updateMarkerStatus('Drag ended');
-    geocodePosition(marker.getPosition());
-    updateZoomLevelStatus(map.zoom);
-  });*/
-}
-
-// Onload handler to fire off the app.
-google.maps.event.addDomListener(window, 'load', initialize);
-//-->
-</script>
- <style type="text/css">
-/*<![CDATA[*/
-
-  <!-- Style Form Add Marker 
-  6/17/2012 12:18:13 PM -->
-
-
-  BODY {
+  Body {
     font-family: Verdana, sans-serif;
     font-size: 11pt;
   }
-        
-  #Marker {
-    border: 1px solid silver;
+	
+   #Marker {
+     border: 1px solid silver;
     -moz-border-radius: 6px;
     width: auto;
     margin: auto;
-    padding: 2px;       
+    padding: 2px;	
     text-align: left;
-    background:#99ffcc;
-        border: 5px solid teal; 
-    color: #000000;
+    background:#006633;
+	border: 3px solid white; 
+    color: white;
     /*background-image: url(../admin/peta.jpg);*/
   }
-        #login {
-    /*background:url(../admin/syarif.jpg);
-    font-size: 11pt;
-    text-align: right;
-    background-color: #99ffcc;
-   border: 2px solid #ffffff; 
-    color: white;
-    padding: 4px;
-    font-weight:bold;*/
-  }
   #Judul {
-    /*background:url(../admin/syarif.jpg);*/
+   /*background:url(../admin/syarif.jpg);*/
     font-size: 11pt;
     text-align: center;
-    background-color: #006633;
-    border: 2px solid #ffffff; 
-    color: white;
+    background-color: #ffffff;
+    border: px solid #ffffff; 
+    color: black;
     padding: 4px;
     font-weight:bold;
   }
+
+
+  /*#login {
+    background:url(../admin/syarif.jpg);
+    font-size: 9pt;
+    text-align: right;
+    background-color: #99ffcc;
+   /*border: 2px solid #ffffff;
+    color: white;
+    padding: 4px;
+    font-weight:bold;
+  }*/
   #kotaksugest {
     font-size: 9pt;
     text-align: left;
@@ -120,6 +81,17 @@ google.maps.event.addDomListener(window, 'load', initialize);
     padding: 4px;
     font-weight:bold;
   }
+ #menu {
+    /*background:url(../admin/syarif.jpg);*/
+    font-size: 9pt;
+    text-align: left;
+    background-color: #99ffcc;
+   /*border: 2px solid #ffffff; */
+    color: white;
+    padding: 4px;
+    font-weight:bold;
+  }
+
   .inp {
     font-size: 11pt;
     text-align: left;
@@ -133,40 +105,132 @@ google.maps.event.addDomListener(window, 'load', initialize);
    background-color:#f2f2f2;
   }
   label {
-        font-size: 11pt;
+	font-size: 9pt;
     color: #000000;
     font-style: ;
+	 font-weight:bold;
   }
-
-  html, body {
+#map {
   height: 100%;
-  margin: 0;
-  padding: 0;
-  }
+  /*height: 380px;*/
+}
 
-  #mapCanvas {
-  height: 100%;
-  }
-
-  @media print {
+@media print {
   html, body {
     height: auto;
   }
-  #mapCanvas {
+
+  #map {
     height: 650px;
   }
-
-
-        
-  /*]]>*/
+}
+	
   </style>
 
-  <title></title>
-</head>
+ <div id="map" </div>
 
-<body onunload="GUnload()">
-  <div id="mapCanvas"></div>
+   
+<script type="text/javascript">
+    //<![CDATA[
 
+
+<?php
+		 
+	//$sql =  "select * from marker where 1;";
+	$sql = "SELECT * FROM `marker` INNER JOIN `type` ON marker.typeID = type.typeID where MarkerID='$edit' LIMIT 0 , 30";
+	$qry = mysql_query($sql,$koneksi)
+		  or die ("SQL Error: ".mysql_error());
+		  
+	$no = 0;
+	while($data=mysql_fetch_array($qry)) {
+	$no++;
+ 	
+	?>
+
+    if (GBrowserIsCompatible()) {
+
+      function createMarker(point,html) {
+        var marker = new GMarker(point);
+
+        GEvent.addListener(marker, "click", function() {
+          marker.openInfoWindowHtml(html);
+        });
+        return marker;
+      }
+      function createMarkerWithIcon(point,icon,html) {
+		// Create our "tiny" marker icon
+		var blueIcon = new GIcon(G_DEFAULT_ICON);
+		blueIcon.image = icon;
+						
+		// Set up our GMarkerOptions object
+		markerOptions = { icon:blueIcon };
+
+        var marker = new GMarker(point, markerOptions);
+        GEvent.addListener(marker, "click", function() {
+          marker.openInfoWindowHtml(html);
+        });
+        return marker;
+      }
+
+    /* map = new GMap2(document.getElementById("map"));
+      map.addControl(new GLargeMapControl());
+      map.addControl(new GMapTypeControl());
+      map.setCenter(new GLatLng(0.3326417,101.02427310000007), 13);*/
+
+	 var map = new GMap2(document.getElementById("map"));
+	  map.setCenter(new GLatLng(<?php echo $data['Latitude'].','. $data['Longitude'];?>), 18);
+
+  // Select a map type which supports obliques
+      map.setMapType(G_HYBRID_MAP);
+      map.setUIToDefault();
+
+      // Enable the additional map types within
+      //the map type collection
+      map.enableRotation();
+
+	
+	
+      var point = new GLatLng( <?php echo $data['Latitude'].','. $data['Longitude'];?>);
+      var marker = createMarkerWithIcon(point,"<?php echo $data['Icon'];?>",'<center>== <?php echo $data['Title'];?> ==</center> <br/><br> <?php echo $data['TextHTML'];?> <br/><?php echo $data['Photo'];?> <br/>')
+		  
+      map.addOverlay(marker);
+	<?php
+	}
+	?>
+
+    }
+
+    
+    else {
+      alert("Sorry, the Google Maps API is not compatible with this browser");
+    }
+
+    </script>
+
+
+
+  </body>
+ 
+
+		<!-- YANG INI UNTUK SIDEBAR DI SEBELAH KANAN Friday, June 15, 2012 5:16:22 PM -->
+		<script type="text/javascript" src="sidebar/includes.js"></script>
+		<!-- saved from url=(0014)about:internet -->
+		<!-- script type="text/javascript" src="sidebar/html.js"></script-->
+		<!-- <script type="text/javascript" src="./add.js"></script>-->
+		<script type="text/javascript" src="./icon.js.php"></script>
+		<!-- Search Saturday, July 21, 2012 10:13:31 PM --> 
+		<script type="text/javascript" src="search.js"></script>
+		<script type="text/javascript"></script>
+
+  
+			<!-- untuk dock menu Monday, July 23, 2012 9:49:06 PM -->
+				<?php
+				include "dock-menu/css-dock-top.html";
+				?>
+	
+
+  <!-- <div id="mapCanvas"></div> -->
+  
   <div id="infoPanel">
     <div id="tempStorage" style="display:none;"></div>
 
@@ -178,39 +242,43 @@ google.maps.event.addDomListener(window, 'load', initialize);
         <div id="sideBarContentsInner">
           <div id="scrollbar_container">
             <div id="scrollbar_content">
-              <div id='Marker'>
-                <div id='Judul'>
-                  Search Marker
-                </div>
 
+  <div id='Marker'>
+    <div id='Judul'>
+   Menu
+  
+    </div>
+    
+ 
+ 
 
-
-                	<!-- <div id='login'> -->
+   	<div id='login'>
 			<div>
+				<br>
+				<!-- <a href="home.php"style= 
+				"text-decoration:none;color:white;  width=; ">Home</a>
+				&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="view.php"style= 
-				"text-decoration:none;color:#3b5998;  width=20px; "> Back</a>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				"text-decoration:none;color:white;  width=; ">Full Map</a>
+				&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="login.php"style=
-				"text-decoration:none;color:#3b5998; "> Login</a>
+				"text-decoration:none;color:white; "> Login</a><br><br> -->
 				
-              
-      
-      
-                  <!-- Saturday, July 21, 2012 10:42:45 PM -->
-			  <input class="inp" placeholder="search" name="Search" title="Search" id=
-			  "kata" type="text" size="20" onkeyup=lihat(this.value)><br/>
 
-				<div id=kotaksugest>
-				</div>
-                  
-                
-           
-            </div>
+	
+      <input class="inp" placeholder="Search" name="Search" title="Search" id=
+      "kata" type="text" size="23" onkeyup=lihat(this.value)><br/>
+
+		<div id=kotaksugest>
+		</div>
+
+	
+			</div>
+
           </div>
         </div>
       </div>
     </div>
+	
   </div>
-</body>
-</html>
+ </html>

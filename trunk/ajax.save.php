@@ -2,22 +2,6 @@
 
 	include'connect.php';
 
-/*$allowed_filetypes =array('.jpg','.gif','.bmp','.png');
-$max_filesize = 2000000; //maximum filesize in BYTES (2MB)
-$file_Path='./photo/';
-$result = move_uploaded_file($Photo,$file_Path);*/
-//$Photo = $_Files["Photo"];
-//$move = move_uploaded_file($_Files['Photo']['tmp_name'], 'C:/Xampp/gis-bangkinang/photo/'.$Photo);
-
-//move_uploaded_file($tmp_name, "$uploads_dir/$name");
-
-/*$dir_gambar = 'C:\xampp\htdocs\gis-bangkinang\upload\\';
-$Photo = basename($_FILES['Photo']['name']);
-$uploadfile = $dir_gambar . $Photo;
-move_uploaded_file($_FILES['Photo']['tmp_name'], $uploadfile);
-$Photo = $_FILES["Photo"];
-echo '<!--'; var_dump($_FILES); echo '-->';*/
-
 $Latitude = $_POST["Latitude"];
 $Longitude = $_POST["Longitude"];
 $ZoomLevel = $_POST["ZoomLevel"];

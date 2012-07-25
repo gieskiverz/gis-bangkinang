@@ -7,7 +7,8 @@ document.getElementById("kotaksugest").style.visibility =
 drz = buatajax();
 var url="search.php";
 drz.onreadystatechange=stateChanged;
-var params = "q="+kata;
+//var params = "q="+kata;
+var params = ""+kata;
 drz.open("POST",url,true);
 //beberapa http header harus kita set kalau menggunakan POST
 drz.setRequestHeader("Content-type", "application/x-www-formurlencoded");

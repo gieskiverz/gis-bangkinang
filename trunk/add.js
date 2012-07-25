@@ -45,9 +45,9 @@ function initialize() {
   //set map untuk senternya di Bangkinang ... asli ... wajib tio ... horam kok indak
   latLng = new google.maps.LatLng(0.3326417,101.02427310000007);
   map = new google.maps.Map(document.getElementById('mapCanvas'), {
-    zoom: 14,
+    zoom: 15,
     center: latLng,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
+    mapTypeId: google.maps.MapTypeId.HYBRID
   });
   marker = new google.maps.Marker({
     position: latLng,

@@ -7,6 +7,10 @@ include "connect.php";
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 <title>Bangkinang Maps</title>
 <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=" type="text/javascript"></script>	
+<!-- Search Saturday, July 21, 2012 10:13:31 PM --> 
+<script type="text/javascript" src="search.js"></script>
+<!-- css dock menu Tuesday, July 24, 2012 3:11:04 PM -->
+<link href="dock-menu/stylehome.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript"></script>
   <style type="text/css">
   body {
@@ -56,6 +60,26 @@ include "connect.php";
     padding: 4px;
     /*font-weight:bold;*/
   }
+   #search {
+    /*background:url(../admin/syarif.jpg);*/
+    font-size: 1.1em;
+    text-align: left;
+    background-color: #006633;
+    border: 2px solid #ffffff; 
+	border-radius:15px;
+    color: black;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 16px;
+    padding: 4px;
+    /*font-weight:bold;*/
+   }
+  #kotaksugest {
+    font-size: 9pt;
+    text-align: left;
+    color: #000000;
+    padding: 4px;
+    font-weight:bold;
+  }
 
 
 /*Saturday, June 30, 2012 11:27:14 AM*/
@@ -74,7 +98,7 @@ include "connect.php";
   #header {
   clear: both;
   width: auto;
-  height: 280px;
+  height: 300px;
   /*background-image: url(login/header.png);*/
   font-family: Arial,Helvetica,sans-serif;
   font-size: 16px;
@@ -178,12 +202,35 @@ html, body {
 	include "index2.html";
 	?>
     </div>
+	<br>
 
- 
+	
+		
+
         <div id='peta'>
+
+	<div id='search'>
+		
+		<!-- untuk Search Marker Monday, July 23, 2012 11:23:09 PM -->
+		<img src="images/magnifier.png" alt="Search" onclick="alert('You clicked on search button')" />
+		 <input class="inp" placeholder="search" name="Search" title="Search" id=
+				 "kata" type="text" size="20" onkeyup=lihat(this.value)>
+				 
+				<div id=kotaksugest></div>
+
+				<!-- untuk dock menu Monday, July 23, 2012 9:49:06 PM -->
+				<?php
+				include "dock-menu/css-dock-top.html";
+				?><br><br>
+	</div>
+
           <div id='Judul'>
           <a href="view.php" target="_blank" style=
-				"text-decoration:none;color:#ffffff;" title="Layar Penuh"> <blink> Full Screen </blink>  </a>
+				"text-decoration:none;color:#ffffff;" title="Layar Penuh"> <blink> Full Map </blink>  </a>
+				<br>
+
+			 
+
 
 				<div id="map"</div>
 
@@ -271,6 +318,7 @@ html, body {
       </div>
 
       <div id="footer">
+
         <br />
         Power by <a href="http://syarif25.tk" style=
 				"text-decoration:none;color:#fff;" target="_blank"> deyen 2012
