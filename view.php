@@ -6,7 +6,9 @@
 <head>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 <title>Bangkinang Maps</title>
-<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=" type="text/javascript"></script>	
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=" type="text/javascript"></script>
+<!-- css dock menu Tuesday, July 24, 2012 3:11:04 PM -->
+<link href="dock-menu/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript"></script>
 
 <style>
@@ -78,6 +80,12 @@ html, body {
       }
 
     
+	 /*map = new GMap2(document.getElementById("map"));
+      map.addControl(new GLargeMapControl());
+      map.addControl(new GMapTypeControl());
+      map.setCenter(new GLatLng(0.3326417,101.02427310000007), 13);*/
+
+
 	 var map = new GMap2(document.getElementById("map"));
 	  map.setCenter(new GLatLng(0.3326417,101.02427310000007), 14);
 
@@ -122,11 +130,6 @@ html, body {
   </body>
  
 
-
-
-
-
-
 		<!-- YANG INI UNTUK SIDEBAR DI SEBELAH KANAN Friday, June 15, 2012 5:16:22 PM -->
 		<script type="text/javascript" src="sidebar/includes.js"></script>
 		<!-- saved from url=(0014)about:internet -->
@@ -165,8 +168,8 @@ html, body {
     margin: auto;
     padding: 2px;	
     text-align: left;
-    background:#99ffcc;
-	border: 5px solid teal; 
+    background:#006633;
+	border: 3px solid white; 
     color: white;
     /*background-image: url(../admin/peta.jpg);*/
   }
@@ -174,9 +177,9 @@ html, body {
     /*background:url(../admin/syarif.jpg);*/
     font-size: 11pt;
     text-align: center;
-    background-color: #006633;
-    border: 2px solid #ffffff; 
-    color: white;
+    background-color: #ffffff;
+    border: px solid #ffffff; 
+    color: black;
     padding: 4px;
     font-weight:bold;
   }
@@ -187,7 +190,7 @@ html, body {
     /*background:url(../admin/syarif.jpg);*/
     font-size: 9pt;
     text-align: right;
-    background-color: #99ffcc;
+    background-color: #006633;
    /*border: 2px solid #ffffff;*/
     color: white;
     padding: 4px;
@@ -232,13 +235,11 @@ html, body {
 	
   </style>
 
+				<!-- untuk dock menu Monday, July 23, 2012 9:49:06 PM -->
+				<?php
+				include "dock-menu/css-dock-top.html";
+				?>
 
-<!-- YANG INI UNTUK SLIDER DI ATAS Wednesday, June 27, 2012 7:48 PM -->
-<?php
-	include "sliderMenu.php";
-?>
-
-	
 
   <!-- <div id="mapCanvas"></div> -->
   
@@ -260,17 +261,16 @@ html, body {
     </div>
     
   
-  <p>
+  
  
 
-   	<div id='login'>
+   	<!-- <div id='login'>
 			<div>
 				<a href="login.php"style=
-				"text-decoration:none;color:#3b5998;"> Login</a>
+				"text-decoration:none;color:#ffffff;"> Login</a> -->
 				
-
-	
-      <input class="inp" placeholder="search" name="Search" title="Search" id=
+	<br>
+      <input class="inp" placeholder="Search" name="Search" title="Search" id=
       "kata" type="text" size="20" onkeyup=lihat(this.value)><br/>
 
 		<div id=kotaksugest>
@@ -285,4 +285,6 @@ html, body {
     </div>
 	
   </div>
+
+  	
  </html>

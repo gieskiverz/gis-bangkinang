@@ -60,7 +60,6 @@ function simpanMarker(){
   params +="&TypeID="+document.getElementById('TypeID').value;
   params +="&MarkerID="+document.getElementById('MarkerID').value;
 
-
   if (window.XMLHttpRequest) {
     // obtain new object
     obj = new XMLHttpRequest();
@@ -109,5 +108,3 @@ function processChange() {
         }
     }
 }
-
-

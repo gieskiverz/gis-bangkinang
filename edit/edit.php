@@ -13,7 +13,7 @@ $data=mysql_fetch_array($qry);
 ?>
 <html>
 <head>
-<script type="text/javascript" src="./edit.js"></script>
+<script type="text/javascript" src="edit.js"></script>
 <script type="text/javascript">
 <!--
 function initialize() {

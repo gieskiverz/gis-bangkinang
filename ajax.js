@@ -93,7 +93,6 @@ function simpanMarker(){
   params +="&Latitude="+document.getElementById('Latitude').value;
   params +="&Longitude="+document.getElementById('Longitude').value;
   params +="&ZoomLevel="+document.getElementById('ZoomLevel').value;
-  params +="&Photo="+document.getElementById('Photo').value;
   params +="&TextHTML="+document.getElementById('TextHTML').value;
   params +="&Address="+document.getElementById('Address').value;
   params +="&TypeID="+document.getElementById('TypeID').value;

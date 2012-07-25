@@ -15,7 +15,7 @@ font-family:Arial, Helvetica, sans-serif;
 }
 #slider {
   position: absolute;
-  background-image:url('./jQuery Slider Menu_files/slider.png');
+  background-image:url('jQuery Slider Menu_files/slider.png');
   background-repeat:no-repeat;
   background-position: bottom;
   width: 300px;

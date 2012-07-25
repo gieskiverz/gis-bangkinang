@@ -8,6 +8,8 @@
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 <title>Bangkinang Maps</title>
 <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=" type="text/javascript"></script>	
+<!-- css dock menu Tuesday, July 24, 2012 3:11:04 PM -->
+<link href="../dock-menu/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="../icon.js.php"></script>
 <script type="text/javascript"></script>
 
@@ -80,10 +82,10 @@ html, body {
       }
 		//Monday, July 23, 2012 2:50:47 PM
       var map = new GMap2(document.getElementById("map"));
-	  map.setCenter(new GLatLng(0.3326417,101.02427310000007), 13);
+	  map.setCenter(new GLatLng(0.3326417,101.02427310000007), 14);
 
       // Select a map type which supports obliques
-      map.setMapType(G_NORMAL_MAP);
+      map.setMapType(G_HYBRID_MAP);
       map.setUIToDefault();
 
       // Enable the additional map types within
@@ -111,7 +113,7 @@ html, body {
 	?>
 	
       var point = new GLatLng( <?php echo $data['Latitude'].','. $data['Longitude'];?>);
-      var marker = createMarkerWithIcon(point,"<?php echo $data['Icon'];?>",'<center>== <?php echo $data['Title'];?> ==</center> <br/> <?php echo $data['TextHTML'];?> <br/> <a href="EditMarker.php?MarkerID=<? echo $data['MarkerID']; ?>"><input  type=button value=Edit></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../AddMarker.php"> <input  type=button value=Add></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../delete/DeleteMarker.php?MarkerID=<? echo $data['MarkerID']; ?>"><input type=button value=Delete></a>')
+      var marker = createMarkerWithIcon(point,"<?php echo $data['Icon'];?>",'<center>== <?php echo $data['Title'];?> ==</center> <br/> <?php echo $data['TextHTML'];?> <br/><a href="EditMarker.php?MarkerID=<? echo $data['MarkerID']; ?>"><input  type=button value=Edit></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../AddMarker.php"><input type=button value=Add></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../delete/DeleteMarker.php?MarkerID=<? echo $data['MarkerID']; ?>"><input type=button value=Delete></a>')
 		  
       map.addOverlay(marker);
 	<?php
@@ -165,24 +167,24 @@ html, body {
   }
 	
   #Marker {
-    border: 1px solid silver;
+     border: 1px solid silver;
     -moz-border-radius: 6px;
-    width: 180px;
+    width: auto;
     margin: auto;
     padding: 2px;	
-    text-align: center;
-    background:#99ffcc;
-	border: 5px solid teal; 
+    text-align: left;
+    background:#006633;
+	border: 3px solid white; 
     color: white;
     /*background-image: url(../admin/peta.jpg);*/
   }
   #Judul {
-    /*background:url(../admin/syarif.jpg);*/
+   /*background:url(../admin/syarif.jpg);*/
     font-size: 11pt;
     text-align: center;
-    background-color: #006633;
-    border: 2px solid #ffffff; 
-    color: white;
+    background-color: #ffffff;
+    border: px solid #ffffff; 
+    color: black;
     padding: 4px;
     font-weight:bold;
   }
@@ -191,7 +193,7 @@ html, body {
     /*background:url(../admin/syarif.jpg);*/
     font-size: 9pt;
     text-align: right;
-    background-color: #99ffcc;
+    background-color: #006633;
     /*border: 2px solid #ffffff;*/
     color: white;
     padding: 4px;
@@ -225,11 +227,12 @@ html, body {
 	
   </style>
 
-<!-- YANG INI UNTUK SLIDER DI ATAS Wednesday, June 27, 2012 7:48 PM -->
-<?php
-	include "sliderMenuAd.php";
-?>
 
+
+	<!-- untuk dock menu Monday, July 23, 2012 9:49:06 PM -->
+	<?php
+		 include "../dock-menu/dockMenu.html";
+	?>
 
   <!-- <div id="mapCanvas"></div> -->
   
@@ -253,8 +256,9 @@ html, body {
   
   <p>
   <table>
-   		<div id='logout'>
-			<div><a href="../logout.php"style="text-decoration:none;color:#3b5998;"> Logout</font> </a></div>
+   		<!-- <div id='logout'>
+			<div>
+			<a href="../logout.php"><img src="images/logout.png" title="logout" width="30px"></a></div> -->
 
 				<!-- Saturday, July 21, 2012 10:42:45 PM -->
 			  <input class="inp" placeholder="search" name="Search" title="Search" id=

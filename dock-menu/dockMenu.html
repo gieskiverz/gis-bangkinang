@@ -1,0 +1,50 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Dock Menu</title>
+<script type="text/javascript" src="../dock-menu/js/jquery.js"></script>
+<script type="text/javascript" src="../dock-menu/js/interface.js"></script>
+
+<!--[if lt IE 7]>
+ <style type="text/css">
+ div, img { behavior: url(iepngfix.htc) }
+ </style>
+<![endif]-->
+
+<!-- <link href="dock-menu/style.css" rel="stylesheet" type="text/css" /> -->
+</head>
+<body>
+<div class="dock" id="dock">
+  <div class="dock-container">
+  <a class="dock-item" href="viewMap.php"><img src="../dock-menu/images/home.png" alt="home" /> <span>Home</span></a> 
+  <!-- <a class="dock-item" href="view.php"><img src="../dock-menu/images/marker.png" alt="marker" /><span>Markers View</span></a> 
+  <a class="dock-item" href="http://facebook.com"><img src="../dock-menu/images/fb.png" alt="fb" /><span>Facebook</span></a> 
+  <a class="dock-item" href="http://twitter.com"><img src="../dock-menu/images/twitter.png" alt="twitter" /><span>Twitter</span></a> 
+  <a class="dock-item" href="http://youtube.com"><img src="../dock-menu/images/youtube.png" alt="youtube" /><span>Youtube</span></a> 
+  <a class="dock-item" href="http://maps.google.com"><img src="../dock-menu/images/googlemaps.png" alt="googlemaps" /><span>GoogleMaps</span></a> 
+  <a class="dock-item" href="http://gmail.com"><img src="../dock-menu/images/gmail.png" alt="gmail" /><span>Gmail</span></a>  -->
+  <a class="dock-item" href="../logout.php"><img src="../dock-menu/images/logout.png" alt="logout" /><span>Logout</span></a> 
+</div>
+</div>
+<script type="text/javascript">
+	
+	$(document).ready(
+		function()
+		{
+			$('#dock').Fisheye(
+				{
+					maxWidth: 30,
+					items: 'a',
+					itemsText: 'span',
+					container: '.dock-container',
+					itemWidth: 40,
+					proximity: 90,
+					halign : 'center'
+				}
+			)
+		}
+	);
+
+</script>
+</body>
+</html>

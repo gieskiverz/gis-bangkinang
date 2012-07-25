@@ -1,6 +1,7 @@
 <?php
 	
-include "connect.php";
+include "../session.php";	
+include "../connect.php";
 
 # baca variabel URL (if register global on)
 $edit = (int) $_GET['MarkerID'];
@@ -12,11 +13,12 @@ $edit = (int) $_GET['MarkerID'];
 <head>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=" type="text/javascript"></script>			
-
+<!-- css dock menu Tuesday, July 24, 2012 3:11:04 PM -->
+<link href="../dock-menu/style.css" rel="stylesheet" type="text/css" />
 <!-- <script type="text/javascript" src="./edit.js"></script> -->
-<script type="text/javascript" src="icon.js.php"></script>
+<script type="text/javascript" src="../icon.js.php"></script>
 <!-- Search Saturday, July 21, 2012 10:13:31 PM --> 
-<script type="text/javascript" src="search.js"></script>
+<script type="text/javascript" src="../search.js"></script>
 <style>
   /*
   #mapCanvas {
@@ -38,41 +40,40 @@ $edit = (int) $_GET['MarkerID'];
     font-size: 11pt;
   }
 	
-  #Marker {
-    border: 1px solid silver;
+   #Marker {
+     border: 1px solid silver;
     -moz-border-radius: 6px;
     width: auto;
     margin: auto;
     padding: 2px;	
     text-align: left;
-    background:#99ffcc;
-	border: 5px solid teal; 
+    background:#006633;
+	border: 3px solid white; 
     color: white;
     /*background-image: url(../admin/peta.jpg);*/
   }
   #Judul {
-    /*background:url(../admin/syarif.jpg);*/
+   /*background:url(../admin/syarif.jpg);*/
     font-size: 11pt;
     text-align: center;
-    background-color: #006633;
-    border: 2px solid #ffffff; 
-    color: white;
+    background-color: #ffffff;
+    border: px solid #ffffff; 
+    color: black;
     padding: 4px;
     font-weight:bold;
   }
 
 
-
-  #login {
-    /*background:url(../admin/syarif.jpg);*/
+  /*#login {
+    background:url(../admin/syarif.jpg);
     font-size: 9pt;
     text-align: right;
     background-color: #99ffcc;
-   /*border: 2px solid #ffffff;*/
+   /*border: 2px solid #ffffff;
     color: white;
     padding: 4px;
     font-weight:bold;
-  }
+  }*/
   #kotaksugest {
     font-size: 9pt;
     text-align: left;
@@ -127,6 +128,7 @@ $edit = (int) $_GET['MarkerID'];
   </style>
 
  <div id="map" </div>
+
    
 <script type="text/javascript">
     //<![CDATA[
@@ -188,8 +190,9 @@ $edit = (int) $_GET['MarkerID'];
 
 	
 	
-      var point = new GLatLng( <?php echo $data['Latitude'].','. $data['Longitude'];?>);
-      var marker = createMarkerWithIcon(point,"<?php echo $data['Icon'];?>",'<center>== <?php echo $data['Title'];?> ==</center> <br/><br> <?php echo $data['TextHTML'];?> <br/><?php echo $data['Photo'];?> <br/>')
+     var point = new GLatLng( <?php echo $data['Latitude'].','. $data['Longitude'];?>);
+      var marker = createMarkerWithIcon(point,"<?php echo $data['Icon'];?>",'<center>== <?php echo $data['Title'];?> ==</center> <br/> <?php echo $data['TextHTML'];?> <br/><a href="EditMarker.php?MarkerID=<? echo $data['MarkerID']; ?>"><input  type=button value=Edit></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../AddMarker.php"><input type=button value=Add></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../delete/DeleteMarker.php?MarkerID=<? echo $data['MarkerID']; ?>"><input type=button value=Delete></a>')
+		  
 		  
       map.addOverlay(marker);
 	<?php
@@ -206,25 +209,27 @@ $edit = (int) $_GET['MarkerID'];
     </script>
 
 
+
   </body>
  
 
 		<!-- YANG INI UNTUK SIDEBAR DI SEBELAH KANAN Friday, June 15, 2012 5:16:22 PM -->
-		<script type="text/javascript" src="sidebar/includes.js"></script>
+		<script type="text/javascript" src="sidebar/includesExit.js"></script>
 		<!-- saved from url=(0014)about:internet -->
 		<!-- script type="text/javascript" src="sidebar/html.js"></script-->
 		<!-- <script type="text/javascript" src="./add.js"></script>-->
-		<script type="text/javascript" src="./icon.js.php"></script>
+		<script type="text/javascript" src="../icon.js.php"></script>
 		<!-- Search Saturday, July 21, 2012 10:13:31 PM --> 
-		<script type="text/javascript" src="search.js"></script>
+		<script type="text/javascript" src="../search.js"></script>
 		<script type="text/javascript"></script>
 
   
+		
+	<!-- untuk dock menu Monday, July 23, 2012 9:49:06 PM -->
+	<?php
+		 include "../dock-menu/dockMenu.html";
+	?>
 
-<!-- YANG INI UNTUK SLIDER DI ATAS Wednesday, June 27, 2012 7:48 PM -->
-<?php
-	include "sliderMenu.php";
-?>
 
 	
 
@@ -251,10 +256,15 @@ $edit = (int) $_GET['MarkerID'];
   <p>
  
 
-   	<div id='login'>
+   	<!-- <div id='login'> -->
 			<div>
-				<a href="login.php"style=
-				"text-decoration:none;color:#3b5998;"> Login</a>
+				
+				
+				<!-- <a href="viewMap.php"style= 
+				"text-decoration:none;color:white;  width=; ">Back</a>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="../logout.php"><img src="images/logout.png" title="logout" width="30px"></a><br><br> -->
 				
 
 	

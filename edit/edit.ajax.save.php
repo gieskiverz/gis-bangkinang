@@ -1,34 +1,7 @@
 <?php
 
-
-/*
-
-POST /gis/test/ajax.save.php HTTP/1.1
-Host: syarif.com
-Connection: keep-alive
-Content-Length: 127
-Origin: http://syarif.com
-User-Agent: Mozilla/5.0 (Windows NT 6.1) AppleWebKit/536.5 (KHTML, like Gecko) Chrome/19.0.1084.56 Safari/536.5
-Content-type: application/x-www-form-urlencoded
-Accept: * / * --> sengaja di jarangin
-Referer: http://syarif.com/gis/test/draggable.html
-Accept-Encoding: gzip,deflate,sdch
-Accept-Language: en-US,en;q=0.8
-Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.3
-
-
-
-Title:bbbbbbbbbb
-Latitude:0.33435828468992074
-Longitude:101.02066821108406
-ZoomLevel:13
-TextHTML:aaaaaaaaaaaaaaaaaaaaa
-TypeID:1
-*/
 include "../session.php";
 include "../connect.php";
-
-	
 
 $MarkerID = (int) $_POST["MarkerID"];
 $Latitude = $_POST["Latitude"];

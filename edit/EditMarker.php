@@ -3,10 +3,10 @@ include "../session.php";
 include "../connect.php";
 
 # baca variabel URL (if register global on)
-$edit = (int) $_GET['MarkerID'];
+$MarkerID = (int) $_GET['MarkerID'];
 
  # Penyimpanan
- $sql = "select * from marker where MarkerID ='$edit'"; 
+ $sql = "select * from marker where MarkerID ='$MarkerID'"; 
  $qry = mysql_query($sql, $koneksi) 
 	or die ("SQL Error : ".mysql_error());
 $data=mysql_fetch_array($qry);
@@ -20,10 +20,10 @@ $data=mysql_fetch_array($qry);
 		<!-- script type="text/javascript" src="sidebar/html.js"></script-->
 
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-<script type="text/javascript" src="./edit.js"></script>
+<script type="text/javascript" src="edit.js"></script>
 <script type="text/javascript" src="../icon.js.php"></script>
 <script type="text/javascript">
-<!--
+
 function initialize() {
   //set map untuk senternya di Bangkinang ... asli ... wajib tio ... horam kok indak
   //GLatLng( <?php echo $data['Latitude'].','. $data['Longitude'];?>)
@@ -32,7 +32,7 @@ function initialize() {
   map = new google.maps.Map(document.getElementById('mapCanvas'), {
     zoom: <?php echo $data['ZoomLevel'];?>,
     center: latLng,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
+    mapTypeId: google.maps.MapTypeId.HYBRID
   });
   marker = new google.maps.Marker({
     position: latLng,
@@ -66,7 +66,12 @@ function initialize() {
 // Onload handler to fire off the app.
 google.maps.event.addDomListener(window, 'load', initialize);
 //-->
+
+		
 </script>
+
+<body onunload="GUnload()">
+
  <style type="text/css">
 /*<![CDATA[*/
 
@@ -124,7 +129,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
    background-color:#f2f2f2;
   }
   label {
-        font-size: 11pt;
+        font-size: 9pt;
     color: #000000;
     font-style: ;
   }
@@ -152,13 +157,18 @@ google.maps.event.addDomListener(window, 'load', initialize);
   /*]]>*/
   </style>
 
-  <title></title>
 </head>
 
-<body onunload="GUnload()">
+
+
+
   <div id="mapCanvas"></div>
 
+
+
+
   <div id="infoPanel">
+  
     <div id="tempStorage" style="display:none;"></div>
 
     <div id="sideBar">
@@ -169,6 +179,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
         <div id="sideBarContentsInner">
           <div id="scrollbar_container">
             <div id="scrollbar_content">
+
+
               <div id='Marker'>
                 <div id='Judul'>
                   Edit Marker
@@ -181,15 +193,19 @@ google.maps.event.addDomListener(window, 'load', initialize);
                   </div>
                 </div>
 
-              
-      
+					<input type="hidden" name=
+                    "MarkerID" id="MarkerID" value=
+                    "<? echo $data['MarkerID'];?>" />
+                    <font face="Comic Sans MS" size="2">: 
+                    <? echo $data['MarkerID'];?></font>
+
       
                    <input class="inp" placeholder="Latitude" title="Latitude" name=
                     "Latitude" id="Latitude" type="text" size="38"
                     value=
                     "<?= $data ['Latitude'];?>" /><br />
                   
-
+				
                  
                
 					<br>
@@ -217,11 +233,12 @@ google.maps.event.addDomListener(window, 'load', initialize);
                       "<?= $data ['Title']; ?>" /><br />
 
                    
-                  
+                  <div id="markerStatus">
+					<label>Click and drag the marker.</label>
+				  </div><br />
 
                  
-                <br>
-                   
+					 <br>                  
                     <textarea class="inp" placeholder="Info" title="Info" name="" rows="6" cols=
                     "33" id="TextHTML">
 <?= $data ['TextHTML']; ?>
@@ -244,7 +261,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
                    <select name="TypeID" title="Type" id=
                     "TypeID" onchange="handleMarkerIcon(this)">
                       <?php
-                                      include "connect.php";
+                                      include "../connect.php";
                                       $sql = "SELECT * FROM  `type` ";
 
                                       $qry = mysql_query($sql,$koneksi)
