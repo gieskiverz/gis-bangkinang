@@ -8,7 +8,7 @@ function handleMarkerIcon(x){
   {
 
 <?php
-	$sql = "SELECT * FROM  `type` ";
+	$sql = "SELECT * FROM  `icon` ";
 
 	$qry = mysql_query($sql,$koneksi)
 		  or die ("SQL Error: ".mysql_error());
@@ -17,8 +17,8 @@ function handleMarkerIcon(x){
 		?>
 
 
-  case '<?php echo $data['TypeID'];?>':
-    marker.setIcon("<?php echo $data['Icon'];?>");
+  case '<?php echo $data['IconID'];?>':
+    marker.setIcon("<?php echo $data['IconImage'];?>");
     break;
 	<?php
 	}
@@ -27,13 +27,13 @@ function handleMarkerIcon(x){
 }
 
 
-function setMarkerIcon(marker,typeid){
+function setMarkerIcon(marker,iconid){
 
-  switch (typeid)
+  switch (iconid)
   {
 
 <?php
-	$sql = "SELECT * FROM  `type` ";
+	$sql = "SELECT * FROM  `icon` ";
 
 	$qry = mysql_query($sql,$koneksi)
 		  or die ("SQL Error: ".mysql_error());
@@ -42,8 +42,8 @@ function setMarkerIcon(marker,typeid){
 		?>
 
 
-  case '<?php echo $data['TypeID'];?>':
-    marker.setIcon("<?php echo $data['Icon'];?>");
+  case '<?php echo $data['IconID'];?>':
+    marker.setIcon("<?php echo $data['IconImage'];?>");
     break;
 	<?php
 	}

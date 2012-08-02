@@ -122,11 +122,11 @@
                   </div>
                 </div>
 
-                 <select name="TypeID" id="TypeID" title="Type" onchange=
+                 <select name="IconID" id="IconID" title="Icon" onchange=
   "handleMarkerIcon(this)">
     <?php
                                           include "connect.php";
-                                          $sql = "SELECT * FROM  `type` ";
+                                          $sql = "SELECT * FROM  `icon` ";
 
                                           $qry = mysql_query($sql,$koneksi)
                                                     or die ("SQL Error: ".mysql_error());
@@ -134,8 +134,8 @@
                                                   
                                                   ?>
 
-    <option value="<?php echo $data['TypeID'];?>">
-      <?php echo $data['TypeName'];?>
+    <option value="<?php echo $data['IconID'];?>">
+      <?php echo $data['IconName'];?>
     </option><?php
                                           }
                                           ?>

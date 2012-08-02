@@ -41,9 +41,9 @@ $edit = (int) $_GET['MarkerID'];
   }
 	
    #Marker {
-     border: 1px solid silver;
+    border: 1px solid silver;
     -moz-border-radius: 6px;
-    width: auto;
+    width: 220px;
     margin: auto;
     padding: 2px;	
     text-align: left;
@@ -53,9 +53,10 @@ $edit = (int) $_GET['MarkerID'];
     /*background-image: url(../admin/peta.jpg);*/
   }
   #Judul {
-   /*background:url(../admin/syarif.jpg);*/
-    font-size: 11pt;
+    /*background:url(../admin/syarif.jpg);*/
+    font-size: 9pt;
     text-align: center;
+	width: 210px;
     background-color: #ffffff;
     border: px solid #ffffff; 
     color: black;
@@ -137,7 +138,7 @@ $edit = (int) $_GET['MarkerID'];
 <?php
 		 
 	//$sql =  "select * from marker where 1;";
-	$sql = "SELECT * FROM `marker` INNER JOIN `type` ON marker.typeID = type.typeID where MarkerID='$edit' LIMIT 0 , 30";
+	$sql = "SELECT * FROM `marker` INNER JOIN `icon` ON marker.IconID = icon.IconID where MarkerID='$edit' LIMIT 0 , 30";
 	$qry = mysql_query($sql,$koneksi)
 		  or die ("SQL Error: ".mysql_error());
 		  
@@ -190,8 +191,8 @@ $edit = (int) $_GET['MarkerID'];
 
 	
 	
-      var point = new GLatLng( <?php echo $data['Latitude'].','. $data['Longitude'];?>);
-      var marker = createMarkerWithIcon(point,"<?php echo $data['Icon'];?>",'<center>== <?php echo $data['Title'];?> ==</center> <br/><br> <?php echo $data['TextHTML'];?> <br/><?php echo $data['Photo'];?> <br/>')
+        var point = new GLatLng( <?php echo $data['Latitude'].','. $data['Longitude'];?>);
+      var marker = createMarkerWithIcon(point,"<?php echo $data['IconImage'];?>",'<center>== <?php echo $data['Title'];?> == <br/><br> <?php echo $data['TextHTML'];?> <br/><img src="photo/<?php echo $data['Photo'];?>"width=300 height=200/> <br/></center>')
 		  
       map.addOverlay(marker);
 	<?php
@@ -245,8 +246,7 @@ $edit = (int) $_GET['MarkerID'];
 
   <div id='Marker'>
     <div id='Judul'>
-   Menu
-  
+   Ketikan lokasi yang anda cari 
     </div>
     
  
@@ -267,7 +267,7 @@ $edit = (int) $_GET['MarkerID'];
 
 	
       <input class="inp" placeholder="Search" name="Search" title="Search" id=
-      "kata" type="text" size="23" onkeyup=lihat(this.value)><br/>
+      "kata" type="text" size="25" onkeyup=lihat(this.value)><br/>
 
 		<div id=kotaksugest>
 		</div>

@@ -53,6 +53,8 @@ div {
 #home-header {
 	width:auto;
 	height: auto;
+	color: #fff;
+	
 	background: url('imgs/worldmap.jpg') no-repeat center top #000;
 }
 .intro-text {float: left; width:540px; padding: 20px; text-align: justify; 

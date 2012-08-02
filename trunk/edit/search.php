@@ -12,7 +12,7 @@ echo "<!-- $sql -->";
 $query = mysql_query($sql);
 while($data=mysql_fetch_array($query))
 	{
-	echo '<a href="SearchMarker.php?MarkerID='.$data['MarkerID'].' <?% "style=
+	echo '<a href="searchMarker.php?MarkerID='.$data['MarkerID'].' <?% "style=
 				"text-decoration:none;color:#ffffff;">   
 				<li onClick="isi(\''.$data['Title'].'\')</a>
 	style="cursor:pointer">'.$data['Title'].'</li>';

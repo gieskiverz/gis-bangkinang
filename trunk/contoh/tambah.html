@@ -1,8 +1,8 @@
  <select name="TypeID" id="TypeID" title="Type" onchange=
   "handleMarkerIcon(this)">
     <?php
-                                          include "connect.php";
-                                          $sql = "SELECT * FROM  `type` ";
+                                          include "../connect.php";
+                                          $sql = "SELECT * FROM  `icon` ";
 
                                           $qry = mysql_query($sql,$koneksi)
                                                     or die ("SQL Error: ".mysql_error());

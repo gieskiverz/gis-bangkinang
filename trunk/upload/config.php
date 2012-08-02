@@ -2,7 +2,7 @@
 $server = 'localhost';
 $user = 'root';
 $password = 'rita';
-$db = 'gis';
+$db = 'test';
 
-$url_folder_gambar = 'http://localhost/gis-bangkinang/upload/gambar/';
+$url_folder_gambar = 'http://localhost/gis-bangkinang/galeri/upload/';
 ?>

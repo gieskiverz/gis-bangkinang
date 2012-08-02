@@ -20,7 +20,7 @@ if( !empty($_REQUEST['j']) ){
 	$msg .= '</strong></div>';
 	echo $msg;
 }
-$query = "SELECT * FROM gambar";
+$query = "SELECT * FROM image";
 $query = mysql_query( $query );
 if(!$query){
 	die( mysql_error() );

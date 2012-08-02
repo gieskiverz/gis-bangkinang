@@ -34,7 +34,7 @@ include "session.php";
     text-align: left;
     background:#99ffcc;
 	border: 5px solid teal; 
-    color: white;
+    color: #000000;
     /*background-image: url(../admin/peta.jpg);*/
   }
 
@@ -125,11 +125,13 @@ include "session.php";
                   </div>
                 </div>
 
-                 <select name="TypeID" id="TypeID" title="Type" onchange=
-  "handleMarkerIcon(this)">
-    <?php
+				<form enctype="multipart/form-data" action="marker.php" method="POST"> 
+
+                 <select name="IconID" id="IconID" title="Icon" onchange=
+				  "handleMarkerIcon(this)">
+					<?php
                                           include "connect.php";
-                                          $sql = "SELECT * FROM  `type` ";
+                                          $sql = "SELECT * FROM  `icon` ";
 
                                           $qry = mysql_query($sql,$koneksi)
                                                     or die ("SQL Error: ".mysql_error());
@@ -137,23 +139,23 @@ include "session.php";
                                                   
                                                   ?>
 
-    <option value="<?php echo $data['TypeID'];?>">
-      <?php echo $data['TypeName'];?>
+    <option value="<?php echo $data['IconID'];?>">
+      <?php echo $data['IconName'];?>
     </option><?php
                                           }
                                           ?>
   </select>
 	<br />
-	<br >
+	
     <input class="inp" placeholder="Latitude" name="Latitude" id=
     "Latitude" type="text" size="38"  title="Latitude"/><br />
-    <br />
+ 
     <input class="inp" placeholder="Longitude" name="Longitude" id=
     "Longitude" type="text" size="38"  title="Longitude"/><br />
-    <br />
+   
     <input class="inp" placeholder="ZoomLevel" name="ZoomLevel" id=
     "ZoomLevel" type="text" size="38"  title="ZoomLevel"/><br />
-    <br />
+
     <input class="inp" placeholder="Title" name="Title" id="Title"
     type="text" size="38"  title="Title"/><br />
   
@@ -161,10 +163,14 @@ include "session.php";
   <div id="markerStatus">
     <label><i>Click and drag the marker.</i></label>
   </div><br />
-  <textarea class="inp" placeholder="Info" name="" rows="6" cols=
+
+ <input class="inp" placeholder="Photo" name="Photo" id="Photo"
+    type="file" title="Photo"/><br />
+ 
+  <textarea class="inp" placeholder="Info" name="TextHTML" rows="4" cols=
   "32" id="TextHTML" title="Info">
 </textarea><br />
-  <br />
+ 
   <textarea class="inp" placeholder="Address" rows="2" cols="32"
   name="Address" id="Address" type="text" title="Address">
 </textarea><br />
@@ -172,8 +178,7 @@ include "session.php";
   'hasil-ajax'></font><br />
 
   
-    <center><input class="inp" type="button" value="Add" onclick=
-    "simpanMarker()" />  </center>
+    <center><input class="inp" type="Submit" value="Add"/>  </center> </form>
               </div>
 
              
@@ -181,7 +186,7 @@ include "session.php";
                     <a href="edit/viewMap.php">
 
                     <center>
-                      Exit
+                    <font style="text-decoration:none;color:#ffffff;" </font> Exit
                     </center>
                   </td>
                 </tr>
@@ -194,4 +199,3 @@ include "session.php";
   </div>
 </body>
 </html>
-

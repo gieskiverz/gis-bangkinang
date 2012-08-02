@@ -17,7 +17,7 @@
 </tr> -->
 <tr>
 	<td>Gambar</td>
-    <td><input type="file" name="Photo" size="40" /></td>
+    <td><input type="file" name="gambar" size="40" /></td>
 </tr>
 <tr>
 	<td><input type="submit" name="submit" value="Unggah" /></td>

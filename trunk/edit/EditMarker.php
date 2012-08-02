@@ -208,7 +208,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 				
                  
                
-					<br>
+				
                    <input class="inp" placeholder="Longitude" title="Longitude" name=
                     "Longitude" id="Longitude" type="text" size=
                     "38" value=
@@ -217,7 +217,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
                  
                
-					<br>
+					
                    <input class="inp" placeholder="ZooMLevel" title="ZoomLevel" name=
                     "ZoomLevel" id="ZoomLevel" type="text" size="38"
                     value=
@@ -227,7 +227,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
                  
                 
 
-						<br>
+					
                       <input class="inp"placeholder="Title" title="Title" name="Title" id="Title"
                       type="text" size="38" value=
                       "<?= $data ['Title']; ?>" /><br />
@@ -235,10 +235,12 @@ google.maps.event.addDomListener(window, 'load', initialize);
                    
                   <div id="markerStatus">
 					<label>Click and drag the marker.</label>
-				  </div><br />
-
+				  </div>
                  
-					 <br>                  
+				      <input class="inp"placeholder="Photo" title="Photo" name="Photo" id="Photo"
+                      type="text" size="38" value=
+                      "<?= $data ['Photo']; ?>" /><br />
+					  
                     <textarea class="inp" placeholder="Info" title="Info" name="" rows="6" cols=
                     "33" id="TextHTML">
 <?= $data ['TextHTML']; ?>
@@ -247,7 +249,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
                  
                
-                   <br>
+                
                     <textarea class="inp" placeholder="Address" title="Address" rows="2" cols="33" name=
                     "Address" id="Address">
 <?= $data ['Address']; ?>
@@ -256,13 +258,11 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
                  
           
-					<br>
-					<br>
-                   <select name="TypeID" title="Type" id=
-                    "TypeID" onchange="handleMarkerIcon(this)">
+                   <select name="IconID" title="Type" id=
+                    "IconID" onchange="handleMarkerIcon(this)">
                       <?php
                                       include "../connect.php";
-                                      $sql = "SELECT * FROM  `type` ";
+                                      $sql = "SELECT * FROM  `icon` ";
 
                                       $qry = mysql_query($sql,$koneksi)
                                                 or die ("SQL Error: ".mysql_error());
@@ -271,8 +271,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
                                               ?>
 
                       <option value=
-                      "<?php echo $data['TypeID'];?>">
-                        <?php echo $data['TypeName'];?>
+                      "<?php echo $data['IconID'];?>">
+                        <?php echo $data['IconName'];?>
                       </option><?php
                                       }
                                       ?>
@@ -281,8 +281,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
                  
                   
-                    <br>
-					<br>
 					<center>
                         <input class="inp" type="button" value=
                         "Simpan" onclick="simpanMarker()" />

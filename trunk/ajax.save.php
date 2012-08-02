@@ -8,7 +8,7 @@ $ZoomLevel = $_POST["ZoomLevel"];
 $Title = $_POST["Title"];
 $TextHTML = $_POST["TextHTML"];
 $Address = $_POST["Address"];
-$TypeID = $_POST["TypeID"];
+$TypeID = $_POST["IconID"];
 # validasi Form 
 
 if  (trim($Latitude)=="") {
@@ -48,7 +48,7 @@ $sql="INSERT INTO marker SET
 		Title='$Title',
 		TextHTML='$TextHTML',
 		Address='$Address',
-		TypeID='$TypeID',
+		IconID='$IconID',
 		MarkerRegistered=NOW()";
 mysql_query($sql,$koneksi)
 	or die ("SQL Error:".mysql_error());

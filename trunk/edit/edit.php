@@ -130,19 +130,19 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 <tr>
 		<tr align="left" bgcolor="#D5EDB3">
-			<td width="112"><b><font face="Arial" size="2">TypeName</font></b></td>
+			<td width="112"><b><font face="Arial" size="2">IconName</font></b></td>
 			<td width="677">
 			<select name="TypeID" id="TypeID" onchange="handleMarkerIcon(this)">
 	<?php
 	include "connect.php";
-	$sql = "SELECT * FROM  `type` ";
+	$sql = "SELECT * FROM  `icon` ";
 
 	$qry = mysql_query($sql,$koneksi)
 		  or die ("SQL Error: ".mysql_error());
 	while($data=mysql_fetch_array($qry)) {
 		//$no++;
 		?>
-		<option value="<?php echo $data['TypeID'];?>"> <?php echo $data['TypeName'];?></option>
+		<option value="<?php echo $data['IconID'];?>"> <?php echo $data['IconName'];?></option>
 		
 	<?php
 	}

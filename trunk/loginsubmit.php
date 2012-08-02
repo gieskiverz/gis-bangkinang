@@ -8,7 +8,7 @@ $db_name = "gis";
 $db = mysql_connect($server,$username,$password) or DIE("Connection is down ");
 		mysql_select_db($db_name) or DIE("Database name not available !!");
 
-		$login = mysql_query("select * from users where
+		$login = mysql_query("select * from admin where
 			(UserName = '" . $_POST['UserName'] . "') and
 			(Password = '" . md5($_POST['Password']) . "')",$db);
 	$rowcount = mysql_num_rows($login);
