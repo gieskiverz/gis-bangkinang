@@ -1,4 +1,4 @@
-body {
+{
 	font: 11px Arial, Helvetica, sans-serif;
 	/*background: #ffffff url(images/main-bg.gif);*/
 	padding: 0;
@@ -11,7 +11,7 @@ img {
 /* dock - top */
 .dock {
 	position: relative;
-	height: 50px; 
+	height: 25px; 
 	text-align: center;
 }
 .dock-container {
@@ -41,24 +41,32 @@ a.dock-item {
 	padding-left: 20px;
 }
 
+#kotaksugest {
+	width: 800px;
+	 font-size: 13px;  
+	 text-align: left;
+  }
+
 /* dock2 - bottom */
 #dock2 {
 	width: 100%;
 	bottom: 0px;
-	position: absolute;
+	position: relative;
 	left: 0px;
 }
 .dock-container2 {
 	position: absolute;
 	height: 50px;
-	background: url(images/dock-bg.gif);
+	/*background: url(images/dock-bg.gif);*/
 	padding-left: 20px;
 }
 a.dock-item2 {
 	display: block; 
-	font: bold 12px Arial, Helvetica, sans-serif;
+	font: bold 11px Arial, Helvetica, sans-serif;
 	width: 40px; 
-	color: #000; 
+	color: #fff; 
+	/*text-shadow: black 0.1em 0.1em 0.1em;*/
+	 font-weight: bold;
 	bottom: 0px; 
 	position: absolute;
 	text-align: center;
@@ -66,7 +74,7 @@ a.dock-item2 {
 }
 .dock-item2 span {
 	display: none;
-	padding-left: 20px;
+	padding-left: 10px;
 }
 .dock-item2 img {
 	border: none; 

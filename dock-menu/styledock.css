@@ -1,6 +1,6 @@
-{
+body {
 	font: 11px Arial, Helvetica, sans-serif;
-	/*background: #ffffff url(images/main-bg.gif);*/
+	background: #ffffff url(images/main-bg.gif);
 	padding: 0;
 	margin: 0;
 }
@@ -10,21 +10,20 @@ img {
 
 /* dock - top */
 .dock {
-	/*position: relative; */
-	height: 10px; 
+	position: relative; 
+	height: 50px; 
 	text-align: center;
 }
 .dock-container {
 	position: absolute;
 	height: 50px;
-	/*background: url(images/dock-bg2.gif);*/
+	background: url(images/dock-bg2.gif);
 	padding-left: 20px;
 }
 a.dock-item {
 	display: block;
 	width: 40px;
-	color: #ffff00;
-	text-shadow: black 0.1em 0.1em 0.1em;
+	color: #000;
 	position: absolute;
 	top: 0px;
 	text-align: center;
@@ -33,7 +32,7 @@ a.dock-item {
 }
 .dock-item img {
 	border: none; 
-	margin: 1px 10px 0px; 
+	margin: 5px 10px 0px; 
 	width: 100%; 
 }
 .dock-item span {
@@ -41,17 +40,11 @@ a.dock-item {
 	padding-left: 20px;
 }
 
-#kotaksugest {
-	width: 800px;
-	 font-size: 13px;  
-	 text-align: left;
-  }
-
-/* dock2 - bottom
+/* dock2 - bottom */
 #dock2 {
 	width: 100%;
 	bottom: 0px;
-	position: relative;
+	position: absolute;
 	left: 0px;
 }
 .dock-container2 {
@@ -78,4 +71,4 @@ a.dock-item2 {
 	border: none; 
 	margin: 5px 10px 0px; 
 	width: 100%; 
-}*/
+}

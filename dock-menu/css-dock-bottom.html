@@ -1,33 +1,39 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>CSS Mac Dock</title>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/interface.js"></script>
 
-<!--[if lt IE 7]>
- <style type="text/css">
- .dock img { behavior: url(iepngfix.htc) }
- </style>
-<![endif]-->
-
-<link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <!--bottom dock -->
 <div class="dock" id="dock2">
   <div class="dock-container2">
-  <a class="dock-item2" href="#"><span>Home</span><img src="images/home.png" alt="home" /></a> 
-  <a class="dock-item2" href="#"><span>Contact</span><img src="images/email.png" alt="contact" /></a> 
-  <a class="dock-item2" href="#"><span>Portfolio</span><img src="images/portfolio.png" alt="portfolio" /></a> 
-  <a class="dock-item2" href="#"><span>Music</span><img src="images/music.png" alt="music" /></a> 
-  <a class="dock-item2" href="#"><span>Video</span><img src="images/video.png" alt="video" /></a> 
-  <a class="dock-item2" href="#"><span>History</span><img src="images/history.png" alt="history" /></a> 
-  <a class="dock-item2" href="#"><span>Calendar</span><img src="images/calendar.png" alt="calendar" /></a> 
-  <a class="dock-item2" href="#"><span>Links</span><img src="images/link.png" alt="links" /></a> 
-  <a class="dock-item2" href="#"><span>RSS</span><img src="images/rss.png" alt="rss" /></a> 
-  <a class="dock-item2" href="#"><span>RSS2</span><img src="images/rss2.png" alt="rss" /></a> 
+  <!-- <a class="dock-item" href="home.php"><span>Home</span><img src="dock-menu/images/home.png" alt="home" /> </a> 
+  <a class="dock-item" href="view.php"><span>Markers View</span><img src="dock-menu/images/marker.png" alt="marker" /></a> 
+  <a class="dock-item" href="polyline.php"><span>Ukur Jalan & Daerah</span><img src="dock-menu/images/polyline.png" alt="polyline" /></a> -->
+   <!-- Saturday, July 28, 2012 9:59:34 AM -->
+  <!-- <a class="dock-item"><img src="images/magnifier.png" alt="Search" onclick="alert('You clicked on search button')" />
+                     <span>
+                     <input class="inp" placeholder="search" name="Search" title="Search" id=
+                                  "kata" type="text" size="20" onkeyup=lihat(this.value)>
+                      <div id=kotaksugest>
+                      </div>
+                      </span></a> 
+  <a class="dock-item" href="help.php"><span>Help</span><img src="dock-menu/images/help.png" alt="help" /></a> -->
+
+  <a class="dock-item2" href="directionsOptimized.php"><span>Kategori Perjalanan</span><img src="dock-menu/images/directions.png" alt="directions" /></a> 
+  <a class="dock-item2" href="polyline.php"><span>Ukur Jalan</span><img src="dock-menu/images/polyline.png" alt="polyline" /></a>
+   <a class="dock-item2" href="route.php"><span>Rute Perjalanan</span><img src="dock-menu/images/route.png" alt="route" /></a>
+<a class="dock-item2" href="login.php"><span>Login</span><img src="dock-menu/images/login.png" alt="login" /></a> 
+  <!-- <a class="dock-item" href="http://facebook.com"><span>Facebook</span><img src="dock-menu/images/fb.png" alt="fb" /></a> 
+  <a class="dock-item" href="http://twitter.com"><span>Twitter</span><img src="dock-menu/images/twitter.png" alt="twitter" /></a> 
+  <a class="dock-item" href="http://youtube.com"><span>Youtube</span><img src="dock-menu/images/youtube.png" alt="youtube" /></a> 
+  <a class="dock-item" href="http://maps.google.com"><span>GoogleMaps</span><img src="dock-menu/images/googlemaps.png" alt="googlemaps" /></a> 
+  <a class="dock-item" href="http://gmail.com"><span>Gmail</span><img src="dock-menu/images/gmail.png" alt="gmail" /</a> --> 
+  <!-- <a class="dock-item" href="login.php"><span>Login</span><img src="dock-menu/images/login.png" alt="login" /</a>  -->
+ 
   </div>
 </div>
 
@@ -39,12 +45,12 @@
 		{
 			$('#dock2').Fisheye(
 				{
-					maxWidth: 60,
+					maxWidth:20,
 					items: 'a',
 					itemsText: 'span',
 					container: '.dock-container2',
-					itemWidth: 40,
-					proximity: 80,
+					itemWidth: 30,
+					proximity: 30,
 					alignment : 'left',
 					valign: 'bottom',
 					halign : 'center'

@@ -8,8 +8,7 @@
 <body>
 <div class="dock" id="dock">
   <div class="dock-container">
-   <div class="dock-container">
-   <a class="dock-item" href="home.php"><img src="dock-menu/images/home.png" alt="home" /> <span>Home</span></a> 
+  <a class="dock-item" href="home.php"><img src="dock-menu/images/home.png" alt="home" /> <span>Home</span></a> 
   <a class="dock-item" href="view.php"><img src="dock-menu/images/marker.png" alt="marker" /><span>Full Map</span></a>
   <a class="dock-item" href="home-SD-SLTP-SLTA.php"><img src="icon/pendidikan.png" alt="marker" /><span>SD/SLTP/ SLTA</span></a>
   <a class="dock-item" href="home-PerguruanTinggi.php"><img src="icon/university.png" alt="marker" /><span>Perguruan Tinggi</span></a>
@@ -18,7 +17,7 @@
   <a class="dock-item" href="home-KantorPolisi.php"><img src="icon/polisi.png" alt="marker" /><span>Kantor Polisi</span></a>
   <a class="dock-item" href="home-RumahSakit.php"><img src="icon/hospital.png" alt="marker" /><span>Rumah Sakit</span></a>
   <a class="dock-item" href="home-TamanRekreasi.php"><img src="icon/garden.png" alt="marker" /><span>Taman Rekreasi</span></a>
-   <!-- <a class="dock-item" href="directionsOptimized.php"><img src="dock-menu/images/directions.png" alt="directions" /><span>Kategori Perjalanan</span></a> 
+  <!-- <a class="dock-item" href="directionsOptimized.php"><img src="dock-menu/images/directions.png" alt="directions" /><span>Kategori Perjalanan</span></a> 
   <a class="dock-item" href="polyline.php"><img src="dock-menu/images/polyline.png" alt="polyline" /><span>Ukur Jalan</span></a>
    <a class="dock-item" href="route.php"><img src="dock-menu/images/route.png" alt="route" /><span>Rute Perjalanan</span></a> -->
    <!-- Saturday, July 28, 2012 9:59:34 AM -->
@@ -47,12 +46,12 @@
 		{
 			$('#dock').Fisheye(
 				{
-					maxWidth: 60,
+					maxWidth: 20,
 					items: 'a',
 					itemsText: 'span',
 					container: '.dock-container',
-					itemWidth: 40,
-					proximity: 60,
+					itemWidth: 35,
+					proximity: 10,
 					halign : 'center'
 				}
 			)
