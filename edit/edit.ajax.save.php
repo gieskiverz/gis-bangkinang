@@ -10,7 +10,8 @@ $ZoomLevel = (int)  $_POST["ZoomLevel"];
 $Title = $_POST["Title"];
 $TextHTML = $_POST["TextHTML"];
 $Address = $_POST["Address"];
-$TypeID = (int) $_POST["TypeID"];
+$Photo = $_POST["Photo"];
+$IconID = (int) $_POST["IconID"];
 
 
 /*$sql =  "INSERT INTO `marker` (
@@ -36,9 +37,10 @@ $sql="Update marker set Latitude ='$Latitude',
 		Longitude	='$Longitude',
 		ZoomLevel	='$ZoomLevel',
 		Title		='$Title',
+		Photo		='$Photo',
 		TextHTML	='$TextHTML',
 		Address		='$Address',
-		TypeID		='$TypeID'
+		IconID		='$IconID'
 		where MarkerID	='$MarkerID'";
 
 echo $sql;

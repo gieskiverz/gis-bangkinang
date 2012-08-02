@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Google Maps JavaScript API v3 Example: Drawing Tools Library</title>
+    <title>Polyline & Drawing </title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="UTF-8">
     <!--link href="/maps/documentation/javascript/examples/default.css"
@@ -42,7 +42,6 @@ html, body {
 var myOptions;
 var map;
 var infoWindow;
-
 var currentPolyline;
 var currentPolygon;
 
@@ -67,12 +66,12 @@ function removePolygonVertice(vertice){
 }
 
 function initialize() {
-  var bangkinang = new google.maps.LatLng(0.344293, 101.029);
+  var bangkinang = new google.maps.LatLng(0.33731939257375365,101.02444476137703);
 
   myOptions = {
    
     center: bangkinang,
-    zoom: 16,
+    zoom: 15,
     mapTypeId: google.maps.MapTypeId.HYBRID
   };
 

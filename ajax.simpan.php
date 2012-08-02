@@ -28,7 +28,7 @@ $Title = $_POST["Title"];
 $TextHTML = $_POST["TextHTML"];
 $Photo = $_POST["Photo"];
 $Address = $_POST["Address"];
-$TypeID = $_POST["TypeID"];
+$TypeID = $_POST["IconID"];
 
 
 # validasi Form 
@@ -71,7 +71,7 @@ $sql="INSERT INTO marker SET
 		Photo='$Photo',
 		TextHTML='$TextHTML',
 		Address='$Address',
-		TypeID='$TypeID',
+		IconID='$IconID',
 		MarkerRegistered=NOW()";
 mysql_query($sql,$koneksi)
 	or die ("SQL Error:".mysql_error());

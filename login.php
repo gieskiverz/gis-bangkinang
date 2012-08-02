@@ -10,7 +10,11 @@
   </style>
 	<body>
 	<!-- background -->
-		<div id="home-header">            
+		<div id="home-header"> 
+		<br><br>
+		<b style="font-weight:bold;
+	font-size: 18px;">
+	SISTEM INFORMASI GEOGRAFIS KOTA BANGKINANG</b>
            <div style ="margin-left: auto; margin-right: auto;  height: 70px;">
 		   
                 <div align="left" style="margin-left: auto; margin-right: auto;  margin-top: 6px; width: 980px; color: #FFAA22;">
@@ -42,12 +46,16 @@
 								<input id="Password" placeholder="Password:" name="Password" size="20"  type="password" />
                                 <br><br><br>
                 <input class="homepage_signup" style="border: 0px; width: 256px; height: 33px; border: 1px solid #FFAA22;" type="submit" value="Sign In">
+			
+				
             </form>
+			<a href="index.php"><input class="homepage_signup" style="border: 0px; width: 256px; height: 33px; border: 1px solid #FFAA22;" type="submit" value=" Back To Home"></a>
                     </div>
       
     </div>
+	
 </div>
-
+	
 </div>
 
 <div class="golden_line"></div>

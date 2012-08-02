@@ -2,7 +2,7 @@
 	$db_host="localhost";
 	$db_user="root";
 	$db_pass="rita";
-	$db_data="gis";
+	$db_data="test";
 
 
 	$koneksi = mysql_connect($db_host,$db_user,$db_pass)

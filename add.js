@@ -95,7 +95,7 @@ function simpanMarker(){
   params +="&ZoomLevel="+document.getElementById('ZoomLevel').value;
   params +="&TextHTML="+document.getElementById('TextHTML').value;
   params +="&Address="+document.getElementById('Address').value;
-  params +="&TypeID="+document.getElementById('TypeID').value;
+  params +="&IconID="+document.getElementById('TypeID').value;
 
   if (window.XMLHttpRequest) {
     // obtain new object

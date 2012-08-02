@@ -38,19 +38,9 @@ html, body {
 <title>Map</title>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     
-
- <!-- the div where the map will be displayed -->
 	<!-- style="width: 550px; height: 450px"-->
     <div id="map"</div>
-    <!--a href="menu.php">Back to the  page</a-->
-    
-    <!-- fail nicely if the browser has no Javascript -->
-    <noscript><b>JavaScript must be enabled in order for you to use Google Maps.</b> 
-      However, it seems JavaScript is either disabled or not supported by your browser. 
-      To view Google Maps, enable JavaScript by changing your browser options, and then 
-      try again.
-    </noscript>
-
+   
     <script type="text/javascript">
     //<![CDATA[
 
@@ -87,7 +77,7 @@ html, body {
 
 
 	 var map = new GMap2(document.getElementById("map"));
-	  map.setCenter(new GLatLng(0.3326417,101.02427310000007), 14);
+	   map.setCenter(new GLatLng(0.33813476994911484,101.02830714235847), 15);
 
       // Select a map type which supports obliques
       map.setMapType(G_HYBRID_MAP);
@@ -99,7 +89,7 @@ html, body {
 
 	<?php
 	//$sql =  "select * from marker where 1;";
-	$sql = "SELECT * FROM `marker` INNER JOIN `type` ON marker.typeID = type.typeID LIMIT 0 , 30";
+	$sql = "SELECT * FROM `marker` INNER JOIN `icon` ON marker.IconID = icon.IconID LIMIT 0 , 30";
 	$qry = mysql_query($sql,$koneksi)
 		  or die ("SQL Error: ".mysql_error());
 		  
@@ -110,7 +100,7 @@ html, body {
 	?>
 	
       var point = new GLatLng( <?php echo $data['Latitude'].','. $data['Longitude'];?>);
-      var marker = createMarkerWithIcon(point,"<?php echo $data['Icon'];?>",'<center>== <?php echo $data['Title'];?> ==</center> <br/><br> <?php echo $data['TextHTML'];?> <br/><?php echo $data['Photo'];?> <br/>')
+      var marker = createMarkerWithIcon(point,"<?php echo $data['IconImage'];?>",'<center>== <?php echo $data['Title'];?> == <br/><br> <?php echo $data['TextHTML'];?> <br/><img src="photo/<?php echo $data['Photo'];?>"width=300 height=200/> <br/></center>')
 		  
       map.addOverlay(marker);
 	<?php
@@ -164,7 +154,7 @@ html, body {
   #Marker {
     border: 1px solid silver;
     -moz-border-radius: 6px;
-    width: auto;
+    width: 220px;
     margin: auto;
     padding: 2px;	
     text-align: left;
@@ -175,8 +165,9 @@ html, body {
   }
   #Judul {
     /*background:url(../admin/syarif.jpg);*/
-    font-size: 11pt;
+    font-size: 9pt;
     text-align: center;
+	width: 210px;
     background-color: #ffffff;
     border: px solid #ffffff; 
     color: black;
@@ -196,12 +187,12 @@ html, body {
     padding: 4px;
     font-weight:bold;
   }
-  #kotaksugest {
+  /*#kotaksugest {
     font-size: 9pt;
-    text-align: left;
+    text-align: center;
     color: #000000;
     padding: 4px;
-    font-weight:bold;
+    font-weight:bold;*/
   }
  #menu {
     /*background:url(../admin/syarif.jpg);*/
@@ -209,7 +200,7 @@ html, body {
     text-align: left;
     background-color: #99ffcc;
    /*border: 2px solid #ffffff; */
-    color: white;
+    color: black;
     padding: 4px;
     font-weight:bold;
   }
@@ -240,7 +231,6 @@ html, body {
 				include "dock-menu/css-dock-top.html";
 				?>
 
-
   <!-- <div id="mapCanvas"></div> -->
   
   <div id="infoPanel">
@@ -257,7 +247,7 @@ html, body {
 
   <div id='Marker'>
     <div id='Judul'>
-   Menu
+		Ketikan lokasi yang anda cari
     </div>
     
   
@@ -271,7 +261,7 @@ html, body {
 				
 	<br>
       <input class="inp" placeholder="Search" name="Search" title="Search" id=
-      "kata" type="text" size="20" onkeyup=lihat(this.value)><br/>
+      "kata" type="text" size="25" onkeyup=lihat(this.value)><br/>
 
 		<div id=kotaksugest>
 		</div>

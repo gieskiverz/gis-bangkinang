@@ -10,7 +10,7 @@
 <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=" type="text/javascript"></script>	
 <!-- css dock menu Tuesday, July 24, 2012 3:11:04 PM -->
 <link href="../dock-menu/style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="../icon.js.php"></script>
+<!-- <script type="text/javascript" src="./icon.js.php"></script> -->
 <script type="text/javascript"></script>
 
 <style>
@@ -82,7 +82,7 @@ html, body {
       }
 		//Monday, July 23, 2012 2:50:47 PM
       var map = new GMap2(document.getElementById("map"));
-	  map.setCenter(new GLatLng(0.3326417,101.02427310000007), 14);
+	  map.setCenter(new GLatLng(0.33813476994911484,101.02830714235847), 15);
 
       // Select a map type which supports obliques
       map.setMapType(G_HYBRID_MAP);
@@ -102,7 +102,7 @@ html, body {
 	<?php
 	
 	//$sql =  "select * from marker where 1;";
-	$sql = "SELECT * FROM `marker` INNER JOIN `type` ON marker.typeID = type.typeID LIMIT 0 , 30";
+	$sql = "SELECT * FROM `marker` INNER JOIN `icon` ON marker.IconID = icon.IconID LIMIT 0 , 30";
 	$qry = mysql_query($sql,$koneksi)
 		  or die ("SQL Error: ".mysql_error());
 		  
@@ -113,7 +113,7 @@ html, body {
 	?>
 	
       var point = new GLatLng( <?php echo $data['Latitude'].','. $data['Longitude'];?>);
-      var marker = createMarkerWithIcon(point,"<?php echo $data['Icon'];?>",'<center>== <?php echo $data['Title'];?> ==</center> <br/> <?php echo $data['TextHTML'];?> <br/><a href="EditMarker.php?MarkerID=<? echo $data['MarkerID']; ?>"><input  type=button value=Edit></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../AddMarker.php"><input type=button value=Add></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../delete/DeleteMarker.php?MarkerID=<? echo $data['MarkerID']; ?>"><input type=button value=Delete></a>')
+      var marker = createMarkerWithIcon(point,"<?php echo $data['IconImage'];?>",'<center>== <?php echo $data['Title'];?> ==<br/><br/><img src="../photo/<?php echo $data['Photo'];?>"width=300 height=200/> <br/> <?php echo $data['TextHTML'];?><br/><br/><a href="EditMarker.php?MarkerID=<? echo $data['MarkerID']; ?>"><input  type=button value=Edit></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../AddMarker.php"><input type=button value=Add></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../delete/DeleteMarker.php?MarkerID=<? echo $data['MarkerID']; ?>"><input type=button value=Delete></a></center>  ')
 		  
       map.addOverlay(marker);
 	<?php
@@ -142,7 +142,7 @@ html, body {
 		<!-- saved from url=(0014)about:internet -->
 		<!-- script type="text/javascript" src="sidebar/html.js"></script-->
 		<!-- <script type="text/javascript" src="./add.js"></script> -->
-		<script type="text/javascript" src="./icon.js.php"></script>
+		<!-- <script type="text/javascript" src="./icon.js.php"></script> -->
 		<!-- Search Saturday, July 21, 2012 10:13:31 PM --> 
 		<script type="text/javascript" src="../search.js"></script>
  <style>
@@ -167,9 +167,9 @@ html, body {
   }
 	
   #Marker {
-     border: 1px solid silver;
+    border: 1px solid silver;
     -moz-border-radius: 6px;
-    width: auto;
+    width: 220px;
     margin: auto;
     padding: 2px;	
     text-align: left;
@@ -179,9 +179,10 @@ html, body {
     /*background-image: url(../admin/peta.jpg);*/
   }
   #Judul {
-   /*background:url(../admin/syarif.jpg);*/
-    font-size: 11pt;
+    /*background:url(../admin/syarif.jpg);*/
+    font-size: 9pt;
     text-align: center;
+	width: 210px;
     background-color: #ffffff;
     border: px solid #ffffff; 
     color: black;
@@ -250,7 +251,7 @@ html, body {
 
   <div id='Marker'>
     <div id='Judul'>
-   Menu
+  Ketikan lokasi yang anda cari 
     </div>
     
   
@@ -262,7 +263,7 @@ html, body {
 
 				<!-- Saturday, July 21, 2012 10:42:45 PM -->
 			  <input class="inp" placeholder="search" name="Search" title="Search" id=
-			  "kata" type="text" size="20" onkeyup=lihat(this.value)><br/>
+			  "kata" type="text" size="25" onkeyup=lihat(this.value)><br/>
 
 				<div id=kotaksugest>
 				</div>

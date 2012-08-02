@@ -14,6 +14,7 @@ include "connect.php";
 <script type="text/javascript"></script>
   <style type="text/css">
   body {
+	 background: url(dock-menu/images/main-bg.gif);
     font-family: Verdana, sans-serif;
     font-size: 11pt;
 
@@ -52,9 +53,9 @@ include "connect.php";
     font-size: 1.1em;
     text-align: center;
     background-color: #006633;
-    border: 2px solid #ffffff; 
+    border: 2px solid #b6a6a6; 
 	border-radius:15px;
-    color: black;
+    color: black; 
 	font-family: Arial,Helvetica,sans-serif;
 	font-size: 16px;
     padding: 4px;
@@ -65,7 +66,7 @@ include "connect.php";
     font-size: 1.1em;
     text-align: left;
     background-color: #006633;
-    border: 2px solid #ffffff; 
+    border: 2px solid #b6a6a6; 
 	border-radius:15px;
     color: black;
 	font-family: Arial,Helvetica,sans-serif;
@@ -98,7 +99,7 @@ include "connect.php";
   #header {
   clear: both;
   width: auto;
-  height: 300px;
+  height: 125px;
   /*background-image: url(login/header.png);*/
   font-family: Arial,Helvetica,sans-serif;
   font-size: 16px;
@@ -111,12 +112,13 @@ include "connect.php";
    #footer {
   clear: both;
   width: 900px;
-  height: 80px; 
+  height: 90px; 
   background-image: url(login/footer.png);
   font-family: Arial,Helvetica,sans-serif;
   font-size: x-small;
   color: white;
-  text-align: center;
+  text-align: left;
+
   }
   /* #window {
   width: 900px;
@@ -169,16 +171,15 @@ include "connect.php";
 
 /* Friday, July 06, 2012 3:06 PM */
 
-
-html, body {
+{
   height: 100%;
   margin: 0;
   padding: 0;
 }
 
 #map {
-  height: 100%;
-  /*height: 380px;*/
+  /*height: 100%;*/
+  height: 380px;
 }
 
 @media print {
@@ -187,13 +188,13 @@ html, body {
   }
 
   #map {
-    height: 650px;
+    height: 200px;
   }
 }
 </style>
 
 </head>
-
+<body onunload="GUnload()">
 
   <div id="page">
     <div id="header">
@@ -204,40 +205,32 @@ html, body {
     </div>
 	<br>
 
-	
-		
 
         <div id='peta'>
-
 	<div id='search'>
 		
-		<!-- untuk Search Marker Monday, July 23, 2012 11:23:09 PM -->
-		<img src="images/magnifier.png" alt="Search" onclick="alert('You clicked on search button')" />
-		 <input class="inp" placeholder="search" name="Search" title="Search" id=
-				 "kata" type="text" size="20" onkeyup=lihat(this.value)>
-				 
-				<div id=kotaksugest></div>
-
 				<!-- untuk dock menu Monday, July 23, 2012 9:49:06 PM -->
 				<?php
-				include "dock-menu/css-dock-top.html";
-				?><br><br>
+				include "dock-menu/dockMenuhome.html";
+				?> 
+
+
+			 <img src="images/search.png" width="30" height="" alt="Search"/> 
+			<input class="inp" placeholder="search" name="Search" title="Search" id=
+                                  "kata" type="text" size="15"  onkeyup=lihat(this.value) >     
+                   
+									<div id=kotaksugest></div>
 	</div>
 
           <div id='Judul'>
           <a href="view.php" target="_blank" style=
 				"text-decoration:none;color:#ffffff;" title="Layar Penuh"> <blink> Full Map </blink>  </a>
 				<br>
+				
 
-			 
+				<div id="map">
 
-
-				<div id="map"</div>
-
-				<body onunload="GUnload()">
-   
-
-   
+		
     <script type="text/javascript">
 
     if (GBrowserIsCompatible()) {
@@ -266,10 +259,10 @@ html, body {
       }
        //Monday, July 23, 2012 2:50:47 PM
       var map = new GMap2(document.getElementById("map"));
-	  map.setCenter(new GLatLng(0.3326417,101.02427310000007), 13);
+	  map.setCenter(new GLatLng(0.33731939257375365,101.02444476137703), 14);
 
       // Select a map type which supports obliques
-      map.setMapType(G_NORMAL_MAP);
+      map.setMapType(G_HYBRID_MAP);
       map.setUIToDefault();
 
       // Enable the additional map types within
@@ -285,7 +278,7 @@ html, body {
 
 	<?php
 	//$sql =  "select * from marker where 1;";
-	$sql = "SELECT * FROM `marker` INNER JOIN `type` ON marker.typeID = type.typeID LIMIT 0 , 30";
+	$sql = "SELECT * FROM `marker` INNER JOIN `icon` ON marker.IconID = icon.IconID LIMIT 0 , 30";
 	$qry = mysql_query($sql,$koneksi)
 		  or die ("SQL Error: ".mysql_error());
 		  
@@ -295,8 +288,8 @@ html, body {
  	
 	?>
 	
-      var point = new GLatLng( <?php echo $data['Latitude'].','. $data['Longitude'];?>);
-      var marker = createMarkerWithIcon(point,"<?php echo $data['Icon'];?>",'<center>== <?php echo $data['Title'];?> ==</center> <br/> <?php echo $data['TextHTML'];?> <br/><br/><br/><?php echo $data['Photo'];?> <br/>')
+       var point = new GLatLng( <?php echo $data['Latitude'].','. $data['Longitude'];?>);
+      var marker = createMarkerWithIcon(point,"<?php echo $data['IconImage'];?>",'<center>== <?php echo $data['Title'];?> == <br/><br> <?php echo $data['TextHTML'];?> <br/><img src="photo/<?php echo $data['Photo'];?>"width=300 height=200/> <br/></center>')
 		  
       map.addOverlay(marker);
 	<?php
@@ -313,15 +306,19 @@ html, body {
     </script>
 
 
+
 		 </div>
         </div>
       </div>
-
-      <div id="footer">
-
-        <br />
-        Power by <a href="http://syarif25.tk" style=
-				"text-decoration:none;color:#fff;" target="_blank"> deyen 2012
+	<!-- untuk dock menu Monday, July 23, 2012 9:49:06 PM -->
+				
+      <div id="footer"><br>
+				<?php
+				include "dock-menu/css-dock-bottom.html";
+				?> 
+     
+       <a href="http://syarif25.tk" style=
+				"text-decoration:none;color:#fff;" target="_blank">&nbsp;&nbsp;Power by  deyen 2012
    
     </div>
   </div>

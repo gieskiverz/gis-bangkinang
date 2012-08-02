@@ -5,7 +5,7 @@
 require_once(”database.php”);
 connect_db();
 
-$query=mysql_query(”SELECT * FROM upload”);
+$query=mysql_query(”SELECT * FROM image);
 $row=mysql_fetch_row($query);
 if(!$row)
 echo ”tabel upload kosong”;
