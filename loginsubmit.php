@@ -1,12 +1,12 @@
 <?
 session_start();
-$server = "localhost";
-$username = "root";
-$password = "rita";
-$db_name = "gis";
+$mysql_host = "syarif.com";
+	$mysql_database = "gis";
+	$mysql_user = "root";
+	$mysql_password = "rita";
 
-$db = mysql_connect($server,$username,$password) or DIE("Connection is down ");
-		mysql_select_db($db_name) or DIE("Database name not available !!");
+$db = mysql_connect($mysql_host,$mysql_user,$mysql_password) or DIE("Connection is down ");
+		mysql_select_db($mysql_database) or DIE("Database name not available !!");
 
 		$login = mysql_query("select * from admin where
 			(UserName = '" . $_POST['UserName'] . "') and

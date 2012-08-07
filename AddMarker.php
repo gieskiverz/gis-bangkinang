@@ -115,7 +115,7 @@ include "session.php";
             <div id="scrollbar_content">
               <div id='Marker'>
                 <div id='Judul'>
-                  Add Maker
+                  Add Marker
                 </div>
 
                 <div id='logout'>
@@ -125,7 +125,7 @@ include "session.php";
                   </div>
                 </div>
 
-				<form enctype="multipart/form-data" action="marker.php" method="POST"> 
+				<form enctype="multipart/form-data" action="markerSave.php" method="POST"> 
 
                  <select name="IconID" id="IconID" title="Icon" onchange=
 				  "handleMarkerIcon(this)">
