@@ -2,6 +2,7 @@
 include "../session.php";	
 include "../connect.php";
 
+
 # baca variabel URL (if register global on)
 $MarkerID = (int) $_GET['MarkerID'];
 
@@ -11,6 +12,7 @@ $MarkerID = (int) $_GET['MarkerID'];
 	or die ("SQL Error : ".mysql_error());
 $data=mysql_fetch_array($qry);
 ?>
+
 <html>
 <head>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
@@ -192,12 +194,14 @@ google.maps.event.addDomListener(window, 'load', initialize);
                     "text-decoration:none;color:#3b5998;">Logout</a>
                   </div>
                 </div>
-
+				<form name="form1" action="editSave.php" method="post" enctype="multipart/form-data">
+		
+		
 					<input type="hidden" name=
                     "MarkerID" id="MarkerID" value=
                     "<? echo $data['MarkerID'];?>" />
-                    <font face="Comic Sans MS" size="2">: 
-                    <? echo $data['MarkerID'];?></font>
+                   <font style="text-decoration:none;color:#99ffcc;">
+                    <? echo $data['MarkerID'];?></font><br />
 
       
                    <input class="inp" placeholder="Latitude" title="Latitude" name=
@@ -217,31 +221,31 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
                  
                
-					
+				
                    <input class="inp" placeholder="ZooMLevel" title="ZoomLevel" name=
                     "ZoomLevel" id="ZoomLevel" type="text" size="38"
                     value=
                     "<?= $data ['ZoomLevel']; ?>" /><br />
-                  
-
-                 
+                        
                 
 
-					
                       <input class="inp"placeholder="Title" title="Title" name="Title" id="Title"
                       type="text" size="38" value=
                       "<?= $data ['Title']; ?>" /><br />
+					    <div id="markerStatus">
+    <label><i>Click and drag the marker.</i></label>
+  </div>
 
+                <!-- menampilkan gambar sebelumnya -->
+		<img src="../photo/<?php echo $data['Photo'];?>" alt="" width="100" height="90" border="0"/><br/>
+                
+				  <!-- <input type="file" name="file" id="file"/><br/> -->
+
+					<input class="inp" name="file" id="file"
+					type="file" title=" Change Photo"/><br />
                    
-                  <div id="markerStatus">
-					<label>Click and drag the marker.</label>
-				  </div>
-                 
-				      <input class="inp"placeholder="Photo" title="Photo" name="Photo" id="Photo"
-                      type="text" size="38" value=
-                      "<?= $data ['Photo']; ?>" /><br />
-					  
-                    <textarea class="inp" placeholder="Info" title="Info" name="" rows="6" cols=
+					                 
+                    <textarea class="inp" placeholder="Info" title="Info" name="TextHTML" rows="3" cols=
                     "33" id="TextHTML">
 <?= $data ['TextHTML']; ?>
 </textarea><br />
@@ -249,17 +253,14 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
                  
                
-                
+               
                     <textarea class="inp" placeholder="Address" title="Address" rows="2" cols="33" name=
                     "Address" id="Address">
 <?= $data ['Address']; ?>
 </textarea>
-                  
-
-                 
-          
-                   <select name="IconID" title="Type" id=
-                    "IconID" onchange="handleMarkerIcon(this)">
+                  <br>
+                   <select name="IconID" title="Icon" id=
+                    "TypeID" onchange="handleMarkerIcon(this)">
                       <?php
                                       include "../connect.php";
                                       $sql = "SELECT * FROM  `icon` ";
@@ -279,13 +280,11 @@ google.maps.event.addDomListener(window, 'load', initialize);
                     </select>
                   
 
-                 
-                  
-					<center>
-                        <input class="inp" type="button" value=
-                        "Simpan" onclick="simpanMarker()" />
-                    </center>
-                    
+                
+                    <br>
+				
+                    <center><input class="inp" type="Submit" value="Simpan"/> <center> </form>
+
                   
                
               </div>
@@ -293,7 +292,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
                <center>
                     <a href="viewMap.php">
                   
-                      Exit
+                     <font style="text-decoration:none;color:#ffffff;">Exit </font> 
                </center>
                   
                 

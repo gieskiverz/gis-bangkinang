@@ -102,7 +102,7 @@ html, body {
 	<?php
 	
 	//$sql =  "select * from marker where 1;";
-	$sql = "SELECT * FROM `marker` INNER JOIN `icon` ON marker.IconID = icon.IconID LIMIT 0 , 30";
+	$sql = "SELECT * FROM `marker` INNER JOIN `icon` ON marker.IconID = icon.IconID";
 	$qry = mysql_query($sql,$koneksi)
 		  or die ("SQL Error: ".mysql_error());
 		  
@@ -113,7 +113,7 @@ html, body {
 	?>
 	
       var point = new GLatLng( <?php echo $data['Latitude'].','. $data['Longitude'];?>);
-      var marker = createMarkerWithIcon(point,"<?php echo $data['IconImage'];?>",'<center>== <?php echo $data['Title'];?> ==<br/><br/><img src="../photo/<?php echo $data['Photo'];?>"width=300 height=200/> <br/> <?php echo $data['TextHTML'];?><br/><br/><a href="EditMarker.php?MarkerID=<? echo $data['MarkerID']; ?>"><input  type=button value=Edit></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../AddMarker.php"><input type=button value=Add></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../delete/DeleteMarker.php?MarkerID=<? echo $data['MarkerID']; ?>"><input type=button value=Delete></a></center>  ')
+      var marker = createMarkerWithIcon(point,"<?php echo $data['IconImage'];?>",'<center>== <?php echo $data['Title'];?> ==<br/><br/><img src="../photo/<?php echo $data['Photo'];?>"width=250 height=180/> <br/><br/> <?php echo $data['TextHTML'];?><br/><br/><a href="EditMarker.php?MarkerID=<? echo $data['MarkerID']; ?>"><input  type=button value=Edit></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../AddMarker.php"><input type=button value=Add></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../delete/DeleteMarker.php?MarkerID=<? echo $data['MarkerID']; ?>"><input type=button value=Delete></a></center>  ')
 		  
       map.addOverlay(marker);
 	<?php

@@ -1,13 +1,13 @@
 <?PHP
-	$db_host="syarif.com";
-	$db_user="root";
-	$db_pass="rita";
-	$db_data="gis";
+	$mysql_host = "syarif.com";
+	$mysql_database = "gis";
+	$mysql_user = "root";
+	$mysql_password = "rita";
 
 
-	$koneksi = mysql_connect($db_host,$db_user,$db_pass)
+	$koneksi = mysql_connect($mysql_host,$mysql_user,$mysql_password)
 			   or die ("Koneksi gagal".mysql_error());
-	mysql_select_db($db_data, $koneksi)
+	mysql_select_db($mysql_database, $koneksi)
 	     or die ("Baca DB gagal".mysql_error());
 
 ?>
