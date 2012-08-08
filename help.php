@@ -226,8 +226,8 @@ include "connect.php";
 				"text-decoration:none;color:#ffffff;"> Help </a>
 				<br>
 
-<iframe width="640" height="360" src="http://www.youtube.com/embed/kt7o9iFyG8E?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
-		
+<!-- <iframe width="640" height="360" src="http://www.youtube.com/embed/kt7o9iFyG8E?feature=player_detailpage" frameborder="0" allowfullscreen></iframe> -->
+<iframe width="640" height="360" src="http://www.youtube.com/embed/wquOwOPuLus?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>		
 
 		
         </div>
