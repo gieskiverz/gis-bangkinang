@@ -283,7 +283,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
                 
                     <br>
 				
-                    <center><input class="inp" type="Submit" value="Simpan"/> <center> </form>
+                    <center><input class="inp" type="Submit" value="Save"/> <center> </form>
 
                   
                

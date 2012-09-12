@@ -44,7 +44,7 @@ include "dock-menu/css-dock-top.html";
  
    
      <!-- <input type="" id="tolls" checked />Avoid tolls -->
-     <input type="button" id="tolls"  value="Go!" onclick="calcRoute()" />
+     <input type="button" id="tolls"  value="Tampil" onclick="calcRoute()" />
 
     
  <br><br>

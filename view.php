@@ -88,7 +88,6 @@ html, body {
       map.enableRotation();
 
 	<?php
-	//$sql =  "select * from marker where 1;";
 	$sql = "SELECT * FROM `marker` INNER JOIN `icon` ON marker.IconID = icon.IconID";
 	$qry = mysql_query($sql,$koneksi)
 		  or die ("SQL Error: ".mysql_error());
