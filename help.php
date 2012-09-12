@@ -43,8 +43,8 @@ include "connect.php";
 	</div>
 
           <div id='Judul'>
-		  
-			<a href ="bukupetunjuk.php"
+		
+			<a href ="http://localhost/gis-bangkinang/Buku Petunjuk Penggunaan Sistem.pdf" target="_blank"
               style=
 				"text-decoration:none;color:#ffffff;"> Download Buku Petunjuk Sistem </a>
 				<br>
