@@ -112,11 +112,11 @@
     <div id="controls">
    <center>
     <!-- <b type="text" id="distance"> -->
-   Dari
+  Awal Perjalanan
     <input type="text" id="from" size="20"  value="Jalan Pelajar, Bangkinang Barat"/>
-    Sampai
+    Akhir Perjalanan
     <input type="text" id="to" size="20"  value="Jalan Agus Salim, Bangkinang Barat"/>
-    <input type="submit" onclick="route()"/>
+    <input type="submit" value="Tampil" onclick="route()"/>
 	 </center>
     </div>
 <br><br>

@@ -1,6 +1,5 @@
 <?php 
-session_start();
-include "connect.php";		 
+include "../connect.php";		 
 ?> 
 <html>
 <head>
@@ -8,33 +7,27 @@ include "connect.php";
 <title>Bangkinang Maps</title>
 <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=" type="text/javascript"></script>	
 <!-- Search Saturday, July 21, 2012 10:13:31 PM --> 
-<script type="text/javascript" src="search.js"></script>
+<script type="text/javascript" src="../search.js"></script>
 <!-- css dock menu Tuesday, July 24, 2012 3:11:04 PM -->
 <link href="dock-menu/stylehome.css" rel="stylesheet" type="text/css" />
-<link href="style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="page.js"></script>
+<link href="1.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript"></script>
- 
+
 </head>
 <body onunload="GUnload()">
 
   <div id="page">
-   <br>Sistem Informasi Geografis Fasilitas Umum Kota
-    Bangkinang
-    <!-- <div id="header">
+    <div id="header">
+	<!-- untuk slider Monday, July 09, 2012 10:59:06 PM -->
 	
-    </div> -->
 	<br>
 
 
         <div id='peta'>
 	<div id='search'>
 		
-				<!-- untuk dock menu Monday, July 23, 2012 9:49:06 PM -->
-				<?php
-				include "dock-menu/dockMenuhome.html";
-				?> 
-
-
+			
 			 <img src="images/search.png" width="30" height="" alt="Search"/> 
 			<input class="inp" placeholder="search" name="Search" title="Search" id=
                                   "kata" type="text" size="15"  onkeyup=lihat(this.value) >     
@@ -43,7 +36,7 @@ include "connect.php";
 	</div>
 
           <div id='Judul'>
-          <a href="tamanRekreasi.php" target="" style=
+          <a href="view.php" target="_blank" style=
 				"text-decoration:none;color:#ffffff;" title="Layar Penuh"> <blink> Full Map </blink>  </a>
 				<br>
 				
@@ -98,7 +91,7 @@ include "connect.php";
 
 	<?php
 	//$sql =  "select * from marker where 1;";
-	$sql = "SELECT * FROM `marker` INNER JOIN `icon` ON marker.IconID = icon.IconID where marker.IconID ='18' ";
+	$sql = "SELECT * FROM `marker` INNER JOIN `icon` ON marker.IconID = icon.IconID";
 	$qry = mysql_query($sql,$koneksi)
 		  or die ("SQL Error: ".mysql_error());
 		  
@@ -108,8 +101,9 @@ include "connect.php";
  	
 	?>
 	
-     var point = new GLatLng( <?php echo $data['Latitude'].','. $data['Longitude'];?>);
+      var point = new GLatLng( <?php echo $data['Latitude'].','. $data['Longitude'];?>);
       var marker = createMarkerWithIcon(point,"<?php echo $data['IconImage'];?>",'<center>== <?php echo $data['Title'];?> == <br/><br><img src="photo/<?php echo $data['Photo'];?>"width=300 height=200/><br/><br/><?php echo $data['TextHTML'];?> <br/></center>')
+		  
 		  
       map.addOverlay(marker);
 	<?php
@@ -132,15 +126,11 @@ include "connect.php";
       </div>
 	<!-- untuk dock menu Monday, July 23, 2012 9:49:06 PM -->
 				
-      <div id="footer"><br>
-				<?php
-				include "dock-menu/css-dock-bottom.html";
-				?> 
      
        <a href="http://syarif25.tk" style=
-				"text-decoration:none;color:#fff;" target="_blank">&nbsp;&nbsp;Power by  deyen 2012
+				"text-decoration:none;color:#00;" target="_blank">&nbsp;&nbsp;Power by  deyen 2012
    
-    </div>
+  
   </div>
 </body>
 </html>
